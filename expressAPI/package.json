@@ -4,8 +4,9 @@
   "description": "using for bevone api",
   "main": "src/main.js",
   "scripts": {
-    "test": "dev"
-    
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
@@ -17,7 +18,7 @@
     "url": "https://github.com/jrKitt/bevone/issues"
   },
   "homepage": "https://github.com/jrKitt/bevone#readme",
-    "dependencies": {
+  "dependencies": {
     "axios": "^1.9.0",
     "bcrypt": "^6.0.0",
     "bcryptjs": "^3.0.2",
