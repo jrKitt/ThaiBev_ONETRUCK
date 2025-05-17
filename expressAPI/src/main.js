@@ -1,11 +1,16 @@
 const express = require("express");
-const cors = require("cors");
-const app = use(express());
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.send("Hello World!");
+  res.send("API is running and ready to use.");
 });
 
-app.listen(3000, () => {
-  console.log("Server is running on port 3000");
+// app.use("/api", Routes);
+
+
+app.listen(PORT, () => {
+  console.log(`Server running on port: ${PORT}`);
 });
