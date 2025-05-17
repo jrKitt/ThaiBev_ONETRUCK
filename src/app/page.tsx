@@ -1,103 +1,75 @@
-import Image from "next/image";
+'use client';
+// pages/index.tsx
+import { useState } from 'react';
+import { FaTruck, FaExclamationTriangle, FaMapMarkedAlt, FaClock } from 'react-icons/fa';
+import VehicleTable from './components/Vehicles';
+import Sidebar from './components/Sidebar';
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [vehicleStats] = useState({
+    onRoute: 42,
+    errors: 8,
+    deviated: 27,
+    late: 13,
+  });
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  const [overview] = useState({
+    onTheWay: { percent: 39.7, time: '2 ชั่วโมง 10 นาที' },
+    unloading: { percent: 28.3, time: '3 ชั่วโมง 15 นาที' },
+    loading: { percent: 17.4, time: '1 ชั่วโมง 24 นาที' },
+    waiting: { percent: 14.6, time: '5 ชั่วโมง 19 นาที' },
+  });
+
+  return (
+    <div className="min-h-screen flex">
+      <Sidebar />
+      <main className="flex-1 bg-gray-100 p-6 text-gray-800">
+        <h1 className="text-2xl font-bold mb-6">BEVONE - GPS Tracking System</h1>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+          <StatCard icon={<FaTruck />} title="รถที่อยู่ระหว่างทาง" value={vehicleStats.onRoute} change="+18.2%" color="purple" />
+          <StatCard icon={<FaExclamationTriangle />} title="รถที่มีข้อผิดพลาด" value={vehicleStats.errors} change="-8.7%" color="yellow" />
+          <StatCard icon={<FaMapMarkedAlt />} title="ออกนอกเส้นทาง" value={vehicleStats.deviated} change="+4.3%" color="pink" />
+          <StatCard icon={<FaClock />} title="รถล่าช้า" value={vehicleStats.late} change="+2.5%" color="blue" />
         </div>
+
+        <div className="bg-white rounded-xl shadow p-6 mb-6">
+          <h2 className="text-xl font-semibold mb-4">ภาพรวมยานพาหนะ</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {Object.entries(overview).map(([key, data]) => (
+              <div key={key} className="p-4 bg-gray-50 rounded-lg shadow">
+                <p className="text-sm font-medium text-gray-500 capitalize">{key.replace(/([A-Z])/g, ' $1')}</p>
+                <p className="text-lg font-bold">{data.percent}%</p>
+                <p className="text-sm text-gray-400">{data.time}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <VehicleTable />
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+    </div>
+  );
+}
+
+function StatCard({ icon, title, value, change, color }: { icon: any; title: string; value: number; change: string; color: string }) {
+  const colorMap: Record<string, string> = {
+    purple: 'from-purple-400 to-purple-600',
+    yellow: 'from-yellow-400 to-yellow-600',
+    pink: 'from-pink-400 to-pink-600',
+    blue: 'from-blue-400 to-blue-600',
+  };
+
+  return (
+    <div className={`p-4 rounded-xl text-white bg-gradient-to-r ${colorMap[color]} shadow-lg`}>
+      <div className="flex items-center space-x-3">
+        <div className="text-xl">{icon}</div>
+        <div>
+          <p className="text-sm font-medium">{title}</p>
+          <p className="text-2xl font-bold">{value}</p>
+          <p className="text-xs text-white/80">{change} จากสัปดาห์ที่แล้ว</p>
+        </div>
+      </div>
     </div>
   );
 }
