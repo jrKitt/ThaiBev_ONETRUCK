@@ -3,8 +3,8 @@
 
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: ##EFF6FF;
+  --foreground: #EFF6FF;
 
   /* กำหนด font เป็น Noto Sans Thai */
   --font-sans: 'Noto Sans Thai', Arial, Helvetica, sans-serif;
@@ -12,8 +12,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: ##EFF6FF;
+    --foreground: ##EFF6FF;
   }
 }
 
