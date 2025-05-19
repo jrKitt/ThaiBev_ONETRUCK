@@ -3,6 +3,8 @@
 import React from "react";
 import Image from "next/image";
 import { ChevronLeftIcon } from "@heroicons/react/24/outline";
+// import AnimatedMarker from "@/app/components/AnimatedMarker";
+
 
 type RegionKey = "north" | "northeast" | "central" | "south";
 

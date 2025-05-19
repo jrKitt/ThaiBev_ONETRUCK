@@ -1,0 +1,8714 @@
+{
+  "shipments": [
+    {
+      "id": "TBL-0001",
+      "company": "TBL",
+      "origin": {
+        "name": "สกลนคร",
+        "latitude": 17.168,
+        "longitude": 104.1456
+      },
+      "destination": {
+        "name": "อุบลราชธานี",
+        "latitude": 15.2449,
+        "longitude": 104.847
+      },
+      "departure_time": "2025-05-21T11:00:00",
+      "estimated_arrival_time": "2025-05-22T16:18:00",
+      "distance_km": 1259.0,
+      "estimated_duration_hours": 29.3,
+      "status": "in_transit",
+      "progress": 15,
+      "current_position": {
+        "latitude": 15.791561,
+        "longitude": 104.393111
+      },
+      "orders": [
+        {
+          "orderId": "ORD-TBL9846",
+          "item": "สินค้า A",
+          "quantity": 6
+        },
+        {
+          "orderId": "ORD-TBL7608",
+          "item": "สินค้า C",
+          "quantity": 20
+        },
+        {
+          "orderId": "ORD-TBL6626",
+          "item": "สินค้า C",
+          "quantity": 20
+        }
+      ],
+      "route": [
+        {
+          "lat": 17.179714,
+          "lng": 104.343799
+        },
+        {
+          "lat": 16.953349,
+          "lng": 104.344201
+        },
+        {
+          "lat": 16.349195,
+          "lng": 104.422931
+        },
+        {
+          "lat": 16.033744,
+          "lng": 104.586939
+        },
+        {
+          "lat": 15.44183,
+          "lng": 104.545936
+        },
+        {
+          "lat": 15.369058,
+          "lng": 104.74509
+        }
+      ]
+    },
+    {
+      "id": "TBL-0002",
+      "company": "TBL",
+      "origin": {
+        "name": "ขอนแก่น",
+        "latitude": 16.4419,
+        "longitude": 102.835
+      },
+      "destination": {
+        "name": "อุดรธานี",
+        "latitude": 17.4156,
+        "longitude": 102.785
+      },
+      "departure_time": "2025-05-20T21:00:00",
+      "estimated_arrival_time": "2025-05-21T04:48:00",
+      "distance_km": 1426.0,
+      "estimated_duration_hours": 7.8,
+      "status": "broken",
+      "progress": 100,
+      "current_position": {
+        "latitude": 16.841636,
+        "longitude": 102.832496
+      },
+      "orders": [
+        {
+          "orderId": "ORD-TBL4398",
+          "item": "สินค้า B",
+          "quantity": 8
+        },
+        {
+          "orderId": "ORD-TBL1235",
+          "item": "สินค้า A",
+          "quantity": 18
+        },
+        {
+          "orderId": "ORD-TBL1160",
+          "item": "สินค้า D",
+          "quantity": 16
+        }
+      ],
+      "route": [
+        {
+          "lat": 16.463386,
+          "lng": 102.892985
+        },
+        {
+          "lat": 16.691176,
+          "lng": 102.803228
+        },
+        {
+          "lat": 16.741456,
+          "lng": 102.915024
+        },
+        {
+          "lat": 16.991608,
+          "lng": 102.979596
+        },
+        {
+          "lat": 17.256814,
+          "lng": 102.785595
+        },
+        {
+          "lat": 17.327447,
+          "lng": 102.631014
+        }
+      ]
+    },
+    {
+      "id": "TBL-0003",
+      "company": "TBL",
+      "origin": {
+        "name": "อุดรธานี",
+        "latitude": 17.4156,
+        "longitude": 102.785
+      },
+      "destination": {
+        "name": "สุราษฎร์ธานี",
+        "latitude": 9.0397,
+        "longitude": 99.1715
+      },
+      "departure_time": "2025-05-22T00:00:00",
+      "estimated_arrival_time": "2025-05-23T02:00:00",
+      "distance_km": 1472.7,
+      "estimated_duration_hours": 26.0,
+      "status": "in_transit",
+      "progress": 34,
+      "current_position": {
+        "latitude": 15.638196,
+        "longitude": 99.521264
+      },
+      "orders": [
+        {
+          "orderId": "ORD-TBL8681",
+          "item": "สินค้า A",
+          "quantity": 2
+        }
+      ],
+      "route": [
+        {
+          "lat": 17.248703,
+          "lng": 102.951848
+        },
+        {
+          "lat": 15.551295,
+          "lng": 102.079684
+        },
+        {
+          "lat": 14.010338,
+          "lng": 101.214894
+        },
+        {
+          "lat": 12.388456,
+          "lng": 100.767814
+        },
+        {
+          "lat": 10.660518,
+          "lng": 99.949893
+        },
+        {
+          "lat": 9.200963,
+          "lng": 99.227814
+        }
+      ]
+    },
+    {
+      "id": "TBL-0004",
+      "company": "TBL",
+      "origin": {
+        "name": "อุบลราชธานี",
+        "latitude": 15.2449,
+        "longitude": 104.847
+      },
+      "destination": {
+        "name": "สกลนคร",
+        "latitude": 17.168,
+        "longitude": 104.1456
+      },
+      "departure_time": "2025-05-20T20:00:00",
+      "estimated_arrival_time": "2025-05-22T13:18:00",
+      "distance_km": 1132.8,
+      "estimated_duration_hours": 41.3,
+      "status": "in_transit",
+      "progress": 15,
+      "current_position": {
+        "latitude": 16.878699,
+        "longitude": 104.178073
+      },
+      "orders": [
+        {
+          "orderId": "ORD-TBL2984",
+          "item": "สินค้า C",
+          "quantity": 7
+        },
+        {
+          "orderId": "ORD-TBL6733",
+          "item": "สินค้า E",
+          "quantity": 8
+        }
+      ],
+      "route": [
+        {
+          "lat": 15.228971,
+          "lng": 105.039111
+        },
+        {
+          "lat": 15.466428,
+          "lng": 104.539394
+        },
+        {
+          "lat": 16.145259,
+          "lng": 104.684154
+        },
+        {
+          "lat": 16.499606,
+          "lng": 104.567032
+        },
+        {
+          "lat": 16.912658,
+          "lng": 104.284079
+        },
+        {
+          "lat": 17.353169,
+          "lng": 104.129607
+        }
+      ]
+    },
+    {
+      "id": "TBL-0005",
+      "company": "TBL",
+      "origin": {
+        "name": "หาดใหญ่",
+        "latitude": 6.9969,
+        "longitude": 100.4669
+      },
+      "destination": {
+        "name": "ภูเก็ต",
+        "latitude": 7.8804,
+        "longitude": 98.3923
+      },
+      "departure_time": "2025-05-19T23:00:00",
+      "estimated_arrival_time": "2025-05-20T07:18:00",
+      "distance_km": 279.8,
+      "estimated_duration_hours": 8.3,
+      "status": "available",
+      "progress": 100,
+      "current_position": {
+        "latitude": 7.10411,
+        "longitude": 98.659532
+      },
+      "orders": [
+        {
+          "orderId": "ORD-TBL5072",
+          "item": "สินค้า B",
+          "quantity": 17
+        },
+        {
+          "orderId": "ORD-TBL7520",
+          "item": "สินค้า B",
+          "quantity": 7
+        },
+        {
+          "orderId": "ORD-TBL5188",
+          "item": "สินค้า B",
+          "quantity": 19
+        }
+      ],
+      "route": [
+        {
+          "lat": 7.077276,
+          "lng": 100.450049
+        },
+        {
+          "lat": 7.216737,
+          "lng": 100.089044
+        },
+        {
+          "lat": 7.166602,
+          "lng": 99.530588
+        },
+        {
+          "lat": 7.685882,
+          "lng": 99.176898
+        },
+        {
+          "lat": 7.537004,
+          "lng": 98.883387
+        },
+        {
+          "lat": 7.951533,
+          "lng": 98.535873
+        }
+      ]
+    },
+    {
+      "id": "TBL-0006",
+      "company": "TBL",
+      "origin": {
+        "name": "อุดรธานี",
+        "latitude": 17.4156,
+        "longitude": 102.785
+      },
+      "destination": {
+        "name": "สกลนคร",
+        "latitude": 17.168,
+        "longitude": 104.1456
+      },
+      "departure_time": "2025-05-22T05:00:00",
+      "estimated_arrival_time": "2025-05-22T20:24:00",
+      "distance_km": 360.5,
+      "estimated_duration_hours": 15.4,
+      "status": "in_transit",
+      "progress": 40,
+      "current_position": {
+        "latitude": 17.287973,
+        "longitude": 103.568786
+      },
+      "orders": [
+        {
+          "orderId": "ORD-TBL5025",
+          "item": "สินค้า E",
+          "quantity": 1
+        },
+        {
+          "orderId": "ORD-TBL5465",
+          "item": "สินค้า C",
+          "quantity": 19
+        },
+        {
+          "orderId": "ORD-TBL1219",
+          "item": "สินค้า C",
+          "quantity": 18
+        }
+      ],
+      "route": [
+        {
+          "lat": 17.321569,
+          "lng": 102.916573
+        },
+        {
+          "lat": 17.467758,
+          "lng": 103.180527
+        },
+        {
+          "lat": 17.342437,
+          "lng": 103.403276
+        },
+        {
+          "lat": 17.271061,
+          "lng": 103.768843
+        },
+        {
+          "lat": 17.274488,
+          "lng": 103.98786
+        },
+        {
+          "lat": 17.279829,
+          "lng": 104.277789
+        }
+      ]
+    },
+    {
+      "id": "TBL-0007",
+      "company": "TBL",
+      "origin": {
+        "name": "สกลนคร",
+        "latitude": 17.168,
+        "longitude": 104.1456
+      },
+      "destination": {
+        "name": "อุดรธานี",
+        "latitude": 17.4156,
+        "longitude": 102.785
+      },
+      "departure_time": "2025-05-20T12:00:00",
+      "estimated_arrival_time": "2025-05-20T23:36:00",
+      "distance_km": 1255.9,
+      "estimated_duration_hours": 11.6,
+      "status": "broken",
+      "progress": 100,
+      "current_position": {
+        "latitude": 17.323481,
+        "longitude": 103.43529
+      },
+      "orders": [
+        {
+          "orderId": "ORD-TBL7662",
+          "item": "สินค้า A",
+          "quantity": 20
+        },
+        {
+          "orderId": "ORD-TBL8522",
+          "item": "สินค้า B",
+          "quantity": 17
+        },
+        {
+          "orderId": "ORD-TBL9286",
+          "item": "สินค้า B",
+          "quantity": 17
+        }
+      ],
+      "route": [
+        {
+          "lat": 17.027598,
+          "lng": 104.341268
+        },
+        {
+          "lat": 17.294541,
+          "lng": 103.715763
+        },
+        {
+          "lat": 17.146005,
+          "lng": 103.467753
+        },
+        {
+          "lat": 17.422251,
+          "lng": 103.352713
+        },
+        {
+          "lat": 17.396685,
+          "lng": 103.12312
+        },
+        {
+          "lat": 17.605564,
+          "lng": 102.628901
+        }
+      ]
+    },
+    {
+      "id": "TBL-0008",
+      "company": "TBL",
+      "origin": {
+        "name": "กรุงเทพฯ",
+        "latitude": 13.7563,
+        "longitude": 100.5018
+      },
+      "destination": {
+        "name": "สุราษฎร์ธานี",
+        "latitude": 9.0397,
+        "longitude": 99.1715
+      },
+      "departure_time": "2025-05-19T11:00:00",
+      "estimated_arrival_time": "2025-05-20T19:30:00",
+      "distance_km": 810.0,
+      "estimated_duration_hours": 32.5,
+      "status": "broken",
+      "progress": 100,
+      "current_position": {
+        "latitude": 11.411399,
+        "longitude": 99.272502
+      },
+      "orders": [
+        {
+          "orderId": "ORD-TBL5027",
+          "item": "สินค้า C",
+          "quantity": 16
+        }
+      ],
+      "route": [
+        {
+          "lat": 13.614575,
+          "lng": 100.464231
+        },
+        {
+          "lat": 12.830812,
+          "lng": 100.422431
+        },
+        {
+          "lat": 11.907441,
+          "lng": 99.942987
+        },
+        {
+          "lat": 10.726655,
+          "lng": 99.586351
+        },
+        {
+          "lat": 9.945478,
+          "lng": 99.584213
+        },
+        {
+          "lat": 9.173448,
+          "lng": 98.997862
+        }
+      ]
+    },
+    {
+      "id": "TBL-0009",
+      "company": "TBL",
+      "origin": {
+        "name": "อุบลราชธานี",
+        "latitude": 15.2449,
+        "longitude": 104.847
+      },
+      "destination": {
+        "name": "นครราชสีมา",
+        "latitude": 14.9799,
+        "longitude": 102.0977
+      },
+      "departure_time": "2025-05-22T00:00:00",
+      "estimated_arrival_time": "2025-05-23T23:36:00",
+      "distance_km": 1429.4,
+      "estimated_duration_hours": 47.6,
+      "status": "broken",
+      "progress": 100,
+      "current_position": {
+        "latitude": 15.121028,
+        "longitude": 104.074063
+      },
+      "orders": [
+        {
+          "orderId": "ORD-TBL8003",
+          "item": "สินค้า C",
+          "quantity": 4
+        }
+      ],
+      "route": [
+        {
+          "lat": 15.048507,
+          "lng": 104.779313
+        },
+        {
+          "lat": 15.072408,
+          "lng": 104.384385
+        },
+        {
+          "lat": 15.217751,
+          "lng": 103.554081
+        },
+        {
+          "lat": 15.002762,
+          "lng": 103.349189
+        },
+        {
+          "lat": 15.077461,
+          "lng": 102.748739
+        },
+        {
+          "lat": 15.138605,
+          "lng": 101.959763
+        }
+      ]
+    },
+    {
+      "id": "TBL-0010",
+      "company": "TBL",
+      "origin": {
+        "name": "อุบลราชธานี",
+        "latitude": 15.2449,
+        "longitude": 104.847
+      },
+      "destination": {
+        "name": "สกลนคร",
+        "latitude": 17.168,
+        "longitude": 104.1456
+      },
+      "departure_time": "2025-05-22T06:00:00",
+      "estimated_arrival_time": "2025-05-22T19:42:00",
+      "distance_km": 460.2,
+      "estimated_duration_hours": 13.7,
+      "status": "available",
+      "progress": 100,
+      "current_position": {
+        "latitude": 16.275976,
+        "longitude": 104.359297
+      },
+      "orders": [
+        {
+          "orderId": "ORD-TBL8626",
+          "item": "สินค้า A",
+          "quantity": 17
+        }
+      ],
+      "route": [
+        {
+          "lat": 15.389061,
+          "lng": 104.774398
+        },
+        {
+          "lat": 15.621707,
+          "lng": 104.86298
+        },
+        {
+          "lat": 15.975598,
+          "lng": 104.611711
+        },
+        {
+          "lat": 16.456176,
+          "lng": 104.520046
+        },
+        {
+          "lat": 16.896337,
+          "lng": 104.23214
+        },
+        {
+          "lat": 16.972158,
+          "lng": 104.094658
+        }
+      ]
+    },
+    {
+      "id": "TBL-0011",
+      "company": "TBL",
+      "origin": {
+        "name": "สกลนคร",
+        "latitude": 17.168,
+        "longitude": 104.1456
+      },
+      "destination": {
+        "name": "สุราษฎร์ธานี",
+        "latitude": 9.0397,
+        "longitude": 99.1715
+      },
+      "departure_time": "2025-05-21T15:00:00",
+      "estimated_arrival_time": "2025-05-22T07:18:00",
+      "distance_km": 564.3,
+      "estimated_duration_hours": 16.3,
+      "status": "broken",
+      "progress": 100,
+      "current_position": {
+        "latitude": 10.673259,
+        "longitude": 103.025943
+      },
+      "orders": [
+        {
+          "orderId": "ORD-TBL3089",
+          "item": "สินค้า A",
+          "quantity": 16
+        },
+        {
+          "orderId": "ORD-TBL4336",
+          "item": "สินค้า C",
+          "quantity": 1
+        },
+        {
+          "orderId": "ORD-TBL7975",
+          "item": "สินค้า D",
+          "quantity": 2
+        }
+      ],
+      "route": [
+        {
+          "lat": 17.243365,
+          "lng": 104.28384
+        },
+        {
+          "lat": 15.699768,
+          "lng": 103.321111
+        },
+        {
+          "lat": 14.015125,
+          "lng": 101.999419
+        },
+        {
+          "lat": 12.221394,
+          "lng": 101.354295
+        },
+        {
+          "lat": 10.700364,
+          "lng": 100.311484
+        },
+        {
+          "lat": 8.956259,
+          "lng": 99.186129
+        }
+      ]
+    },
+    {
+      "id": "TBL-0012",
+      "company": "TBL",
+      "origin": {
+        "name": "ขอนแก่น",
+        "latitude": 16.4419,
+        "longitude": 102.835
+      },
+      "destination": {
+        "name": "ภูเก็ต",
+        "latitude": 7.8804,
+        "longitude": 98.3923
+      },
+      "departure_time": "2025-05-21T05:00:00",
+      "estimated_arrival_time": "2025-05-22T13:18:00",
+      "distance_km": 412.5,
+      "estimated_duration_hours": 32.3,
+      "status": "available",
+      "progress": 100,
+      "current_position": {
+        "latitude": 16.121163,
+        "longitude": 99.274085
+      },
+      "orders": [
+        {
+          "orderId": "ORD-TBL1599",
+          "item": "สินค้า E",
+          "quantity": 12
+        },
+        {
+          "orderId": "ORD-TBL8978",
+          "item": "สินค้า E",
+          "quantity": 9
+        },
+        {
+          "orderId": "ORD-TBL6102",
+          "item": "สินค้า B",
+          "quantity": 19
+        }
+      ],
+      "route": [
+        {
+          "lat": 16.62799,
+          "lng": 103.006097
+        },
+        {
+          "lat": 14.619573,
+          "lng": 102.004875
+        },
+        {
+          "lat": 13.015049,
+          "lng": 100.976483
+        },
+        {
+          "lat": 11.254712,
+          "lng": 100.327019
+        },
+        {
+          "lat": 9.660156,
+          "lng": 99.462162
+        },
+        {
+          "lat": 8.029656,
+          "lng": 98.437813
+        }
+      ]
+    },
+    {
+      "id": "TBL-0013",
+      "company": "TBL",
+      "origin": {
+        "name": "ขอนแก่น",
+        "latitude": 16.4419,
+        "longitude": 102.835
+      },
+      "destination": {
+        "name": "อุบลราชธานี",
+        "latitude": 15.2449,
+        "longitude": 104.847
+      },
+      "departure_time": "2025-05-19T22:00:00",
+      "estimated_arrival_time": "2025-05-20T09:48:00",
+      "distance_km": 559.6,
+      "estimated_duration_hours": 11.8,
+      "status": "available",
+      "progress": 100,
+      "current_position": {
+        "latitude": 15.643281,
+        "longitude": 104.599173
+      },
+      "orders": [
+        {
+          "orderId": "ORD-TBL8729",
+          "item": "สินค้า A",
+          "quantity": 4
+        },
+        {
+          "orderId": "ORD-TBL4409",
+          "item": "สินค้า E",
+          "quantity": 13
+        },
+        {
+          "orderId": "ORD-TBL1938",
+          "item": "สินค้า D",
+          "quantity": 6
+        }
+      ],
+      "route": [
+        {
+          "lat": 16.39711,
+          "lng": 102.656007
+        },
+        {
+          "lat": 16.160003,
+          "lng": 103.134561
+        },
+        {
+          "lat": 15.820086,
+          "lng": 103.757259
+        },
+        {
+          "lat": 15.839161,
+          "lng": 104.127796
+        },
+        {
+          "lat": 15.420106,
+          "lng": 104.270581
+        },
+        {
+          "lat": 15.298289,
+          "lng": 104.764336
+        }
+      ]
+    },
+    {
+      "id": "TBL-0014",
+      "company": "TBL",
+      "origin": {
+        "name": "สุราษฎร์ธานี",
+        "latitude": 9.0397,
+        "longitude": 99.1715
+      },
+      "destination": {
+        "name": "อุบลราชธานี",
+        "latitude": 15.2449,
+        "longitude": 104.847
+      },
+      "departure_time": "2025-05-20T08:00:00",
+      "estimated_arrival_time": "2025-05-21T06:06:00",
+      "distance_km": 600.5,
+      "estimated_duration_hours": 22.1,
+      "status": "in_transit",
+      "progress": 99,
+      "current_position": {
+        "latitude": 14.57461,
+        "longitude": 101.525548
+      },
+      "orders": [
+        {
+          "orderId": "ORD-TBL6792",
+          "item": "สินค้า B",
+          "quantity": 19
+        }
+      ],
+      "route": [
+        {
+          "lat": 8.965782,
+          "lng": 99.126965
+        },
+        {
+          "lat": 10.304908,
+          "lng": 100.465487
+        },
+        {
+          "lat": 11.360354,
+          "lng": 101.531653
+        },
+        {
+          "lat": 12.729132,
+          "lng": 102.470248
+        },
+        {
+          "lat": 13.932714,
+          "lng": 103.870494
+        },
+        {
+          "lat": 15.061225,
+          "lng": 104.737908
+        }
+      ]
+    },
+    {
+      "id": "TBL-0015",
+      "company": "TBL",
+      "origin": {
+        "name": "กรุงเทพฯ",
+        "latitude": 13.7563,
+        "longitude": 100.5018
+      },
+      "destination": {
+        "name": "หาดใหญ่",
+        "latitude": 6.9969,
+        "longitude": 100.4669
+      },
+      "departure_time": "2025-05-20T17:00:00",
+      "estimated_arrival_time": "2025-05-21T10:12:00",
+      "distance_km": 1019.7,
+      "estimated_duration_hours": 17.2,
+      "status": "in_transit",
+      "progress": 86,
+      "current_position": {
+        "latitude": 10.059456,
+        "longitude": 100.492779
+      },
+      "orders": [
+        {
+          "orderId": "ORD-TBL8663",
+          "item": "สินค้า E",
+          "quantity": 3
+        },
+        {
+          "orderId": "ORD-TBL2397",
+          "item": "สินค้า A",
+          "quantity": 6
+        },
+        {
+          "orderId": "ORD-TBL6125",
+          "item": "สินค้า A",
+          "quantity": 16
+        }
+      ],
+      "route": [
+        {
+          "lat": 13.885978,
+          "lng": 100.402937
+        },
+        {
+          "lat": 12.33217,
+          "lng": 100.693161
+        },
+        {
+          "lat": 10.927623,
+          "lng": 100.406532
+        },
+        {
+          "lat": 9.863399,
+          "lng": 100.619613
+        },
+        {
+          "lat": 8.359174,
+          "lng": 100.357589
+        },
+        {
+          "lat": 7.143695,
+          "lng": 100.330732
+        }
+      ]
+    },
+    {
+      "id": "TBL-0016",
+      "company": "TBL",
+      "origin": {
+        "name": "อุบลราชธานี",
+        "latitude": 15.2449,
+        "longitude": 104.847
+      },
+      "destination": {
+        "name": "ภูเก็ต",
+        "latitude": 7.8804,
+        "longitude": 98.3923
+      },
+      "departure_time": "2025-05-20T00:00:00",
+      "estimated_arrival_time": "2025-05-21T20:42:00",
+      "distance_km": 414.6,
+      "estimated_duration_hours": 44.7,
+      "status": "in_transit",
+      "progress": 93,
+      "current_position": {
+        "latitude": 10.790069,
+        "longitude": 101.466173
+      },
+      "orders": [
+        {
+          "orderId": "ORD-TBL2102",
+          "item": "สินค้า A",
+          "quantity": 12
+        },
+        {
+          "orderId": "ORD-TBL6060",
+          "item": "สินค้า C",
+          "quantity": 8
+        },
+        {
+          "orderId": "ORD-TBL8586",
+          "item": "สินค้า E",
+          "quantity": 13
+        }
+      ],
+      "route": [
+        {
+          "lat": 15.304247,
+          "lng": 104.762056
+        },
+        {
+          "lat": 13.823265,
+          "lng": 103.52853
+        },
+        {
+          "lat": 12.254657,
+          "lng": 102.286503
+        },
+        {
+          "lat": 10.8928,
+          "lng": 101.015278
+        },
+        {
+          "lat": 9.516059,
+          "lng": 99.761716
+        },
+        {
+          "lat": 7.895946,
+          "lng": 98.286791
+        }
+      ]
+    },
+    {
+      "id": "TBL-0017",
+      "company": "TBL",
+      "origin": {
+        "name": "เชียงใหม่",
+        "latitude": 18.7883,
+        "longitude": 98.9853
+      },
+      "destination": {
+        "name": "นครราชสีมา",
+        "latitude": 14.9799,
+        "longitude": 102.0977
+      },
+      "departure_time": "2025-05-20T07:00:00",
+      "estimated_arrival_time": "2025-05-21T05:06:00",
+      "distance_km": 1190.5,
+      "estimated_duration_hours": 22.1,
+      "status": "available",
+      "progress": 100,
+      "current_position": {
+        "latitude": 15.147261,
+        "longitude": 101.117255
+      },
+      "orders": [
+        {
+          "orderId": "ORD-TBL2057",
+          "item": "สินค้า A",
+          "quantity": 20
+        },
+        {
+          "orderId": "ORD-TBL6961",
+          "item": "สินค้า B",
+          "quantity": 6
+        },
+        {
+          "orderId": "ORD-TBL5684",
+          "item": "สินค้า B",
+          "quantity": 19
+        }
+      ],
+      "route": [
+        {
+          "lat": 18.80541,
+          "lng": 98.987339
+        },
+        {
+          "lat": 17.881272,
+          "lng": 99.483002
+        },
+        {
+          "lat": 17.096661,
+          "lng": 100.088523
+        },
+        {
+          "lat": 16.336067,
+          "lng": 100.681112
+        },
+        {
+          "lat": 15.735233,
+          "lng": 101.383906
+        },
+        {
+          "lat": 14.785587,
+          "lng": 102.015998
+        }
+      ]
+    },
+    {
+      "id": "TBL-0018",
+      "company": "TBL",
+      "origin": {
+        "name": "อุบลราชธานี",
+        "latitude": 15.2449,
+        "longitude": 104.847
+      },
+      "destination": {
+        "name": "เชียงใหม่",
+        "latitude": 18.7883,
+        "longitude": 98.9853
+      },
+      "departure_time": "2025-05-21T22:00:00",
+      "estimated_arrival_time": "2025-05-23T15:42:00",
+      "distance_km": 672.7,
+      "estimated_duration_hours": 41.7,
+      "status": "in_transit",
+      "progress": 57,
+      "current_position": {
+        "latitude": 16.391023,
+        "longitude": 99.400135
+      },
+      "orders": [
+        {
+          "orderId": "ORD-TBL7720",
+          "item": "สินค้า E",
+          "quantity": 16
+        },
+        {
+          "orderId": "ORD-TBL1323",
+          "item": "สินค้า D",
+          "quantity": 10
+        }
+      ],
+      "route": [
+        {
+          "lat": 15.388153,
+          "lng": 104.898692
+        },
+        {
+          "lat": 15.77693,
+          "lng": 103.801018
+        },
+        {
+          "lat": 16.568572,
+          "lng": 102.669425
+        },
+        {
+          "lat": 17.268429,
+          "lng": 101.501547
+        },
+        {
+          "lat": 17.985971,
+          "lng": 100.281638
+        },
+        {
+          "lat": 18.794824,
+          "lng": 99.024874
+        }
+      ]
+    },
+    {
+      "id": "TBL-0019",
+      "company": "TBL",
+      "origin": {
+        "name": "สกลนคร",
+        "latitude": 17.168,
+        "longitude": 104.1456
+      },
+      "destination": {
+        "name": "นครราชสีมา",
+        "latitude": 14.9799,
+        "longitude": 102.0977
+      },
+      "departure_time": "2025-05-20T21:00:00",
+      "estimated_arrival_time": "2025-05-21T11:36:00",
+      "distance_km": 482.6,
+      "estimated_duration_hours": 14.6,
+      "status": "in_transit",
+      "progress": 26,
+      "current_position": {
+        "latitude": 15.453988,
+        "longitude": 102.74416
+      },
+      "orders": [
+        {
+          "orderId": "ORD-TBL5924",
+          "item": "สินค้า E",
+          "quantity": 11
+        },
+        {
+          "orderId": "ORD-TBL6509",
+          "item": "สินค้า A",
+          "quantity": 12
+        }
+      ],
+      "route": [
+        {
+          "lat": 17.229326,
+          "lng": 104.139006
+        },
+        {
+          "lat": 16.817754,
+          "lng": 103.731655
+        },
+        {
+          "lat": 16.18871,
+          "lng": 103.391955
+        },
+        {
+          "lat": 15.966471,
+          "lng": 102.88961
+        },
+        {
+          "lat": 15.617041,
+          "lng": 102.317669
+        },
+        {
+          "lat": 15.086833,
+          "lng": 102.051516
+        }
+      ]
+    },
+    {
+      "id": "TBL-0020",
+      "company": "TBL",
+      "origin": {
+        "name": "กรุงเทพฯ",
+        "latitude": 13.7563,
+        "longitude": 100.5018
+      },
+      "destination": {
+        "name": "อุดรธานี",
+        "latitude": 17.4156,
+        "longitude": 102.785
+      },
+      "departure_time": "2025-05-21T23:00:00",
+      "estimated_arrival_time": "2025-05-22T15:30:00",
+      "distance_km": 1438.7,
+      "estimated_duration_hours": 16.5,
+      "status": "broken",
+      "progress": 100,
+      "current_position": {
+        "latitude": 14.03276,
+        "longitude": 101.589067
+      },
+      "orders": [
+        {
+          "orderId": "ORD-TBL6369",
+          "item": "สินค้า D",
+          "quantity": 11
+        },
+        {
+          "orderId": "ORD-TBL6785",
+          "item": "สินค้า B",
+          "quantity": 13
+        },
+        {
+          "orderId": "ORD-TBL4136",
+          "item": "สินค้า B",
+          "quantity": 18
+        }
+      ],
+      "route": [
+        {
+          "lat": 13.873766,
+          "lng": 100.393212
+        },
+        {
+          "lat": 14.382171,
+          "lng": 101.077384
+        },
+        {
+          "lat": 15.228788,
+          "lng": 101.601896
+        },
+        {
+          "lat": 16.025567,
+          "lng": 101.768071
+        },
+        {
+          "lat": 16.83886,
+          "lng": 102.483435
+        },
+        {
+          "lat": 17.516245,
+          "lng": 102.677309
+        }
+      ]
+    },
+    {
+      "id": "TBL-0021",
+      "company": "TBL",
+      "origin": {
+        "name": "สกลนคร",
+        "latitude": 17.168,
+        "longitude": 104.1456
+      },
+      "destination": {
+        "name": "อุบลราชธานี",
+        "latitude": 15.2449,
+        "longitude": 104.847
+      },
+      "departure_time": "2025-05-20T19:00:00",
+      "estimated_arrival_time": "2025-05-21T13:06:00",
+      "distance_km": 662.8,
+      "estimated_duration_hours": 18.1,
+      "status": "broken",
+      "progress": 100,
+      "current_position": {
+        "latitude": 16.130747,
+        "longitude": 104.597732
+      },
+      "orders": [
+        {
+          "orderId": "ORD-TBL7870",
+          "item": "สินค้า D",
+          "quantity": 11
+        },
+        {
+          "orderId": "ORD-TBL6282",
+          "item": "สินค้า B",
+          "quantity": 10
+        }
+      ],
+      "route": [
+        {
+          "lat": 17.053068,
+          "lng": 104.333
+        },
+        {
+          "lat": 16.883269,
+          "lng": 104.162276
+        },
+        {
+          "lat": 16.351515,
+          "lng": 104.357569
+        },
+        {
+          "lat": 16.068589,
+          "lng": 104.758666
+        },
+        {
+          "lat": 15.678534,
+          "lng": 104.781835
+        },
+        {
+          "lat": 15.088322,
+          "lng": 104.961061
+        }
+      ]
+    },
+    {
+      "id": "TBL-0022",
+      "company": "TBL",
+      "origin": {
+        "name": "ภูเก็ต",
+        "latitude": 7.8804,
+        "longitude": 98.3923
+      },
+      "destination": {
+        "name": "หาดใหญ่",
+        "latitude": 6.9969,
+        "longitude": 100.4669
+      },
+      "departure_time": "2025-05-21T17:00:00",
+      "estimated_arrival_time": "2025-05-23T14:06:00",
+      "distance_km": 666.9,
+      "estimated_duration_hours": 45.1,
+      "status": "in_transit",
+      "progress": 67,
+      "current_position": {
+        "latitude": 7.283778,
+        "longitude": 98.794742
+      },
+      "orders": [
+        {
+          "orderId": "ORD-TBL5157",
+          "item": "สินค้า D",
+          "quantity": 14
+        },
+        {
+          "orderId": "ORD-TBL2282",
+          "item": "สินค้า C",
+          "quantity": 8
+        },
+        {
+          "orderId": "ORD-TBL9792",
+          "item": "สินค้า C",
+          "quantity": 20
+        }
+      ],
+      "route": [
+        {
+          "lat": 7.737483,
+          "lng": 98.499502
+        },
+        {
+          "lat": 7.661245,
+          "lng": 98.934989
+        },
+        {
+          "lat": 7.578087,
+          "lng": 99.077122
+        },
+        {
+          "lat": 7.162982,
+          "lng": 99.775291
+        },
+        {
+          "lat": 7.230342,
+          "lng": 100.071769
+        },
+        {
+          "lat": 7.171764,
+          "lng": 100.268889
+        }
+      ]
+    },
+    {
+      "id": "TBL-0023",
+      "company": "TBL",
+      "origin": {
+        "name": "หาดใหญ่",
+        "latitude": 6.9969,
+        "longitude": 100.4669
+      },
+      "destination": {
+        "name": "อุดรธานี",
+        "latitude": 17.4156,
+        "longitude": 102.785
+      },
+      "departure_time": "2025-05-20T12:00:00",
+      "estimated_arrival_time": "2025-05-21T18:18:00",
+      "distance_km": 1417.5,
+      "estimated_duration_hours": 30.3,
+      "status": "in_transit",
+      "progress": 4,
+      "current_position": {
+        "latitude": 16.113825,
+        "longitude": 101.956789
+      },
+      "orders": [
+        {
+          "orderId": "ORD-TBL8243",
+          "item": "สินค้า D",
+          "quantity": 15
+        }
+      ],
+      "route": [
+        {
+          "lat": 7.041537,
+          "lng": 100.397879
+        },
+        {
+          "lat": 9.157314,
+          "lng": 100.903747
+        },
+        {
+          "lat": 11.316325,
+          "lng": 101.268628
+        },
+        {
+          "lat": 13.297243,
+          "lng": 101.955475
+        },
+        {
+          "lat": 15.372183,
+          "lng": 102.29953
+        },
+        {
+          "lat": 17.457085,
+          "lng": 102.918974
+        }
+      ]
+    },
+    {
+      "id": "TBL-0024",
+      "company": "TBL",
+      "origin": {
+        "name": "สกลนคร",
+        "latitude": 17.168,
+        "longitude": 104.1456
+      },
+      "destination": {
+        "name": "อุบลราชธานี",
+        "latitude": 15.2449,
+        "longitude": 104.847
+      },
+      "departure_time": "2025-05-19T18:00:00",
+      "estimated_arrival_time": "2025-05-21T05:42:00",
+      "distance_km": 299.5,
+      "estimated_duration_hours": 35.7,
+      "status": "in_transit",
+      "progress": 89,
+      "current_position": {
+        "latitude": 15.863723,
+        "longitude": 104.49112
+      },
+      "orders": [
+        {
+          "orderId": "ORD-TBL3414",
+          "item": "สินค้า E",
+          "quantity": 9
+        },
+        {
+          "orderId": "ORD-TBL8920",
+          "item": "สินค้า C",
+          "quantity": 13
+        },
+        {
+          "orderId": "ORD-TBL7881",
+          "item": "สินค้า B",
+          "quantity": 8
+        }
+      ],
+      "route": [
+        {
+          "lat": 17.329951,
+          "lng": 104.19268
+        },
+        {
+          "lat": 16.594002,
+          "lng": 104.373444
+        },
+        {
+          "lat": 16.411183,
+          "lng": 104.515822
+        },
+        {
+          "lat": 16.074391,
+          "lng": 104.426783
+        },
+        {
+          "lat": 15.627406,
+          "lng": 104.565639
+        },
+        {
+          "lat": 15.149505,
+          "lng": 104.719333
+        }
+      ]
+    },
+    {
+      "id": "TBL-0025",
+      "company": "TBL",
+      "origin": {
+        "name": "นครราชสีมา",
+        "latitude": 14.9799,
+        "longitude": 102.0977
+      },
+      "destination": {
+        "name": "สกลนคร",
+        "latitude": 17.168,
+        "longitude": 104.1456
+      },
+      "departure_time": "2025-05-20T15:00:00",
+      "estimated_arrival_time": "2025-05-21T20:12:00",
+      "distance_km": 914.8,
+      "estimated_duration_hours": 29.2,
+      "status": "in_transit",
+      "progress": 41,
+      "current_position": {
+        "latitude": 16.71456,
+        "longitude": 102.977264
+      },
+      "orders": [
+        {
+          "orderId": "ORD-TBL6348",
+          "item": "สินค้า B",
+          "quantity": 10
+        },
+        {
+          "orderId": "ORD-TBL9770",
+          "item": "สินค้า C",
+          "quantity": 16
+        }
+      ],
+      "route": [
+        {
+          "lat": 15.141685,
+          "lng": 102.129931
+        },
+        {
+          "lat": 15.284488,
+          "lng": 102.585744
+        },
+        {
+          "lat": 16.00529,
+          "lng": 103.080727
+        },
+        {
+          "lat": 16.466303,
+          "lng": 103.390988
+        },
+        {
+          "lat": 16.908104,
+          "lng": 103.659381
+        },
+        {
+          "lat": 17.178547,
+          "lng": 104.114619
+        }
+      ]
+    },
+    {
+      "id": "TBL-0026",
+      "company": "TBL",
+      "origin": {
+        "name": "ขอนแก่น",
+        "latitude": 16.4419,
+        "longitude": 102.835
+      },
+      "destination": {
+        "name": "สกลนคร",
+        "latitude": 17.168,
+        "longitude": 104.1456
+      },
+      "departure_time": "2025-05-19T10:00:00",
+      "estimated_arrival_time": "2025-05-21T05:00:00",
+      "distance_km": 421.5,
+      "estimated_duration_hours": 43.0,
+      "status": "available",
+      "progress": 100,
+      "current_position": {
+        "latitude": 16.764001,
+        "longitude": 103.528467
+      },
+      "orders": [
+        {
+          "orderId": "ORD-TBL5390",
+          "item": "สินค้า E",
+          "quantity": 20
+        }
+      ],
+      "route": [
+        {
+          "lat": 16.570373,
+          "lng": 102.684251
+        },
+        {
+          "lat": 16.508503,
+          "lng": 103.04669
+        },
+        {
+          "lat": 16.90515,
+          "lng": 103.326308
+        },
+        {
+          "lat": 16.963607,
+          "lng": 103.536528
+        },
+        {
+          "lat": 17.023948,
+          "lng": 103.937676
+        },
+        {
+          "lat": 17.183429,
+          "lng": 104.285588
+        }
+      ]
+    },
+    {
+      "id": "TBL-0027",
+      "company": "TBL",
+      "origin": {
+        "name": "ขอนแก่น",
+        "latitude": 16.4419,
+        "longitude": 102.835
+      },
+      "destination": {
+        "name": "กรุงเทพฯ",
+        "latitude": 13.7563,
+        "longitude": 100.5018
+      },
+      "departure_time": "2025-05-19T08:00:00",
+      "estimated_arrival_time": "2025-05-20T05:24:00",
+      "distance_km": 1369.0,
+      "estimated_duration_hours": 21.4,
+      "status": "in_transit",
+      "progress": 93,
+      "current_position": {
+        "latitude": 14.723735,
+        "longitude": 100.865338
+      },
+      "orders": [
+        {
+          "orderId": "ORD-TBL8139",
+          "item": "สินค้า C",
+          "quantity": 12
+        },
+        {
+          "orderId": "ORD-TBL1265",
+          "item": "สินค้า E",
+          "quantity": 10
+        }
+      ],
+      "route": [
+        {
+          "lat": 16.428283,
+          "lng": 102.877363
+        },
+        {
+          "lat": 16.066017,
+          "lng": 102.219502
+        },
+        {
+          "lat": 15.182419,
+          "lng": 101.854525
+        },
+        {
+          "lat": 14.868935,
+          "lng": 101.594239
+        },
+        {
+          "lat": 14.366405,
+          "lng": 100.768989
+        },
+        {
+          "lat": 13.802598,
+          "lng": 100.636837
+        }
+      ]
+    },
+    {
+      "id": "TBL-0028",
+      "company": "TBL",
+      "origin": {
+        "name": "หาดใหญ่",
+        "latitude": 6.9969,
+        "longitude": 100.4669
+      },
+      "destination": {
+        "name": "อุบลราชธานี",
+        "latitude": 15.2449,
+        "longitude": 104.847
+      },
+      "departure_time": "2025-05-21T08:00:00",
+      "estimated_arrival_time": "2025-05-22T08:18:00",
+      "distance_km": 1250.6,
+      "estimated_duration_hours": 24.3,
+      "status": "broken",
+      "progress": 100,
+      "current_position": {
+        "latitude": 7.249695,
+        "longitude": 101.163001
+      },
+      "orders": [
+        {
+          "orderId": "ORD-TBL1410",
+          "item": "สินค้า A",
+          "quantity": 9
+        }
+      ],
+      "route": [
+        {
+          "lat": 7.177948,
+          "lng": 100.579963
+        },
+        {
+          "lat": 8.688852,
+          "lng": 101.300522
+        },
+        {
+          "lat": 10.13069,
+          "lng": 102.360164
+        },
+        {
+          "lat": 11.860833,
+          "lng": 103.087365
+        },
+        {
+          "lat": 13.399526,
+          "lng": 103.990549
+        },
+        {
+          "lat": 15.045633,
+          "lng": 104.962458
+        }
+      ]
+    },
+    {
+      "id": "TBL-0029",
+      "company": "TBL",
+      "origin": {
+        "name": "ภูเก็ต",
+        "latitude": 7.8804,
+        "longitude": 98.3923
+      },
+      "destination": {
+        "name": "อุดรธานี",
+        "latitude": 17.4156,
+        "longitude": 102.785
+      },
+      "departure_time": "2025-05-19T11:00:00",
+      "estimated_arrival_time": "2025-05-20T16:42:00",
+      "distance_km": 992.4,
+      "estimated_duration_hours": 29.7,
+      "status": "available",
+      "progress": 100,
+      "current_position": {
+        "latitude": 11.759512,
+        "longitude": 99.602642
+      },
+      "orders": [
+        {
+          "orderId": "ORD-TBL2097",
+          "item": "สินค้า E",
+          "quantity": 8
+        }
+      ],
+      "route": [
+        {
+          "lat": 7.805328,
+          "lng": 98.376414
+        },
+        {
+          "lat": 9.668097,
+          "lng": 99.301605
+        },
+        {
+          "lat": 11.787564,
+          "lng": 100.324324
+        },
+        {
+          "lat": 13.791824,
+          "lng": 101.154601
+        },
+        {
+          "lat": 15.59916,
+          "lng": 101.733278
+        },
+        {
+          "lat": 17.316265,
+          "lng": 102.858181
+        }
+      ]
+    },
+    {
+      "id": "TBL-0030",
+      "company": "TBL",
+      "origin": {
+        "name": "อุดรธานี",
+        "latitude": 17.4156,
+        "longitude": 102.785
+      },
+      "destination": {
+        "name": "หาดใหญ่",
+        "latitude": 6.9969,
+        "longitude": 100.4669
+      },
+      "departure_time": "2025-05-21T00:00:00",
+      "estimated_arrival_time": "2025-05-22T14:30:00",
+      "distance_km": 765.7,
+      "estimated_duration_hours": 38.5,
+      "status": "in_transit",
+      "progress": 75,
+      "current_position": {
+        "latitude": 14.811315,
+        "longitude": 100.82047
+      },
+      "orders": [
+        {
+          "orderId": "ORD-TBL7985",
+          "item": "สินค้า A",
+          "quantity": 1
+        }
+      ],
+      "route": [
+        {
+          "lat": 17.381433,
+          "lng": 102.732397
+        },
+        {
+          "lat": 15.513401,
+          "lng": 102.148238
+        },
+        {
+          "lat": 13.113881,
+          "lng": 101.977764
+        },
+        {
+          "lat": 11.259717,
+          "lng": 101.56643
+        },
+        {
+          "lat": 9.122848,
+          "lng": 100.818266
+        },
+        {
+          "lat": 7.196388,
+          "lng": 100.306825
+        }
+      ]
+    },
+    {
+      "id": "TBL-0031",
+      "company": "TBL",
+      "origin": {
+        "name": "สุราษฎร์ธานี",
+        "latitude": 9.0397,
+        "longitude": 99.1715
+      },
+      "destination": {
+        "name": "ขอนแก่น",
+        "latitude": 16.4419,
+        "longitude": 102.835
+      },
+      "departure_time": "2025-05-20T03:00:00",
+      "estimated_arrival_time": "2025-05-21T04:42:00",
+      "distance_km": 569.8,
+      "estimated_duration_hours": 25.7,
+      "status": "in_transit",
+      "progress": 26,
+      "current_position": {
+        "latitude": 14.331452,
+        "longitude": 99.700567
+      },
+      "orders": [
+        {
+          "orderId": "ORD-TBL5945",
+          "item": "สินค้า B",
+          "quantity": 8
+        }
+      ],
+      "route": [
+        {
+          "lat": 9.208405,
+          "lng": 99.045241
+        },
+        {
+          "lat": 10.564868,
+          "lng": 99.881567
+        },
+        {
+          "lat": 11.959385,
+          "lng": 100.829349
+        },
+        {
+          "lat": 13.503323,
+          "lng": 101.299945
+        },
+        {
+          "lat": 14.937269,
+          "lng": 102.023843
+        },
+        {
+          "lat": 16.319058,
+          "lng": 102.990233
+        }
+      ]
+    },
+    {
+      "id": "TBL-0032",
+      "company": "TBL",
+      "origin": {
+        "name": "เชียงใหม่",
+        "latitude": 18.7883,
+        "longitude": 98.9853
+      },
+      "destination": {
+        "name": "อุบลราชธานี",
+        "latitude": 15.2449,
+        "longitude": 104.847
+      },
+      "departure_time": "2025-05-21T20:00:00",
+      "estimated_arrival_time": "2025-05-22T22:06:00",
+      "distance_km": 82.4,
+      "estimated_duration_hours": 26.1,
+      "status": "in_transit",
+      "progress": 12,
+      "current_position": {
+        "latitude": 16.036016,
+        "longitude": 104.475129
+      },
+      "orders": [
+        {
+          "orderId": "ORD-TBL9810",
+          "item": "สินค้า B",
+          "quantity": 5
+        }
+      ],
+      "route": [
+        {
+          "lat": 18.943898,
+          "lng": 99.139994
+        },
+        {
+          "lat": 17.888591,
+          "lng": 99.974449
+        },
+        {
+          "lat": 17.335241,
+          "lng": 101.32063
+        },
+        {
+          "lat": 16.749956,
+          "lng": 102.632175
+        },
+        {
+          "lat": 15.762981,
+          "lng": 103.574223
+        },
+        {
+          "lat": 15.046094,
+          "lng": 104.854146
+        }
+      ]
+    },
+    {
+      "id": "TBL-0033",
+      "company": "TBL",
+      "origin": {
+        "name": "อุดรธานี",
+        "latitude": 17.4156,
+        "longitude": 102.785
+      },
+      "destination": {
+        "name": "สุราษฎร์ธานี",
+        "latitude": 9.0397,
+        "longitude": 99.1715
+      },
+      "departure_time": "2025-05-21T23:00:00",
+      "estimated_arrival_time": "2025-05-23T11:00:00",
+      "distance_km": 1407.0,
+      "estimated_duration_hours": 36.0,
+      "status": "in_transit",
+      "progress": 45,
+      "current_position": {
+        "latitude": 10.372478,
+        "longitude": 102.629584
+      },
+      "orders": [
+        {
+          "orderId": "ORD-TBL1636",
+          "item": "สินค้า A",
+          "quantity": 1
+        }
+      ],
+      "route": [
+        {
+          "lat": 17.241629,
+          "lng": 102.776893
+        },
+        {
+          "lat": 15.66817,
+          "lng": 102.221091
+        },
+        {
+          "lat": 13.930168,
+          "lng": 101.398449
+        },
+        {
+          "lat": 12.367616,
+          "lng": 100.45949
+        },
+        {
+          "lat": 10.842534,
+          "lng": 99.780897
+        },
+        {
+          "lat": 9.084826,
+          "lng": 99.345525
+        }
+      ]
+    },
+    {
+      "id": "TBL-0034",
+      "company": "TBL",
+      "origin": {
+        "name": "หาดใหญ่",
+        "latitude": 6.9969,
+        "longitude": 100.4669
+      },
+      "destination": {
+        "name": "ภูเก็ต",
+        "latitude": 7.8804,
+        "longitude": 98.3923
+      },
+      "departure_time": "2025-05-21T19:00:00",
+      "estimated_arrival_time": "2025-05-22T21:00:00",
+      "distance_km": 480.7,
+      "estimated_duration_hours": 26.0,
+      "status": "in_transit",
+      "progress": 83,
+      "current_position": {
+        "latitude": 7.572438,
+        "longitude": 99.918539
+      },
+      "orders": [
+        {
+          "orderId": "ORD-TBL4672",
+          "item": "สินค้า C",
+          "quantity": 5
+        }
+      ],
+      "route": [
+        {
+          "lat": 7.196479,
+          "lng": 100.270016
+        },
+        {
+          "lat": 7.208298,
+          "lng": 100.020633
+        },
+        {
+          "lat": 7.320131,
+          "lng": 99.641207
+        },
+        {
+          "lat": 7.601507,
+          "lng": 99.039783
+        },
+        {
+          "lat": 7.823644,
+          "lng": 98.738218
+        },
+        {
+          "lat": 7.806207,
+          "lng": 98.517174
+        }
+      ]
+    },
+    {
+      "id": "TBL-0035",
+      "company": "TBL",
+      "origin": {
+        "name": "นครราชสีมา",
+        "latitude": 14.9799,
+        "longitude": 102.0977
+      },
+      "destination": {
+        "name": "กรุงเทพฯ",
+        "latitude": 13.7563,
+        "longitude": 100.5018
+      },
+      "departure_time": "2025-05-20T23:00:00",
+      "estimated_arrival_time": "2025-05-21T15:06:00",
+      "distance_km": 1396.0,
+      "estimated_duration_hours": 16.1,
+      "status": "in_transit",
+      "progress": 44,
+      "current_position": {
+        "latitude": 14.509553,
+        "longitude": 101.750702
+      },
+      "orders": [
+        {
+          "orderId": "ORD-TBL8089",
+          "item": "สินค้า B",
+          "quantity": 5
+        },
+        {
+          "orderId": "ORD-TBL6240",
+          "item": "สินค้า A",
+          "quantity": 9
+        }
+      ],
+      "route": [
+        {
+          "lat": 14.943696,
+          "lng": 102.079463
+        },
+        {
+          "lat": 14.776912,
+          "lng": 101.801515
+        },
+        {
+          "lat": 14.396294,
+          "lng": 101.49106
+        },
+        {
+          "lat": 14.395724,
+          "lng": 101.005999
+        },
+        {
+          "lat": 14.06383,
+          "lng": 100.675023
+        },
+        {
+          "lat": 13.750525,
+          "lng": 100.531292
+        }
+      ]
+    },
+    {
+      "id": "TBL-0036",
+      "company": "TBL",
+      "origin": {
+        "name": "เชียงใหม่",
+        "latitude": 18.7883,
+        "longitude": 98.9853
+      },
+      "destination": {
+        "name": "สกลนคร",
+        "latitude": 17.168,
+        "longitude": 104.1456
+      },
+      "departure_time": "2025-05-19T08:00:00",
+      "estimated_arrival_time": "2025-05-19T21:00:00",
+      "distance_km": 644.2,
+      "estimated_duration_hours": 13.0,
+      "status": "available",
+      "progress": 100,
+      "current_position": {
+        "latitude": 18.054547,
+        "longitude": 100.785857
+      },
+      "orders": [
+        {
+          "orderId": "ORD-TBL3586",
+          "item": "สินค้า B",
+          "quantity": 9
+        },
+        {
+          "orderId": "ORD-TBL3718",
+          "item": "สินค้า B",
+          "quantity": 7
+        }
+      ],
+      "route": [
+        {
+          "lat": 18.664298,
+          "lng": 99.116281
+        },
+        {
+          "lat": 18.436442,
+          "lng": 99.895285
+        },
+        {
+          "lat": 18.281633,
+          "lng": 101.083571
+        },
+        {
+          "lat": 17.883322,
+          "lng": 102.190826
+        },
+        {
+          "lat": 17.407635,
+          "lng": 102.954409
+        },
+        {
+          "lat": 17.015268,
+          "lng": 104.192575
+        }
+      ]
+    },
+    {
+      "id": "TBL-0037",
+      "company": "TBL",
+      "origin": {
+        "name": "สกลนคร",
+        "latitude": 17.168,
+        "longitude": 104.1456
+      },
+      "destination": {
+        "name": "เชียงใหม่",
+        "latitude": 18.7883,
+        "longitude": 98.9853
+      },
+      "departure_time": "2025-05-20T04:00:00",
+      "estimated_arrival_time": "2025-05-21T06:18:00",
+      "distance_km": 929.1,
+      "estimated_duration_hours": 26.3,
+      "status": "available",
+      "progress": 100,
+      "current_position": {
+        "latitude": 18.306043,
+        "longitude": 103.06192
+      },
+      "orders": [
+        {
+          "orderId": "ORD-TBL4801",
+          "item": "สินค้า D",
+          "quantity": 2
+        },
+        {
+          "orderId": "ORD-TBL2794",
+          "item": "สินค้า C",
+          "quantity": 7
+        }
+      ],
+      "route": [
+        {
+          "lat": 16.97454,
+          "lng": 104.253905
+        },
+        {
+          "lat": 17.415509,
+          "lng": 103.255113
+        },
+        {
+          "lat": 17.91476,
+          "lng": 101.923222
+        },
+        {
+          "lat": 18.219089,
+          "lng": 101.109531
+        },
+        {
+          "lat": 18.34704,
+          "lng": 100.084119
+        },
+        {
+          "lat": 18.853567,
+          "lng": 98.797576
+        }
+      ]
+    },
+    {
+      "id": "TBL-0038",
+      "company": "TBL",
+      "origin": {
+        "name": "กรุงเทพฯ",
+        "latitude": 13.7563,
+        "longitude": 100.5018
+      },
+      "destination": {
+        "name": "เชียงใหม่",
+        "latitude": 18.7883,
+        "longitude": 98.9853
+      },
+      "departure_time": "2025-05-22T04:00:00",
+      "estimated_arrival_time": "2025-05-23T11:30:00",
+      "distance_km": 916.2,
+      "estimated_duration_hours": 31.5,
+      "status": "in_transit",
+      "progress": 47,
+      "current_position": {
+        "latitude": 18.021861,
+        "longitude": 99.436996
+      },
+      "orders": [
+        {
+          "orderId": "ORD-TBL5070",
+          "item": "สินค้า E",
+          "quantity": 5
+        },
+        {
+          "orderId": "ORD-TBL9510",
+          "item": "สินค้า C",
+          "quantity": 9
+        }
+      ],
+      "route": [
+        {
+          "lat": 13.621079,
+          "lng": 100.490627
+        },
+        {
+          "lat": 14.662118,
+          "lng": 100.354925
+        },
+        {
+          "lat": 15.779949,
+          "lng": 99.727833
+        },
+        {
+          "lat": 16.673821,
+          "lng": 99.450786
+        },
+        {
+          "lat": 17.965524,
+          "lng": 99.183318
+        },
+        {
+          "lat": 18.962988,
+          "lng": 98.844582
+        }
+      ]
+    },
+    {
+      "id": "TBL-0039",
+      "company": "TBL",
+      "origin": {
+        "name": "เชียงใหม่",
+        "latitude": 18.7883,
+        "longitude": 98.9853
+      },
+      "destination": {
+        "name": "หาดใหญ่",
+        "latitude": 6.9969,
+        "longitude": 100.4669
+      },
+      "departure_time": "2025-05-19T22:00:00",
+      "estimated_arrival_time": "2025-05-21T08:18:00",
+      "distance_km": 412.4,
+      "estimated_duration_hours": 34.3,
+      "status": "available",
+      "progress": 100,
+      "current_position": {
+        "latitude": 9.233041,
+        "longitude": 99.983426
+      },
+      "orders": [
+        {
+          "orderId": "ORD-TBL2214",
+          "item": "สินค้า C",
+          "quantity": 18
+        },
+        {
+          "orderId": "ORD-TBL6808",
+          "item": "สินค้า B",
+          "quantity": 15
+        },
+        {
+          "orderId": "ORD-TBL7395",
+          "item": "สินค้า E",
+          "quantity": 6
+        }
+      ],
+      "route": [
+        {
+          "lat": 18.833516,
+          "lng": 99.081648
+        },
+        {
+          "lat": 16.614037,
+          "lng": 99.296528
+        },
+        {
+          "lat": 13.971613,
+          "lng": 99.548192
+        },
+        {
+          "lat": 11.709573,
+          "lng": 99.796385
+        },
+        {
+          "lat": 9.192085,
+          "lng": 100.225304
+        },
+        {
+          "lat": 7.172866,
+          "lng": 100.61644
+        }
+      ]
+    },
+    {
+      "id": "TBL-0040",
+      "company": "TBL",
+      "origin": {
+        "name": "กรุงเทพฯ",
+        "latitude": 13.7563,
+        "longitude": 100.5018
+      },
+      "destination": {
+        "name": "อุบลราชธานี",
+        "latitude": 15.2449,
+        "longitude": 104.847
+      },
+      "departure_time": "2025-05-21T22:00:00",
+      "estimated_arrival_time": "2025-05-23T00:30:00",
+      "distance_km": 327.8,
+      "estimated_duration_hours": 26.5,
+      "status": "in_transit",
+      "progress": 27,
+      "current_position": {
+        "latitude": 14.013976,
+        "longitude": 101.958524
+      },
+      "orders": [
+        {
+          "orderId": "ORD-TBL2523",
+          "item": "สินค้า E",
+          "quantity": 11
+        },
+        {
+          "orderId": "ORD-TBL8932",
+          "item": "สินค้า A",
+          "quantity": 8
+        },
+        {
+          "orderId": "ORD-TBL9713",
+          "item": "สินค้า A",
+          "quantity": 12
+        }
+      ],
+      "route": [
+        {
+          "lat": 13.672832,
+          "lng": 100.516638
+        },
+        {
+          "lat": 14.135698,
+          "lng": 101.307736
+        },
+        {
+          "lat": 14.323673,
+          "lng": 102.218425
+        },
+        {
+          "lat": 14.461251,
+          "lng": 103.025001
+        },
+        {
+          "lat": 15.101259,
+          "lng": 103.96977
+        },
+        {
+          "lat": 15.075,
+          "lng": 104.891553
+        }
+      ]
+    },
+    {
+      "id": "TBL-0041",
+      "company": "TBL",
+      "origin": {
+        "name": "ภูเก็ต",
+        "latitude": 7.8804,
+        "longitude": 98.3923
+      },
+      "destination": {
+        "name": "สกลนคร",
+        "latitude": 17.168,
+        "longitude": 104.1456
+      },
+      "departure_time": "2025-05-22T01:00:00",
+      "estimated_arrival_time": "2025-05-23T15:18:00",
+      "distance_km": 1420.3,
+      "estimated_duration_hours": 38.3,
+      "status": "in_transit",
+      "progress": 57,
+      "current_position": {
+        "latitude": 10.399673,
+        "longitude": 99.123294
+      },
+      "orders": [
+        {
+          "orderId": "ORD-TBL8114",
+          "item": "สินค้า B",
+          "quantity": 8
+        },
+        {
+          "orderId": "ORD-TBL7522",
+          "item": "สินค้า D",
+          "quantity": 17
+        },
+        {
+          "orderId": "ORD-TBL3946",
+          "item": "สินค้า A",
+          "quantity": 11
+        }
+      ],
+      "route": [
+        {
+          "lat": 7.695536,
+          "lng": 98.330537
+        },
+        {
+          "lat": 9.684116,
+          "lng": 99.479466
+        },
+        {
+          "lat": 11.609165,
+          "lng": 100.711953
+        },
+        {
+          "lat": 13.374674,
+          "lng": 101.66468
+        },
+        {
+          "lat": 15.191936,
+          "lng": 103.192638
+        },
+        {
+          "lat": 17.159333,
+          "lng": 104.298179
+        }
+      ]
+    },
+    {
+      "id": "TBL-0042",
+      "company": "TBL",
+      "origin": {
+        "name": "หาดใหญ่",
+        "latitude": 6.9969,
+        "longitude": 100.4669
+      },
+      "destination": {
+        "name": "เชียงใหม่",
+        "latitude": 18.7883,
+        "longitude": 98.9853
+      },
+      "departure_time": "2025-05-20T11:00:00",
+      "estimated_arrival_time": "2025-05-21T11:00:00",
+      "distance_km": 248.7,
+      "estimated_duration_hours": 24.0,
+      "status": "in_transit",
+      "progress": 6,
+      "current_position": {
+        "latitude": 13.500224,
+        "longitude": 99.735054
+      },
+      "orders": [
+        {
+          "orderId": "ORD-TBL7965",
+          "item": "สินค้า C",
+          "quantity": 13
+        },
+        {
+          "orderId": "ORD-TBL9449",
+          "item": "สินค้า B",
+          "quantity": 16
+        },
+        {
+          "orderId": "ORD-TBL6580",
+          "item": "สินค้า A",
+          "quantity": 2
+        }
+      ],
+      "route": [
+        {
+          "lat": 6.96082,
+          "lng": 100.369601
+        },
+        {
+          "lat": 9.509976,
+          "lng": 100.063489
+        },
+        {
+          "lat": 11.899142,
+          "lng": 99.903188
+        },
+        {
+          "lat": 13.964209,
+          "lng": 99.417669
+        },
+        {
+          "lat": 16.496168,
+          "lng": 99.264891
+        },
+        {
+          "lat": 18.956724,
+          "lng": 98.980736
+        }
+      ]
+    },
+    {
+      "id": "TBL-0043",
+      "company": "TBL",
+      "origin": {
+        "name": "ขอนแก่น",
+        "latitude": 16.4419,
+        "longitude": 102.835
+      },
+      "destination": {
+        "name": "อุบลราชธานี",
+        "latitude": 15.2449,
+        "longitude": 104.847
+      },
+      "departure_time": "2025-05-20T19:00:00",
+      "estimated_arrival_time": "2025-05-21T07:18:00",
+      "distance_km": 626.3,
+      "estimated_duration_hours": 12.3,
+      "status": "in_transit",
+      "progress": 70,
+      "current_position": {
+        "latitude": 16.251327,
+        "longitude": 104.715474
+      },
+      "orders": [
+        {
+          "orderId": "ORD-TBL6946",
+          "item": "สินค้า E",
+          "quantity": 15
+        },
+        {
+          "orderId": "ORD-TBL7431",
+          "item": "สินค้า B",
+          "quantity": 15
+        },
+        {
+          "orderId": "ORD-TBL6917",
+          "item": "สินค้า E",
+          "quantity": 14
+        }
+      ],
+      "route": [
+        {
+          "lat": 16.615057,
+          "lng": 102.645471
+        },
+        {
+          "lat": 16.285438,
+          "lng": 103.403081
+        },
+        {
+          "lat": 15.913573,
+          "lng": 103.516382
+        },
+        {
+          "lat": 15.906243,
+          "lng": 104.214053
+        },
+        {
+          "lat": 15.469263,
+          "lng": 104.342394
+        },
+        {
+          "lat": 15.157046,
+          "lng": 104.866066
+        }
+      ]
+    },
+    {
+      "id": "TBL-0044",
+      "company": "TBL",
+      "origin": {
+        "name": "ขอนแก่น",
+        "latitude": 16.4419,
+        "longitude": 102.835
+      },
+      "destination": {
+        "name": "เชียงใหม่",
+        "latitude": 18.7883,
+        "longitude": 98.9853
+      },
+      "departure_time": "2025-05-21T03:00:00",
+      "estimated_arrival_time": "2025-05-22T05:00:00",
+      "distance_km": 1167.4,
+      "estimated_duration_hours": 26.0,
+      "status": "in_transit",
+      "progress": 70,
+      "current_position": {
+        "latitude": 16.904601,
+        "longitude": 101.458531
+      },
+      "orders": [
+        {
+          "orderId": "ORD-TBL9646",
+          "item": "สินค้า A",
+          "quantity": 13
+        },
+        {
+          "orderId": "ORD-TBL4210",
+          "item": "สินค้า D",
+          "quantity": 11
+        },
+        {
+          "orderId": "ORD-TBL3569",
+          "item": "สินค้า A",
+          "quantity": 7
+        }
+      ],
+      "route": [
+        {
+          "lat": 16.427612,
+          "lng": 102.805021
+        },
+        {
+          "lat": 17.046681,
+          "lng": 101.871836
+        },
+        {
+          "lat": 17.397161,
+          "lng": 101.149243
+        },
+        {
+          "lat": 17.756435,
+          "lng": 100.417115
+        },
+        {
+          "lat": 18.21917,
+          "lng": 99.56266
+        },
+        {
+          "lat": 18.651537,
+          "lng": 98.847532
+        }
+      ]
+    },
+    {
+      "id": "TBL-0045",
+      "company": "TBL",
+      "origin": {
+        "name": "หาดใหญ่",
+        "latitude": 6.9969,
+        "longitude": 100.4669
+      },
+      "destination": {
+        "name": "ขอนแก่น",
+        "latitude": 16.4419,
+        "longitude": 102.835
+      },
+      "departure_time": "2025-05-20T03:00:00",
+      "estimated_arrival_time": "2025-05-21T12:54:00",
+      "distance_km": 604.6,
+      "estimated_duration_hours": 33.9,
+      "status": "available",
+      "progress": 100,
+      "current_position": {
+        "latitude": 7.446519,
+        "longitude": 101.484721
+      },
+      "orders": [
+        {
+          "orderId": "ORD-TBL1299",
+          "item": "สินค้า E",
+          "quantity": 14
+        },
+        {
+          "orderId": "ORD-TBL6015",
+          "item": "สินค้า C",
+          "quantity": 14
+        }
+      ],
+      "route": [
+        {
+          "lat": 7.180495,
+          "lng": 100.580721
+        },
+        {
+          "lat": 8.786509,
+          "lng": 100.928693
+        },
+        {
+          "lat": 10.948796,
+          "lng": 101.348017
+        },
+        {
+          "lat": 12.606606,
+          "lng": 102.017293
+        },
+        {
+          "lat": 14.462734,
+          "lng": 102.521143
+        },
+        {
+          "lat": 16.320498,
+          "lng": 102.703477
+        }
+      ]
+    },
+    {
+      "id": "TBL-0046",
+      "company": "TBL",
+      "origin": {
+        "name": "อุดรธานี",
+        "latitude": 17.4156,
+        "longitude": 102.785
+      },
+      "destination": {
+        "name": "ภูเก็ต",
+        "latitude": 7.8804,
+        "longitude": 98.3923
+      },
+      "departure_time": "2025-05-20T20:00:00",
+      "estimated_arrival_time": "2025-05-22T03:06:00",
+      "distance_km": 212.9,
+      "estimated_duration_hours": 31.1,
+      "status": "available",
+      "progress": 100,
+      "current_position": {
+        "latitude": 15.492962,
+        "longitude": 101.730735
+      },
+      "orders": [
+        {
+          "orderId": "ORD-TBL1329",
+          "item": "สินค้า A",
+          "quantity": 9
+        },
+        {
+          "orderId": "ORD-TBL4425",
+          "item": "สินค้า B",
+          "quantity": 1
+        }
+      ],
+      "route": [
+        {
+          "lat": 17.359063,
+          "lng": 102.965355
+        },
+        {
+          "lat": 15.530351,
+          "lng": 101.934546
+        },
+        {
+          "lat": 13.686001,
+          "lng": 100.980223
+        },
+        {
+          "lat": 11.533094,
+          "lng": 100.090796
+        },
+        {
+          "lat": 9.678898,
+          "lng": 99.447302
+        },
+        {
+          "lat": 7.942769,
+          "lng": 98.230216
+        }
+      ]
+    },
+    {
+      "id": "TBL-0047",
+      "company": "TBL",
+      "origin": {
+        "name": "หาดใหญ่",
+        "latitude": 6.9969,
+        "longitude": 100.4669
+      },
+      "destination": {
+        "name": "สกลนคร",
+        "latitude": 17.168,
+        "longitude": 104.1456
+      },
+      "departure_time": "2025-05-20T10:00:00",
+      "estimated_arrival_time": "2025-05-21T00:48:00",
+      "distance_km": 444.4,
+      "estimated_duration_hours": 14.8,
+      "status": "available",
+      "progress": 100,
+      "current_position": {
+        "latitude": 12.853561,
+        "longitude": 102.434851
+      },
+      "orders": [
+        {
+          "orderId": "ORD-TBL1838",
+          "item": "สินค้า A",
+          "quantity": 16
+        }
+      ],
+      "route": [
+        {
+          "lat": 6.835308,
+          "lng": 100.503353
+        },
+        {
+          "lat": 8.9433,
+          "lng": 101.271748
+        },
+        {
+          "lat": 10.877151,
+          "lng": 101.820762
+        },
+        {
+          "lat": 12.937575,
+          "lng": 102.751509
+        },
+        {
+          "lat": 15.106064,
+          "lng": 103.439866
+        },
+        {
+          "lat": 17.128115,
+          "lng": 104.316364
+        }
+      ]
+    },
+    {
+      "id": "TBL-0048",
+      "company": "TBL",
+      "origin": {
+        "name": "เชียงใหม่",
+        "latitude": 18.7883,
+        "longitude": 98.9853
+      },
+      "destination": {
+        "name": "นครราชสีมา",
+        "latitude": 14.9799,
+        "longitude": 102.0977
+      },
+      "departure_time": "2025-05-22T04:00:00",
+      "estimated_arrival_time": "2025-05-22T17:42:00",
+      "distance_km": 1145.7,
+      "estimated_duration_hours": 13.7,
+      "status": "available",
+      "progress": 100,
+      "current_position": {
+        "latitude": 16.916635,
+        "longitude": 100.625084
+      },
+      "orders": [
+        {
+          "orderId": "ORD-TBL7895",
+          "item": "สินค้า E",
+          "quantity": 15
+        },
+        {
+          "orderId": "ORD-TBL6771",
+          "item": "สินค้า D",
+          "quantity": 13
+        },
+        {
+          "orderId": "ORD-TBL6731",
+          "item": "สินค้า D",
+          "quantity": 6
+        }
+      ],
+      "route": [
+        {
+          "lat": 18.68407,
+          "lng": 99.163689
+        },
+        {
+          "lat": 17.950646,
+          "lng": 99.731099
+        },
+        {
+          "lat": 17.334694,
+          "lng": 100.253621
+        },
+        {
+          "lat": 16.609185,
+          "lng": 100.879899
+        },
+        {
+          "lat": 15.798724,
+          "lng": 101.359274
+        },
+        {
+          "lat": 14.843128,
+          "lng": 102.286072
+        }
+      ]
+    },
+    {
+      "id": "TBL-0049",
+      "company": "TBL",
+      "origin": {
+        "name": "อุดรธานี",
+        "latitude": 17.4156,
+        "longitude": 102.785
+      },
+      "destination": {
+        "name": "สุราษฎร์ธานี",
+        "latitude": 9.0397,
+        "longitude": 99.1715
+      },
+      "departure_time": "2025-05-20T09:00:00",
+      "estimated_arrival_time": "2025-05-21T22:42:00",
+      "distance_km": 1440.3,
+      "estimated_duration_hours": 37.7,
+      "status": "in_transit",
+      "progress": 71,
+      "current_position": {
+        "latitude": 12.931191,
+        "longitude": 99.991287
+      },
+      "orders": [
+        {
+          "orderId": "ORD-TBL5130",
+          "item": "สินค้า A",
+          "quantity": 2
+        },
+        {
+          "orderId": "ORD-TBL3367",
+          "item": "สินค้า B",
+          "quantity": 4
+        }
+      ],
+      "route": [
+        {
+          "lat": 17.458754,
+          "lng": 102.680276
+        },
+        {
+          "lat": 15.708882,
+          "lng": 102.159748
+        },
+        {
+          "lat": 14.192258,
+          "lng": 101.391237
+        },
+        {
+          "lat": 12.358061,
+          "lng": 100.573028
+        },
+        {
+          "lat": 10.789245,
+          "lng": 99.775947
+        },
+        {
+          "lat": 8.951498,
+          "lng": 98.972504
+        }
+      ]
+    },
+    {
+      "id": "TBL-0050",
+      "company": "TBL",
+      "origin": {
+        "name": "หาดใหญ่",
+        "latitude": 6.9969,
+        "longitude": 100.4669
+      },
+      "destination": {
+        "name": "สกลนคร",
+        "latitude": 17.168,
+        "longitude": 104.1456
+      },
+      "departure_time": "2025-05-19T14:00:00",
+      "estimated_arrival_time": "2025-05-20T05:12:00",
+      "distance_km": 1125.9,
+      "estimated_duration_hours": 15.2,
+      "status": "available",
+      "progress": 100,
+      "current_position": {
+        "latitude": 10.849488,
+        "longitude": 102.193584
+      },
+      "orders": [
+        {
+          "orderId": "ORD-TBL8272",
+          "item": "สินค้า D",
+          "quantity": 20
+        }
+      ],
+      "route": [
+        {
+          "lat": 6.81663,
+          "lng": 100.361114
+        },
+        {
+          "lat": 9.183566,
+          "lng": 101.32935
+        },
+        {
+          "lat": 10.870827,
+          "lng": 101.799229
+        },
+        {
+          "lat": 13.009944,
+          "lng": 102.809416
+        },
+        {
+          "lat": 15.278927,
+          "lng": 103.25034
+        },
+        {
+          "lat": 17.323955,
+          "lng": 104.096085
+        }
+      ]
+    },
+    {
+      "id": "SERMSUK-0001",
+      "company": "SERMSUK",
+      "origin": {
+        "name": "ขอนแก่น",
+        "latitude": 16.4419,
+        "longitude": 102.835
+      },
+      "destination": {
+        "name": "อุบลราชธานี",
+        "latitude": 15.2449,
+        "longitude": 104.847
+      },
+      "departure_time": "2025-05-19T11:00:00",
+      "estimated_arrival_time": "2025-05-19T18:24:00",
+      "distance_km": 1490.5,
+      "estimated_duration_hours": 7.4,
+      "status": "available",
+      "progress": 100,
+      "current_position": {
+        "latitude": 16.295618,
+        "longitude": 104.168481
+      },
+      "orders": [
+        {
+          "orderId": "ORD-SER6736",
+          "item": "สินค้า B",
+          "quantity": 20
+        }
+      ],
+      "route": [
+        {
+          "lat": 16.620781,
+          "lng": 102.679986
+        },
+        {
+          "lat": 16.316303,
+          "lng": 103.228167
+        },
+        {
+          "lat": 15.991461,
+          "lng": 103.599137
+        },
+        {
+          "lat": 15.524962,
+          "lng": 104.129081
+        },
+        {
+          "lat": 15.618454,
+          "lng": 104.366969
+        },
+        {
+          "lat": 15.36494,
+          "lng": 104.652014
+        }
+      ]
+    },
+    {
+      "id": "SERMSUK-0002",
+      "company": "SERMSUK",
+      "origin": {
+        "name": "นครราชสีมา",
+        "latitude": 14.9799,
+        "longitude": 102.0977
+      },
+      "destination": {
+        "name": "อุบลราชธานี",
+        "latitude": 15.2449,
+        "longitude": 104.847
+      },
+      "departure_time": "2025-05-19T18:00:00",
+      "estimated_arrival_time": "2025-05-20T20:30:00",
+      "distance_km": 1447.8,
+      "estimated_duration_hours": 26.5,
+      "status": "broken",
+      "progress": 100,
+      "current_position": {
+        "latitude": 15.160246,
+        "longitude": 103.844273
+      },
+      "orders": [
+        {
+          "orderId": "ORD-SER6724",
+          "item": "สินค้า C",
+          "quantity": 19
+        }
+      ],
+      "route": [
+        {
+          "lat": 15.019731,
+          "lng": 102.239702
+        },
+        {
+          "lat": 14.931992,
+          "lng": 102.844368
+        },
+        {
+          "lat": 15.233154,
+          "lng": 103.392465
+        },
+        {
+          "lat": 15.013741,
+          "lng": 103.794222
+        },
+        {
+          "lat": 15.153333,
+          "lng": 104.27237
+        },
+        {
+          "lat": 15.165144,
+          "lng": 104.935283
+        }
+      ]
+    },
+    {
+      "id": "SERMSUK-0003",
+      "company": "SERMSUK",
+      "origin": {
+        "name": "สกลนคร",
+        "latitude": 17.168,
+        "longitude": 104.1456
+      },
+      "destination": {
+        "name": "สุราษฎร์ธานี",
+        "latitude": 9.0397,
+        "longitude": 99.1715
+      },
+      "departure_time": "2025-05-21T10:00:00",
+      "estimated_arrival_time": "2025-05-23T00:18:00",
+      "distance_km": 499.5,
+      "estimated_duration_hours": 38.3,
+      "status": "in_transit",
+      "progress": 53,
+      "current_position": {
+        "latitude": 11.533331,
+        "longitude": 100.755666
+      },
+      "orders": [
+        {
+          "orderId": "ORD-SER1513",
+          "item": "สินค้า C",
+          "quantity": 5
+        },
+        {
+          "orderId": "ORD-SER6511",
+          "item": "สินค้า A",
+          "quantity": 4
+        },
+        {
+          "orderId": "ORD-SER3554",
+          "item": "สินค้า A",
+          "quantity": 10
+        }
+      ],
+      "route": [
+        {
+          "lat": 17.055509,
+          "lng": 104.238604
+        },
+        {
+          "lat": 15.487893,
+          "lng": 102.978502
+        },
+        {
+          "lat": 13.728271,
+          "lng": 102.058616
+        },
+        {
+          "lat": 12.239919,
+          "lng": 101.198575
+        },
+        {
+          "lat": 10.656518,
+          "lng": 100.045196
+        },
+        {
+          "lat": 9.099626,
+          "lng": 99.291805
+        }
+      ]
+    },
+    {
+      "id": "SERMSUK-0004",
+      "company": "SERMSUK",
+      "origin": {
+        "name": "นครราชสีมา",
+        "latitude": 14.9799,
+        "longitude": 102.0977
+      },
+      "destination": {
+        "name": "อุบลราชธานี",
+        "latitude": 15.2449,
+        "longitude": 104.847
+      },
+      "departure_time": "2025-05-19T07:00:00",
+      "estimated_arrival_time": "2025-05-19T14:06:00",
+      "distance_km": 1127.2,
+      "estimated_duration_hours": 7.1,
+      "status": "in_transit",
+      "progress": 54,
+      "current_position": {
+        "latitude": 14.986524,
+        "longitude": 102.330245
+      },
+      "orders": [
+        {
+          "orderId": "ORD-SER7560",
+          "item": "สินค้า A",
+          "quantity": 20
+        }
+      ],
+      "route": [
+        {
+          "lat": 14.939093,
+          "lng": 102.064621
+        },
+        {
+          "lat": 14.871153,
+          "lng": 102.535779
+        },
+        {
+          "lat": 15.004794,
+          "lng": 103.147184
+        },
+        {
+          "lat": 15.115086,
+          "lng": 103.782187
+        },
+        {
+          "lat": 15.128163,
+          "lng": 104.135123
+        },
+        {
+          "lat": 15.109623,
+          "lng": 105.001657
+        }
+      ]
+    },
+    {
+      "id": "SERMSUK-0005",
+      "company": "SERMSUK",
+      "origin": {
+        "name": "นครราชสีมา",
+        "latitude": 14.9799,
+        "longitude": 102.0977
+      },
+      "destination": {
+        "name": "เชียงใหม่",
+        "latitude": 18.7883,
+        "longitude": 98.9853
+      },
+      "departure_time": "2025-05-19T20:00:00",
+      "estimated_arrival_time": "2025-05-20T23:54:00",
+      "distance_km": 752.0,
+      "estimated_duration_hours": 27.9,
+      "status": "in_transit",
+      "progress": 62,
+      "current_position": {
+        "latitude": 18.398442,
+        "longitude": 99.013832
+      },
+      "orders": [
+        {
+          "orderId": "ORD-SER6764",
+          "item": "สินค้า D",
+          "quantity": 18
+        },
+        {
+          "orderId": "ORD-SER8790",
+          "item": "สินค้า C",
+          "quantity": 9
+        }
+      ],
+      "route": [
+        {
+          "lat": 15.014252,
+          "lng": 101.976818
+        },
+        {
+          "lat": 15.897831,
+          "lng": 101.479529
+        },
+        {
+          "lat": 16.479117,
+          "lng": 100.682929
+        },
+        {
+          "lat": 17.255213,
+          "lng": 100.289562
+        },
+        {
+          "lat": 18.077307,
+          "lng": 99.464491
+        },
+        {
+          "lat": 18.70218,
+          "lng": 98.916358
+        }
+      ]
+    },
+    {
+      "id": "SERMSUK-0006",
+      "company": "SERMSUK",
+      "origin": {
+        "name": "ขอนแก่น",
+        "latitude": 16.4419,
+        "longitude": 102.835
+      },
+      "destination": {
+        "name": "อุดรธานี",
+        "latitude": 17.4156,
+        "longitude": 102.785
+      },
+      "departure_time": "2025-05-19T15:00:00",
+      "estimated_arrival_time": "2025-05-20T12:18:00",
+      "distance_km": 901.9,
+      "estimated_duration_hours": 21.3,
+      "status": "in_transit",
+      "progress": 83,
+      "current_position": {
+        "latitude": 17.378408,
+        "longitude": 102.831289
+      },
+      "orders": [
+        {
+          "orderId": "ORD-SER6467",
+          "item": "สินค้า A",
+          "quantity": 17
+        }
+      ],
+      "route": [
+        {
+          "lat": 16.305101,
+          "lng": 102.849901
+        },
+        {
+          "lat": 16.648313,
+          "lng": 102.697855
+        },
+        {
+          "lat": 16.844621,
+          "lng": 102.939406
+        },
+        {
+          "lat": 16.851216,
+          "lng": 102.615629
+        },
+        {
+          "lat": 17.156573,
+          "lng": 102.830929
+        },
+        {
+          "lat": 17.220247,
+          "lng": 102.677009
+        }
+      ]
+    },
+    {
+      "id": "SERMSUK-0007",
+      "company": "SERMSUK",
+      "origin": {
+        "name": "กรุงเทพฯ",
+        "latitude": 13.7563,
+        "longitude": 100.5018
+      },
+      "destination": {
+        "name": "เชียงใหม่",
+        "latitude": 18.7883,
+        "longitude": 98.9853
+      },
+      "departure_time": "2025-05-20T05:00:00",
+      "estimated_arrival_time": "2025-05-21T22:06:00",
+      "distance_km": 1417.7,
+      "estimated_duration_hours": 41.1,
+      "status": "available",
+      "progress": 100,
+      "current_position": {
+        "latitude": 17.552319,
+        "longitude": 100.299696
+      },
+      "orders": [
+        {
+          "orderId": "ORD-SER3350",
+          "item": "สินค้า E",
+          "quantity": 20
+        }
+      ],
+      "route": [
+        {
+          "lat": 13.739056,
+          "lng": 100.339532
+        },
+        {
+          "lat": 14.637596,
+          "lng": 100.313636
+        },
+        {
+          "lat": 15.948255,
+          "lng": 99.961449
+        },
+        {
+          "lat": 16.958027,
+          "lng": 99.413043
+        },
+        {
+          "lat": 17.963521,
+          "lng": 99.111565
+        },
+        {
+          "lat": 18.687513,
+          "lng": 98.994777
+        }
+      ]
+    },
+    {
+      "id": "SERMSUK-0008",
+      "company": "SERMSUK",
+      "origin": {
+        "name": "สุราษฎร์ธานี",
+        "latitude": 9.0397,
+        "longitude": 99.1715
+      },
+      "destination": {
+        "name": "ภูเก็ต",
+        "latitude": 7.8804,
+        "longitude": 98.3923
+      },
+      "departure_time": "2025-05-19T16:00:00",
+      "estimated_arrival_time": "2025-05-20T12:54:00",
+      "distance_km": 835.6,
+      "estimated_duration_hours": 20.9,
+      "status": "in_transit",
+      "progress": 82,
+      "current_position": {
+        "latitude": 8.862667,
+        "longitude": 98.52451
+      },
+      "orders": [
+        {
+          "orderId": "ORD-SER4301",
+          "item": "สินค้า D",
+          "quantity": 18
+        },
+        {
+          "orderId": "ORD-SER5816",
+          "item": "สินค้า B",
+          "quantity": 16
+        }
+      ],
+      "route": [
+        {
+          "lat": 8.989535,
+          "lng": 99.067506
+        },
+        {
+          "lat": 8.748326,
+          "lng": 98.935427
+        },
+        {
+          "lat": 8.51437,
+          "lng": 98.713929
+        },
+        {
+          "lat": 8.312191,
+          "lng": 98.512859
+        },
+        {
+          "lat": 8.020126,
+          "lng": 98.661109
+        },
+        {
+          "lat": 7.857074,
+          "lng": 98.561589
+        }
+      ]
+    },
+    {
+      "id": "SERMSUK-0009",
+      "company": "SERMSUK",
+      "origin": {
+        "name": "เชียงใหม่",
+        "latitude": 18.7883,
+        "longitude": 98.9853
+      },
+      "destination": {
+        "name": "สกลนคร",
+        "latitude": 17.168,
+        "longitude": 104.1456
+      },
+      "departure_time": "2025-05-20T04:00:00",
+      "estimated_arrival_time": "2025-05-21T04:54:00",
+      "distance_km": 220.2,
+      "estimated_duration_hours": 24.9,
+      "status": "available",
+      "progress": 100,
+      "current_position": {
+        "latitude": 17.23754,
+        "longitude": 103.26327
+      },
+      "orders": [
+        {
+          "orderId": "ORD-SER6825",
+          "item": "สินค้า C",
+          "quantity": 5
+        },
+        {
+          "orderId": "ORD-SER1253",
+          "item": "สินค้า D",
+          "quantity": 12
+        }
+      ],
+      "route": [
+        {
+          "lat": 18.671939,
+          "lng": 99.150555
+        },
+        {
+          "lat": 18.509077,
+          "lng": 99.955602
+        },
+        {
+          "lat": 18.29872,
+          "lng": 101.022291
+        },
+        {
+          "lat": 17.63633,
+          "lng": 101.927883
+        },
+        {
+          "lat": 17.412252,
+          "lng": 103.273616
+        },
+        {
+          "lat": 17.242713,
+          "lng": 104.100338
+        }
+      ]
+    },
+    {
+      "id": "SERMSUK-0010",
+      "company": "SERMSUK",
+      "origin": {
+        "name": "ขอนแก่น",
+        "latitude": 16.4419,
+        "longitude": 102.835
+      },
+      "destination": {
+        "name": "อุดรธานี",
+        "latitude": 17.4156,
+        "longitude": 102.785
+      },
+      "departure_time": "2025-05-21T06:00:00",
+      "estimated_arrival_time": "2025-05-21T22:18:00",
+      "distance_km": 654.0,
+      "estimated_duration_hours": 16.3,
+      "status": "available",
+      "progress": 100,
+      "current_position": {
+        "latitude": 17.057783,
+        "longitude": 102.806032
+      },
+      "orders": [
+        {
+          "orderId": "ORD-SER1977",
+          "item": "สินค้า A",
+          "quantity": 6
+        }
+      ],
+      "route": [
+        {
+          "lat": 16.479433,
+          "lng": 102.755842
+        },
+        {
+          "lat": 16.798671,
+          "lng": 102.913936
+        },
+        {
+          "lat": 16.838966,
+          "lng": 102.772079
+        },
+        {
+          "lat": 16.852393,
+          "lng": 102.890047
+        },
+        {
+          "lat": 17.204044,
+          "lng": 102.735411
+        },
+        {
+          "lat": 17.239854,
+          "lng": 102.852006
+        }
+      ]
+    },
+    {
+      "id": "SERMSUK-0011",
+      "company": "SERMSUK",
+      "origin": {
+        "name": "อุดรธานี",
+        "latitude": 17.4156,
+        "longitude": 102.785
+      },
+      "destination": {
+        "name": "กรุงเทพฯ",
+        "latitude": 13.7563,
+        "longitude": 100.5018
+      },
+      "departure_time": "2025-05-20T05:00:00",
+      "estimated_arrival_time": "2025-05-22T02:54:00",
+      "distance_km": 264.2,
+      "estimated_duration_hours": 45.9,
+      "status": "in_transit",
+      "progress": 37,
+      "current_position": {
+        "latitude": 16.995443,
+        "longitude": 101.176206
+      },
+      "orders": [
+        {
+          "orderId": "ORD-SER6427",
+          "item": "สินค้า E",
+          "quantity": 10
+        }
+      ],
+      "route": [
+        {
+          "lat": 17.405004,
+          "lng": 102.893554
+        },
+        {
+          "lat": 16.764608,
+          "lng": 102.28272
+        },
+        {
+          "lat": 16.041347,
+          "lng": 102.025341
+        },
+        {
+          "lat": 15.129385,
+          "lng": 101.21826
+        },
+        {
+          "lat": 14.555593,
+          "lng": 100.918491
+        },
+        {
+          "lat": 13.751523,
+          "lng": 100.68502
+        }
+      ]
+    },
+    {
+      "id": "SERMSUK-0012",
+      "company": "SERMSUK",
+      "origin": {
+        "name": "สกลนคร",
+        "latitude": 17.168,
+        "longitude": 104.1456
+      },
+      "destination": {
+        "name": "หาดใหญ่",
+        "latitude": 6.9969,
+        "longitude": 100.4669
+      },
+      "departure_time": "2025-05-21T10:00:00",
+      "estimated_arrival_time": "2025-05-22T22:36:00",
+      "distance_km": 1477.5,
+      "estimated_duration_hours": 36.6,
+      "status": "in_transit",
+      "progress": 11,
+      "current_position": {
+        "latitude": 7.910706,
+        "longitude": 100.53525
+      },
+      "orders": [
+        {
+          "orderId": "ORD-SER8261",
+          "item": "สินค้า D",
+          "quantity": 4
+        },
+        {
+          "orderId": "ORD-SER6492",
+          "item": "สินค้า D",
+          "quantity": 19
+        },
+        {
+          "orderId": "ORD-SER5132",
+          "item": "สินค้า B",
+          "quantity": 4
+        }
+      ],
+      "route": [
+        {
+          "lat": 17.025299,
+          "lng": 104.289105
+        },
+        {
+          "lat": 15.057178,
+          "lng": 103.501818
+        },
+        {
+          "lat": 13.276898,
+          "lng": 102.702409
+        },
+        {
+          "lat": 10.910867,
+          "lng": 101.905569
+        },
+        {
+          "lat": 8.951722,
+          "lng": 101.351755
+        },
+        {
+          "lat": 6.894456,
+          "lng": 100.508685
+        }
+      ]
+    },
+    {
+      "id": "SERMSUK-0013",
+      "company": "SERMSUK",
+      "origin": {
+        "name": "ขอนแก่น",
+        "latitude": 16.4419,
+        "longitude": 102.835
+      },
+      "destination": {
+        "name": "สกลนคร",
+        "latitude": 17.168,
+        "longitude": 104.1456
+      },
+      "departure_time": "2025-05-20T17:00:00",
+      "estimated_arrival_time": "2025-05-21T15:54:00",
+      "distance_km": 750.3,
+      "estimated_duration_hours": 22.9,
+      "status": "broken",
+      "progress": 100,
+      "current_position": {
+        "latitude": 16.692117,
+        "longitude": 103.418297
+      },
+      "orders": [
+        {
+          "orderId": "ORD-SER9061",
+          "item": "สินค้า D",
+          "quantity": 20
+        },
+        {
+          "orderId": "ORD-SER2443",
+          "item": "สินค้า E",
+          "quantity": 12
+        }
+      ],
+      "route": [
+        {
+          "lat": 16.412771,
+          "lng": 102.9512
+        },
+        {
+          "lat": 16.422459,
+          "lng": 103.278379
+        },
+        {
+          "lat": 16.76554,
+          "lng": 103.185891
+        },
+        {
+          "lat": 16.856375,
+          "lng": 103.716341
+        },
+        {
+          "lat": 16.947062,
+          "lng": 103.686437
+        },
+        {
+          "lat": 17.03385,
+          "lng": 104.033203
+        }
+      ]
+    },
+    {
+      "id": "SERMSUK-0014",
+      "company": "SERMSUK",
+      "origin": {
+        "name": "สุราษฎร์ธานี",
+        "latitude": 9.0397,
+        "longitude": 99.1715
+      },
+      "destination": {
+        "name": "ขอนแก่น",
+        "latitude": 16.4419,
+        "longitude": 102.835
+      },
+      "departure_time": "2025-05-20T09:00:00",
+      "estimated_arrival_time": "2025-05-21T03:12:00",
+      "distance_km": 833.7,
+      "estimated_duration_hours": 18.2,
+      "status": "in_transit",
+      "progress": 35,
+      "current_position": {
+        "latitude": 13.810046,
+        "longitude": 100.551998
+      },
+      "orders": [
+        {
+          "orderId": "ORD-SER9999",
+          "item": "สินค้า E",
+          "quantity": 8
+        },
+        {
+          "orderId": "ORD-SER8187",
+          "item": "สินค้า C",
+          "quantity": 6
+        }
+      ],
+      "route": [
+        {
+          "lat": 9.16928,
+          "lng": 99.289259
+        },
+        {
+          "lat": 10.454915,
+          "lng": 99.829443
+        },
+        {
+          "lat": 12.168703,
+          "lng": 100.750216
+        },
+        {
+          "lat": 13.386491,
+          "lng": 101.213605
+        },
+        {
+          "lat": 14.878471,
+          "lng": 102.173976
+        },
+        {
+          "lat": 16.266037,
+          "lng": 102.754054
+        }
+      ]
+    },
+    {
+      "id": "SERMSUK-0015",
+      "company": "SERMSUK",
+      "origin": {
+        "name": "กรุงเทพฯ",
+        "latitude": 13.7563,
+        "longitude": 100.5018
+      },
+      "destination": {
+        "name": "อุดรธานี",
+        "latitude": 17.4156,
+        "longitude": 102.785
+      },
+      "departure_time": "2025-05-19T18:00:00",
+      "estimated_arrival_time": "2025-05-19T23:24:00",
+      "distance_km": 554.4,
+      "estimated_duration_hours": 5.4,
+      "status": "in_transit",
+      "progress": 99,
+      "current_position": {
+        "latitude": 13.821787,
+        "longitude": 102.359992
+      },
+      "orders": [
+        {
+          "orderId": "ORD-SER1701",
+          "item": "สินค้า C",
+          "quantity": 17
+        }
+      ],
+      "route": [
+        {
+          "lat": 13.911259,
+          "lng": 100.346172
+        },
+        {
+          "lat": 14.518145,
+          "lng": 101.050513
+        },
+        {
+          "lat": 15.251222,
+          "lng": 101.317681
+        },
+        {
+          "lat": 16.057872,
+          "lng": 102.04239
+        },
+        {
+          "lat": 16.634701,
+          "lng": 102.201133
+        },
+        {
+          "lat": 17.306743,
+          "lng": 102.788697
+        }
+      ]
+    },
+    {
+      "id": "SERMSUK-0016",
+      "company": "SERMSUK",
+      "origin": {
+        "name": "อุบลราชธานี",
+        "latitude": 15.2449,
+        "longitude": 104.847
+      },
+      "destination": {
+        "name": "ขอนแก่น",
+        "latitude": 16.4419,
+        "longitude": 102.835
+      },
+      "departure_time": "2025-05-21T12:00:00",
+      "estimated_arrival_time": "2025-05-22T23:12:00",
+      "distance_km": 294.4,
+      "estimated_duration_hours": 35.2,
+      "status": "available",
+      "progress": 100,
+      "current_position": {
+        "latitude": 16.433294,
+        "longitude": 102.835315
+      },
+      "orders": [
+        {
+          "orderId": "ORD-SER8636",
+          "item": "สินค้า E",
+          "quantity": 19
+        },
+        {
+          "orderId": "ORD-SER7219",
+          "item": "สินค้า B",
+          "quantity": 9
+        },
+        {
+          "orderId": "ORD-SER2092",
+          "item": "สินค้า D",
+          "quantity": 10
+        }
+      ],
+      "route": [
+        {
+          "lat": 15.195755,
+          "lng": 105.032987
+        },
+        {
+          "lat": 15.434549,
+          "lng": 104.471178
+        },
+        {
+          "lat": 15.724372,
+          "lng": 104.043472
+        },
+        {
+          "lat": 16.135578,
+          "lng": 103.769169
+        },
+        {
+          "lat": 16.003517,
+          "lng": 103.191362
+        },
+        {
+          "lat": 16.561273,
+          "lng": 102.815249
+        }
+      ]
+    },
+    {
+      "id": "SERMSUK-0017",
+      "company": "SERMSUK",
+      "origin": {
+        "name": "เชียงใหม่",
+        "latitude": 18.7883,
+        "longitude": 98.9853
+      },
+      "destination": {
+        "name": "สุราษฎร์ธานี",
+        "latitude": 9.0397,
+        "longitude": 99.1715
+      },
+      "departure_time": "2025-05-19T17:00:00",
+      "estimated_arrival_time": "2025-05-20T13:36:00",
+      "distance_km": 690.8,
+      "estimated_duration_hours": 20.6,
+      "status": "in_transit",
+      "progress": 57,
+      "current_position": {
+        "latitude": 14.690484,
+        "longitude": 99.001039
+      },
+      "orders": [
+        {
+          "orderId": "ORD-SER6262",
+          "item": "สินค้า A",
+          "quantity": 13
+        },
+        {
+          "orderId": "ORD-SER1123",
+          "item": "สินค้า E",
+          "quantity": 20
+        }
+      ],
+      "route": [
+        {
+          "lat": 18.629577,
+          "lng": 98.942716
+        },
+        {
+          "lat": 16.983728,
+          "lng": 99.127859
+        },
+        {
+          "lat": 14.708422,
+          "lng": 98.978382
+        },
+        {
+          "lat": 12.943624,
+          "lng": 99.057149
+        },
+        {
+          "lat": 11.112804,
+          "lng": 99.129166
+        },
+        {
+          "lat": 8.958817,
+          "lng": 99.189476
+        }
+      ]
+    },
+    {
+      "id": "SERMSUK-0018",
+      "company": "SERMSUK",
+      "origin": {
+        "name": "สุราษฎร์ธานี",
+        "latitude": 9.0397,
+        "longitude": 99.1715
+      },
+      "destination": {
+        "name": "หาดใหญ่",
+        "latitude": 6.9969,
+        "longitude": 100.4669
+      },
+      "departure_time": "2025-05-19T16:00:00",
+      "estimated_arrival_time": "2025-05-20T20:24:00",
+      "distance_km": 515.1,
+      "estimated_duration_hours": 28.4,
+      "status": "broken",
+      "progress": 100,
+      "current_position": {
+        "latitude": 9.003918,
+        "longitude": 99.37497
+      },
+      "orders": [
+        {
+          "orderId": "ORD-SER1821",
+          "item": "สินค้า E",
+          "quantity": 16
+        },
+        {
+          "orderId": "ORD-SER8193",
+          "item": "สินค้า D",
+          "quantity": 3
+        }
+      ],
+      "route": [
+        {
+          "lat": 9.162939,
+          "lng": 99.030228
+        },
+        {
+          "lat": 8.550459,
+          "lng": 99.585187
+        },
+        {
+          "lat": 8.197413,
+          "lng": 99.701853
+        },
+        {
+          "lat": 7.740538,
+          "lng": 100.084856
+        },
+        {
+          "lat": 7.413713,
+          "lng": 100.187187
+        },
+        {
+          "lat": 6.944929,
+          "lng": 100.649056
+        }
+      ]
+    },
+    {
+      "id": "SERMSUK-0019",
+      "company": "SERMSUK",
+      "origin": {
+        "name": "กรุงเทพฯ",
+        "latitude": 13.7563,
+        "longitude": 100.5018
+      },
+      "destination": {
+        "name": "สกลนคร",
+        "latitude": 17.168,
+        "longitude": 104.1456
+      },
+      "departure_time": "2025-05-21T19:00:00",
+      "estimated_arrival_time": "2025-05-22T12:36:00",
+      "distance_km": 597.0,
+      "estimated_duration_hours": 17.6,
+      "status": "available",
+      "progress": 100,
+      "current_position": {
+        "latitude": 16.742043,
+        "longitude": 100.947245
+      },
+      "orders": [
+        {
+          "orderId": "ORD-SER1878",
+          "item": "สินค้า D",
+          "quantity": 7
+        }
+      ],
+      "route": [
+        {
+          "lat": 13.814381,
+          "lng": 100.429306
+        },
+        {
+          "lat": 14.571682,
+          "lng": 101.168291
+        },
+        {
+          "lat": 15.30523,
+          "lng": 101.801917
+        },
+        {
+          "lat": 15.963037,
+          "lng": 102.519627
+        },
+        {
+          "lat": 16.439029,
+          "lng": 103.49755
+        },
+        {
+          "lat": 17.041925,
+          "lng": 104.113996
+        }
+      ]
+    },
+    {
+      "id": "SERMSUK-0020",
+      "company": "SERMSUK",
+      "origin": {
+        "name": "กรุงเทพฯ",
+        "latitude": 13.7563,
+        "longitude": 100.5018
+      },
+      "destination": {
+        "name": "หาดใหญ่",
+        "latitude": 6.9969,
+        "longitude": 100.4669
+      },
+      "departure_time": "2025-05-20T14:00:00",
+      "estimated_arrival_time": "2025-05-22T01:18:00",
+      "distance_km": 622.3,
+      "estimated_duration_hours": 35.3,
+      "status": "available",
+      "progress": 100,
+      "current_position": {
+        "latitude": 11.633009,
+        "longitude": 100.475912
+      },
+      "orders": [
+        {
+          "orderId": "ORD-SER7058",
+          "item": "สินค้า E",
+          "quantity": 6
+        },
+        {
+          "orderId": "ORD-SER8286",
+          "item": "สินค้า C",
+          "quantity": 13
+        }
+      ],
+      "route": [
+        {
+          "lat": 13.861144,
+          "lng": 100.543233
+        },
+        {
+          "lat": 12.508208,
+          "lng": 100.375927
+        },
+        {
+          "lat": 11.036894,
+          "lng": 100.299023
+        },
+        {
+          "lat": 9.820361,
+          "lng": 100.558217
+        },
+        {
+          "lat": 8.24695,
+          "lng": 100.548441
+        },
+        {
+          "lat": 7.075654,
+          "lng": 100.569966
+        }
+      ]
+    },
+    {
+      "id": "SERMSUK-0021",
+      "company": "SERMSUK",
+      "origin": {
+        "name": "เชียงใหม่",
+        "latitude": 18.7883,
+        "longitude": 98.9853
+      },
+      "destination": {
+        "name": "อุดรธานี",
+        "latitude": 17.4156,
+        "longitude": 102.785
+      },
+      "departure_time": "2025-05-20T02:00:00",
+      "estimated_arrival_time": "2025-05-20T19:36:00",
+      "distance_km": 633.4,
+      "estimated_duration_hours": 17.6,
+      "status": "in_transit",
+      "progress": 31,
+      "current_position": {
+        "latitude": 18.026979,
+        "longitude": 99.463421
+      },
+      "orders": [
+        {
+          "orderId": "ORD-SER3108",
+          "item": "สินค้า D",
+          "quantity": 9
+        },
+        {
+          "orderId": "ORD-SER6869",
+          "item": "สินค้า D",
+          "quantity": 19
+        },
+        {
+          "orderId": "ORD-SER6822",
+          "item": "สินค้า B",
+          "quantity": 19
+        }
+      ],
+      "route": [
+        {
+          "lat": 18.881424,
+          "lng": 98.853996
+        },
+        {
+          "lat": 18.468764,
+          "lng": 99.798465
+        },
+        {
+          "lat": 18.060319,
+          "lng": 100.489342
+        },
+        {
+          "lat": 18.030874,
+          "lng": 101.260529
+        },
+        {
+          "lat": 17.838597,
+          "lng": 101.897865
+        },
+        {
+          "lat": 17.476576,
+          "lng": 102.644589
+        }
+      ]
+    },
+    {
+      "id": "SERMSUK-0022",
+      "company": "SERMSUK",
+      "origin": {
+        "name": "สกลนคร",
+        "latitude": 17.168,
+        "longitude": 104.1456
+      },
+      "destination": {
+        "name": "อุบลราชธานี",
+        "latitude": 15.2449,
+        "longitude": 104.847
+      },
+      "departure_time": "2025-05-20T02:00:00",
+      "estimated_arrival_time": "2025-05-22T00:06:00",
+      "distance_km": 165.1,
+      "estimated_duration_hours": 46.1,
+      "status": "in_transit",
+      "progress": 78,
+      "current_position": {
+        "latitude": 16.811391,
+        "longitude": 104.772755
+      },
+      "orders": [
+        {
+          "orderId": "ORD-SER2021",
+          "item": "สินค้า C",
+          "quantity": 2
+        }
+      ],
+      "route": [
+        {
+          "lat": 17.257693,
+          "lng": 104.21828
+        },
+        {
+          "lat": 16.952185,
+          "lng": 104.215236
+        },
+        {
+          "lat": 16.347052,
+          "lng": 104.536203
+        },
+        {
+          "lat": 16.146922,
+          "lng": 104.456136
+        },
+        {
+          "lat": 15.487205,
+          "lng": 104.582073
+        },
+        {
+          "lat": 15.184414,
+          "lng": 105.01514
+        }
+      ]
+    },
+    {
+      "id": "SERMSUK-0023",
+      "company": "SERMSUK",
+      "origin": {
+        "name": "หาดใหญ่",
+        "latitude": 6.9969,
+        "longitude": 100.4669
+      },
+      "destination": {
+        "name": "สกลนคร",
+        "latitude": 17.168,
+        "longitude": 104.1456
+      },
+      "departure_time": "2025-05-20T19:00:00",
+      "estimated_arrival_time": "2025-05-21T04:30:00",
+      "distance_km": 106.0,
+      "estimated_duration_hours": 9.5,
+      "status": "broken",
+      "progress": 100,
+      "current_position": {
+        "latitude": 14.56905,
+        "longitude": 102.473446
+      },
+      "orders": [
+        {
+          "orderId": "ORD-SER5384",
+          "item": "สินค้า C",
+          "quantity": 7
+        },
+        {
+          "orderId": "ORD-SER4748",
+          "item": "สินค้า E",
+          "quantity": 1
+        }
+      ],
+      "route": [
+        {
+          "lat": 6.975939,
+          "lng": 100.279875
+        },
+        {
+          "lat": 9.117274,
+          "lng": 101.362728
+        },
+        {
+          "lat": 11.096486,
+          "lng": 101.762593
+        },
+        {
+          "lat": 13.043981,
+          "lng": 102.673945
+        },
+        {
+          "lat": 15.008221,
+          "lng": 103.478413
+        },
+        {
+          "lat": 17.192498,
+          "lng": 104.178385
+        }
+      ]
+    },
+    {
+      "id": "SERMSUK-0024",
+      "company": "SERMSUK",
+      "origin": {
+        "name": "ขอนแก่น",
+        "latitude": 16.4419,
+        "longitude": 102.835
+      },
+      "destination": {
+        "name": "กรุงเทพฯ",
+        "latitude": 13.7563,
+        "longitude": 100.5018
+      },
+      "departure_time": "2025-05-21T22:00:00",
+      "estimated_arrival_time": "2025-05-23T10:36:00",
+      "distance_km": 1006.2,
+      "estimated_duration_hours": 36.6,
+      "status": "in_transit",
+      "progress": 1,
+      "current_position": {
+        "latitude": 14.709048,
+        "longitude": 101.455284
+      },
+      "orders": [
+        {
+          "orderId": "ORD-SER6566",
+          "item": "สินค้า E",
+          "quantity": 15
+        },
+        {
+          "orderId": "ORD-SER8244",
+          "item": "สินค้า E",
+          "quantity": 7
+        }
+      ],
+      "route": [
+        {
+          "lat": 16.630831,
+          "lng": 102.85056
+        },
+        {
+          "lat": 15.76609,
+          "lng": 102.303623
+        },
+        {
+          "lat": 15.374331,
+          "lng": 101.989255
+        },
+        {
+          "lat": 14.920166,
+          "lng": 101.524036
+        },
+        {
+          "lat": 14.43695,
+          "lng": 101.158174
+        },
+        {
+          "lat": 13.713722,
+          "lng": 100.568813
+        }
+      ]
+    },
+    {
+      "id": "SERMSUK-0025",
+      "company": "SERMSUK",
+      "origin": {
+        "name": "ภูเก็ต",
+        "latitude": 7.8804,
+        "longitude": 98.3923
+      },
+      "destination": {
+        "name": "กรุงเทพฯ",
+        "latitude": 13.7563,
+        "longitude": 100.5018
+      },
+      "departure_time": "2025-05-21T15:00:00",
+      "estimated_arrival_time": "2025-05-22T02:12:00",
+      "distance_km": 277.2,
+      "estimated_duration_hours": 11.2,
+      "status": "in_transit",
+      "progress": 32,
+      "current_position": {
+        "latitude": 12.718203,
+        "longitude": 98.74914
+      },
+      "orders": [
+        {
+          "orderId": "ORD-SER9157",
+          "item": "สินค้า A",
+          "quantity": 1
+        },
+        {
+          "orderId": "ORD-SER5683",
+          "item": "สินค้า A",
+          "quantity": 9
+        },
+        {
+          "orderId": "ORD-SER9702",
+          "item": "สินค้า E",
+          "quantity": 13
+        }
+      ],
+      "route": [
+        {
+          "lat": 7.82297,
+          "lng": 98.325648
+        },
+        {
+          "lat": 8.919952,
+          "lng": 98.66516
+        },
+        {
+          "lat": 10.102333,
+          "lng": 99.273155
+        },
+        {
+          "lat": 11.214644,
+          "lng": 99.783193
+        },
+        {
+          "lat": 12.549179,
+          "lng": 100.140066
+        },
+        {
+          "lat": 13.747635,
+          "lng": 100.43616
+        }
+      ]
+    },
+    {
+      "id": "SERMSUK-0026",
+      "company": "SERMSUK",
+      "origin": {
+        "name": "กรุงเทพฯ",
+        "latitude": 13.7563,
+        "longitude": 100.5018
+      },
+      "destination": {
+        "name": "หาดใหญ่",
+        "latitude": 6.9969,
+        "longitude": 100.4669
+      },
+      "departure_time": "2025-05-21T19:00:00",
+      "estimated_arrival_time": "2025-05-23T14:06:00",
+      "distance_km": 112.8,
+      "estimated_duration_hours": 43.1,
+      "status": "available",
+      "progress": 100,
+      "current_position": {
+        "latitude": 8.416615,
+        "longitude": 100.495868
+      },
+      "orders": [
+        {
+          "orderId": "ORD-SER2004",
+          "item": "สินค้า A",
+          "quantity": 15
+        }
+      ],
+      "route": [
+        {
+          "lat": 13.900053,
+          "lng": 100.504483
+        },
+        {
+          "lat": 12.217397,
+          "lng": 100.65618
+        },
+        {
+          "lat": 10.862721,
+          "lng": 100.679428
+        },
+        {
+          "lat": 9.823213,
+          "lng": 100.306988
+        },
+        {
+          "lat": 8.403736,
+          "lng": 100.524818
+        },
+        {
+          "lat": 7.089422,
+          "lng": 100.59368
+        }
+      ]
+    },
+    {
+      "id": "SERMSUK-0027",
+      "company": "SERMSUK",
+      "origin": {
+        "name": "สุราษฎร์ธานี",
+        "latitude": 9.0397,
+        "longitude": 99.1715
+      },
+      "destination": {
+        "name": "สกลนคร",
+        "latitude": 17.168,
+        "longitude": 104.1456
+      },
+      "departure_time": "2025-05-20T20:00:00",
+      "estimated_arrival_time": "2025-05-21T11:18:00",
+      "distance_km": 981.5,
+      "estimated_duration_hours": 15.3,
+      "status": "in_transit",
+      "progress": 9,
+      "current_position": {
+        "latitude": 13.650404,
+        "longitude": 102.013812
+      },
+      "orders": [
+        {
+          "orderId": "ORD-SER4881",
+          "item": "สินค้า E",
+          "quantity": 2
+        },
+        {
+          "orderId": "ORD-SER6873",
+          "item": "สินค้า B",
+          "quantity": 10
+        },
+        {
+          "orderId": "ORD-SER5795",
+          "item": "สินค้า E",
+          "quantity": 6
+        }
+      ],
+      "route": [
+        {
+          "lat": 8.857968,
+          "lng": 99.333086
+        },
+        {
+          "lat": 10.609068,
+          "lng": 100.032654
+        },
+        {
+          "lat": 12.417851,
+          "lng": 101.343005
+        },
+        {
+          "lat": 14.09269,
+          "lng": 102.260482
+        },
+        {
+          "lat": 15.686767,
+          "lng": 103.26069
+        },
+        {
+          "lat": 17.050522,
+          "lng": 104.137043
+        }
+      ]
+    },
+    {
+      "id": "SERMSUK-0028",
+      "company": "SERMSUK",
+      "origin": {
+        "name": "สกลนคร",
+        "latitude": 17.168,
+        "longitude": 104.1456
+      },
+      "destination": {
+        "name": "กรุงเทพฯ",
+        "latitude": 13.7563,
+        "longitude": 100.5018
+      },
+      "departure_time": "2025-05-19T06:00:00",
+      "estimated_arrival_time": "2025-05-20T08:06:00",
+      "distance_km": 1312.0,
+      "estimated_duration_hours": 26.1,
+      "status": "available",
+      "progress": 100,
+      "current_position": {
+        "latitude": 15.657448,
+        "longitude": 101.994735
+      },
+      "orders": [
+        {
+          "orderId": "ORD-SER4483",
+          "item": "สินค้า B",
+          "quantity": 20
+        }
+      ],
+      "route": [
+        {
+          "lat": 17.264988,
+          "lng": 104.210675
+        },
+        {
+          "lat": 16.435958,
+          "lng": 103.604056
+        },
+        {
+          "lat": 15.66527,
+          "lng": 102.782996
+        },
+        {
+          "lat": 15.143438,
+          "lng": 102.054578
+        },
+        {
+          "lat": 14.401787,
+          "lng": 101.393916
+        },
+        {
+          "lat": 13.60988,
+          "lng": 100.47676
+        }
+      ]
+    },
+    {
+      "id": "SERMSUK-0029",
+      "company": "SERMSUK",
+      "origin": {
+        "name": "เชียงใหม่",
+        "latitude": 18.7883,
+        "longitude": 98.9853
+      },
+      "destination": {
+        "name": "อุบลราชธานี",
+        "latitude": 15.2449,
+        "longitude": 104.847
+      },
+      "departure_time": "2025-05-20T22:00:00",
+      "estimated_arrival_time": "2025-05-21T06:36:00",
+      "distance_km": 1381.8,
+      "estimated_duration_hours": 8.6,
+      "status": "in_transit",
+      "progress": 13,
+      "current_position": {
+        "latitude": 16.722107,
+        "longitude": 101.414744
+      },
+      "orders": [
+        {
+          "orderId": "ORD-SER2600",
+          "item": "สินค้า D",
+          "quantity": 7
+        },
+        {
+          "orderId": "ORD-SER4419",
+          "item": "สินค้า B",
+          "quantity": 7
+        },
+        {
+          "orderId": "ORD-SER1598",
+          "item": "สินค้า D",
+          "quantity": 14
+        }
+      ],
+      "route": [
+        {
+          "lat": 18.87502,
+          "lng": 98.909326
+        },
+        {
+          "lat": 17.880146,
+          "lng": 99.972066
+        },
+        {
+          "lat": 17.354673,
+          "lng": 101.294676
+        },
+        {
+          "lat": 16.479734,
+          "lng": 102.310493
+        },
+        {
+          "lat": 16.058605,
+          "lng": 103.865125
+        },
+        {
+          "lat": 15.403202,
+          "lng": 104.997797
+        }
+      ]
+    },
+    {
+      "id": "SERMSUK-0030",
+      "company": "SERMSUK",
+      "origin": {
+        "name": "ภูเก็ต",
+        "latitude": 7.8804,
+        "longitude": 98.3923
+      },
+      "destination": {
+        "name": "สุราษฎร์ธานี",
+        "latitude": 9.0397,
+        "longitude": 99.1715
+      },
+      "departure_time": "2025-05-19T20:00:00",
+      "estimated_arrival_time": "2025-05-21T07:18:00",
+      "distance_km": 925.1,
+      "estimated_duration_hours": 35.3,
+      "status": "in_transit",
+      "progress": 17,
+      "current_position": {
+        "latitude": 8.863863,
+        "longitude": 99.060419
+      },
+      "orders": [
+        {
+          "orderId": "ORD-SER9114",
+          "item": "สินค้า B",
+          "quantity": 2
+        },
+        {
+          "orderId": "ORD-SER1856",
+          "item": "สินค้า C",
+          "quantity": 2
+        }
+      ],
+      "route": [
+        {
+          "lat": 7.89207,
+          "lng": 98.457586
+        },
+        {
+          "lat": 8.118098,
+          "lng": 98.590229
+        },
+        {
+          "lat": 8.420638,
+          "lng": 98.889706
+        },
+        {
+          "lat": 8.457367,
+          "lng": 98.696252
+        },
+        {
+          "lat": 8.899494,
+          "lng": 99.160843
+        },
+        {
+          "lat": 9.057103,
+          "lng": 99.250937
+        }
+      ]
+    },
+    {
+      "id": "SERMSUK-0031",
+      "company": "SERMSUK",
+      "origin": {
+        "name": "สกลนคร",
+        "latitude": 17.168,
+        "longitude": 104.1456
+      },
+      "destination": {
+        "name": "กรุงเทพฯ",
+        "latitude": 13.7563,
+        "longitude": 100.5018
+      },
+      "departure_time": "2025-05-21T08:00:00",
+      "estimated_arrival_time": "2025-05-22T07:30:00",
+      "distance_km": 1120.7,
+      "estimated_duration_hours": 23.5,
+      "status": "in_transit",
+      "progress": 75,
+      "current_position": {
+        "latitude": 16.861312,
+        "longitude": 101.998388
+      },
+      "orders": [
+        {
+          "orderId": "ORD-SER6689",
+          "item": "สินค้า A",
+          "quantity": 14
+        }
+      ],
+      "route": [
+        {
+          "lat": 17.170778,
+          "lng": 104.192358
+        },
+        {
+          "lat": 16.396728,
+          "lng": 103.315221
+        },
+        {
+          "lat": 15.851461,
+          "lng": 102.52196
+        },
+        {
+          "lat": 15.217211,
+          "lng": 102.031946
+        },
+        {
+          "lat": 14.51588,
+          "lng": 101.066788
+        },
+        {
+          "lat": 13.839876,
+          "lng": 100.538586
+        }
+      ]
+    },
+    {
+      "id": "SERMSUK-0032",
+      "company": "SERMSUK",
+      "origin": {
+        "name": "อุดรธานี",
+        "latitude": 17.4156,
+        "longitude": 102.785
+      },
+      "destination": {
+        "name": "เชียงใหม่",
+        "latitude": 18.7883,
+        "longitude": 98.9853
+      },
+      "departure_time": "2025-05-19T09:00:00",
+      "estimated_arrival_time": "2025-05-19T14:06:00",
+      "distance_km": 1320.7,
+      "estimated_duration_hours": 5.1,
+      "status": "broken",
+      "progress": 100,
+      "current_position": {
+        "latitude": 17.812862,
+        "longitude": 101.85775
+      },
+      "orders": [
+        {
+          "orderId": "ORD-SER2866",
+          "item": "สินค้า B",
+          "quantity": 15
+        },
+        {
+          "orderId": "ORD-SER1033",
+          "item": "สินค้า A",
+          "quantity": 18
+        },
+        {
+          "orderId": "ORD-SER4900",
+          "item": "สินค้า E",
+          "quantity": 7
+        }
+      ],
+      "route": [
+        {
+          "lat": 17.378439,
+          "lng": 102.892883
+        },
+        {
+          "lat": 17.732212,
+          "lng": 101.843444
+        },
+        {
+          "lat": 17.912582,
+          "lng": 101.165598
+        },
+        {
+          "lat": 18.199188,
+          "lng": 100.47698
+        },
+        {
+          "lat": 18.360196,
+          "lng": 99.715082
+        },
+        {
+          "lat": 18.74104,
+          "lng": 98.97668
+        }
+      ]
+    },
+    {
+      "id": "SERMSUK-0033",
+      "company": "SERMSUK",
+      "origin": {
+        "name": "กรุงเทพฯ",
+        "latitude": 13.7563,
+        "longitude": 100.5018
+      },
+      "destination": {
+        "name": "ภูเก็ต",
+        "latitude": 7.8804,
+        "longitude": 98.3923
+      },
+      "departure_time": "2025-05-20T14:00:00",
+      "estimated_arrival_time": "2025-05-20T20:30:00",
+      "distance_km": 166.2,
+      "estimated_duration_hours": 6.5,
+      "status": "in_transit",
+      "progress": 21,
+      "current_position": {
+        "latitude": 9.026569,
+        "longitude": 99.316362
+      },
+      "orders": [
+        {
+          "orderId": "ORD-SER7554",
+          "item": "สินค้า E",
+          "quantity": 15
+        },
+        {
+          "orderId": "ORD-SER8723",
+          "item": "สินค้า A",
+          "quantity": 13
+        },
+        {
+          "orderId": "ORD-SER4861",
+          "item": "สินค้า D",
+          "quantity": 19
+        }
+      ],
+      "route": [
+        {
+          "lat": 13.904528,
+          "lng": 100.553326
+        },
+        {
+          "lat": 12.723195,
+          "lng": 100.023457
+        },
+        {
+          "lat": 11.569233,
+          "lng": 99.557245
+        },
+        {
+          "lat": 10.292954,
+          "lng": 99.089832
+        },
+        {
+          "lat": 9.234645,
+          "lng": 98.615215
+        },
+        {
+          "lat": 7.800799,
+          "lng": 98.235867
+        }
+      ]
+    },
+    {
+      "id": "SERMSUK-0034",
+      "company": "SERMSUK",
+      "origin": {
+        "name": "ภูเก็ต",
+        "latitude": 7.8804,
+        "longitude": 98.3923
+      },
+      "destination": {
+        "name": "สกลนคร",
+        "latitude": 17.168,
+        "longitude": 104.1456
+      },
+      "departure_time": "2025-05-19T16:00:00",
+      "estimated_arrival_time": "2025-05-21T15:42:00",
+      "distance_km": 251.8,
+      "estimated_duration_hours": 47.7,
+      "status": "in_transit",
+      "progress": 50,
+      "current_position": {
+        "latitude": 10.023335,
+        "longitude": 98.60515
+      },
+      "orders": [
+        {
+          "orderId": "ORD-SER1827",
+          "item": "สินค้า A",
+          "quantity": 19
+        },
+        {
+          "orderId": "ORD-SER3778",
+          "item": "สินค้า E",
+          "quantity": 13
+        }
+      ],
+      "route": [
+        {
+          "lat": 8.063531,
+          "lng": 98.569466
+        },
+        {
+          "lat": 9.680895,
+          "lng": 99.526921
+        },
+        {
+          "lat": 11.614989,
+          "lng": 100.873628
+        },
+        {
+          "lat": 13.385619,
+          "lng": 101.860964
+        },
+        {
+          "lat": 15.462162,
+          "lng": 103.102365
+        },
+        {
+          "lat": 17.131189,
+          "lng": 104.201987
+        }
+      ]
+    },
+    {
+      "id": "SERMSUK-0035",
+      "company": "SERMSUK",
+      "origin": {
+        "name": "สุราษฎร์ธานี",
+        "latitude": 9.0397,
+        "longitude": 99.1715
+      },
+      "destination": {
+        "name": "นครราชสีมา",
+        "latitude": 14.9799,
+        "longitude": 102.0977
+      },
+      "departure_time": "2025-05-21T22:00:00",
+      "estimated_arrival_time": "2025-05-22T12:48:00",
+      "distance_km": 331.6,
+      "estimated_duration_hours": 14.8,
+      "status": "in_transit",
+      "progress": 18,
+      "current_position": {
+        "latitude": 14.520786,
+        "longitude": 100.708208
+      },
+      "orders": [
+        {
+          "orderId": "ORD-SER5068",
+          "item": "สินค้า E",
+          "quantity": 2
+        },
+        {
+          "orderId": "ORD-SER9930",
+          "item": "สินค้า D",
+          "quantity": 15
+        }
+      ],
+      "route": [
+        {
+          "lat": 8.997705,
+          "lng": 99.006595
+        },
+        {
+          "lat": 10.234067,
+          "lng": 99.579186
+        },
+        {
+          "lat": 11.397325,
+          "lng": 100.383655
+        },
+        {
+          "lat": 12.429907,
+          "lng": 100.93886
+        },
+        {
+          "lat": 13.603101,
+          "lng": 101.701263
+        },
+        {
+          "lat": 15.123476,
+          "lng": 101.984112
+        }
+      ]
+    },
+    {
+      "id": "SERMSUK-0036",
+      "company": "SERMSUK",
+      "origin": {
+        "name": "สุราษฎร์ธานี",
+        "latitude": 9.0397,
+        "longitude": 99.1715
+      },
+      "destination": {
+        "name": "เชียงใหม่",
+        "latitude": 18.7883,
+        "longitude": 98.9853
+      },
+      "departure_time": "2025-05-21T12:00:00",
+      "estimated_arrival_time": "2025-05-23T11:12:00",
+      "distance_km": 1145.9,
+      "estimated_duration_hours": 47.2,
+      "status": "in_transit",
+      "progress": 18,
+      "current_position": {
+        "latitude": 12.499658,
+        "longitude": 99.113325
+      },
+      "orders": [
+        {
+          "orderId": "ORD-SER6862",
+          "item": "สินค้า B",
+          "quantity": 17
+        },
+        {
+          "orderId": "ORD-SER8298",
+          "item": "สินค้า D",
+          "quantity": 6
+        }
+      ],
+      "route": [
+        {
+          "lat": 9.058352,
+          "lng": 99.258269
+        },
+        {
+          "lat": 10.902076,
+          "lng": 99.291448
+        },
+        {
+          "lat": 12.869194,
+          "lng": 99.064767
+        },
+        {
+          "lat": 15.025959,
+          "lng": 99.198461
+        },
+        {
+          "lat": 16.656582,
+          "lng": 99.093756
+        },
+        {
+          "lat": 18.589828,
+          "lng": 99.13459
+        }
+      ]
+    },
+    {
+      "id": "SERMSUK-0037",
+      "company": "SERMSUK",
+      "origin": {
+        "name": "กรุงเทพฯ",
+        "latitude": 13.7563,
+        "longitude": 100.5018
+      },
+      "destination": {
+        "name": "อุบลราชธานี",
+        "latitude": 15.2449,
+        "longitude": 104.847
+      },
+      "departure_time": "2025-05-21T09:00:00",
+      "estimated_arrival_time": "2025-05-22T01:42:00",
+      "distance_km": 1360.6,
+      "estimated_duration_hours": 16.7,
+      "status": "available",
+      "progress": 100,
+      "current_position": {
+        "latitude": 14.285187,
+        "longitude": 100.775972
+      },
+      "orders": [
+        {
+          "orderId": "ORD-SER4695",
+          "item": "สินค้า D",
+          "quantity": 19
+        }
+      ],
+      "route": [
+        {
+          "lat": 13.743973,
+          "lng": 100.584048
+        },
+        {
+          "lat": 13.953225,
+          "lng": 101.366243
+        },
+        {
+          "lat": 14.338497,
+          "lng": 102.164333
+        },
+        {
+          "lat": 14.667803,
+          "lng": 103.122306
+        },
+        {
+          "lat": 14.894844,
+          "lng": 104.157069
+        },
+        {
+          "lat": 15.383474,
+          "lng": 104.761486
+        }
+      ]
+    },
+    {
+      "id": "SERMSUK-0038",
+      "company": "SERMSUK",
+      "origin": {
+        "name": "หาดใหญ่",
+        "latitude": 6.9969,
+        "longitude": 100.4669
+      },
+      "destination": {
+        "name": "ขอนแก่น",
+        "latitude": 16.4419,
+        "longitude": 102.835
+      },
+      "departure_time": "2025-05-22T01:00:00",
+      "estimated_arrival_time": "2025-05-23T16:06:00",
+      "distance_km": 901.8,
+      "estimated_duration_hours": 39.1,
+      "status": "in_transit",
+      "progress": 82,
+      "current_position": {
+        "latitude": 16.384545,
+        "longitude": 100.837211
+      },
+      "orders": [
+        {
+          "orderId": "ORD-SER1569",
+          "item": "สินค้า A",
+          "quantity": 18
+        },
+        {
+          "orderId": "ORD-SER5390",
+          "item": "สินค้า B",
+          "quantity": 7
+        }
+      ],
+      "route": [
+        {
+          "lat": 7.133624,
+          "lng": 100.287262
+        },
+        {
+          "lat": 8.782554,
+          "lng": 101.094227
+        },
+        {
+          "lat": 10.622945,
+          "lng": 101.416685
+        },
+        {
+          "lat": 12.836475,
+          "lng": 101.776477
+        },
+        {
+          "lat": 14.38487,
+          "lng": 102.260181
+        },
+        {
+          "lat": 16.607232,
+          "lng": 102.807096
+        }
+      ]
+    },
+    {
+      "id": "SERMSUK-0039",
+      "company": "SERMSUK",
+      "origin": {
+        "name": "อุบลราชธานี",
+        "latitude": 15.2449,
+        "longitude": 104.847
+      },
+      "destination": {
+        "name": "เชียงใหม่",
+        "latitude": 18.7883,
+        "longitude": 98.9853
+      },
+      "departure_time": "2025-05-21T17:00:00",
+      "estimated_arrival_time": "2025-05-22T00:42:00",
+      "distance_km": 400.8,
+      "estimated_duration_hours": 7.7,
+      "status": "in_transit",
+      "progress": 13,
+      "current_position": {
+        "latitude": 15.400599,
+        "longitude": 99.639348
+      },
+      "orders": [
+        {
+          "orderId": "ORD-SER9379",
+          "item": "สินค้า A",
+          "quantity": 13
+        }
+      ],
+      "route": [
+        {
+          "lat": 15.202739,
+          "lng": 104.7434
+        },
+        {
+          "lat": 15.893354,
+          "lng": 103.773915
+        },
+        {
+          "lat": 16.487838,
+          "lng": 102.51701
+        },
+        {
+          "lat": 17.362744,
+          "lng": 101.143167
+        },
+        {
+          "lat": 18.151853,
+          "lng": 100.282935
+        },
+        {
+          "lat": 18.836589,
+          "lng": 98.861251
+        }
+      ]
+    },
+    {
+      "id": "SERMSUK-0040",
+      "company": "SERMSUK",
+      "origin": {
+        "name": "อุบลราชธานี",
+        "latitude": 15.2449,
+        "longitude": 104.847
+      },
+      "destination": {
+        "name": "สุราษฎร์ธานี",
+        "latitude": 9.0397,
+        "longitude": 99.1715
+      },
+      "departure_time": "2025-05-21T00:00:00",
+      "estimated_arrival_time": "2025-05-21T19:42:00",
+      "distance_km": 1328.5,
+      "estimated_duration_hours": 19.7,
+      "status": "in_transit",
+      "progress": 78,
+      "current_position": {
+        "latitude": 9.498404,
+        "longitude": 104.389592
+      },
+      "orders": [
+        {
+          "orderId": "ORD-SER5008",
+          "item": "สินค้า C",
+          "quantity": 16
+        },
+        {
+          "orderId": "ORD-SER8671",
+          "item": "สินค้า B",
+          "quantity": 4
+        }
+      ],
+      "route": [
+        {
+          "lat": 15.13963,
+          "lng": 104.661692
+        },
+        {
+          "lat": 14.123989,
+          "lng": 103.769592
+        },
+        {
+          "lat": 12.715664,
+          "lng": 102.610838
+        },
+        {
+          "lat": 11.705654,
+          "lng": 101.449412
+        },
+        {
+          "lat": 10.388399,
+          "lng": 100.426977
+        },
+        {
+          "lat": 9.0968,
+          "lng": 99.289873
+        }
+      ]
+    },
+    {
+      "id": "SERMSUK-0041",
+      "company": "SERMSUK",
+      "origin": {
+        "name": "อุบลราชธานี",
+        "latitude": 15.2449,
+        "longitude": 104.847
+      },
+      "destination": {
+        "name": "นครราชสีมา",
+        "latitude": 14.9799,
+        "longitude": 102.0977
+      },
+      "departure_time": "2025-05-22T01:00:00",
+      "estimated_arrival_time": "2025-05-23T15:30:00",
+      "distance_km": 847.4,
+      "estimated_duration_hours": 38.5,
+      "status": "broken",
+      "progress": 100,
+      "current_position": {
+        "latitude": 15.177118,
+        "longitude": 104.377933
+      },
+      "orders": [
+        {
+          "orderId": "ORD-SER8603",
+          "item": "สินค้า C",
+          "quantity": 2
+        },
+        {
+          "orderId": "ORD-SER1604",
+          "item": "สินค้า E",
+          "quantity": 2
+        },
+        {
+          "orderId": "ORD-SER7797",
+          "item": "สินค้า E",
+          "quantity": 14
+        }
+      ],
+      "route": [
+        {
+          "lat": 15.421094,
+          "lng": 104.731504
+        },
+        {
+          "lat": 15.162535,
+          "lng": 104.473634
+        },
+        {
+          "lat": 15.240072,
+          "lng": 103.801393
+        },
+        {
+          "lat": 15.265258,
+          "lng": 103.34374
+        },
+        {
+          "lat": 14.907708,
+          "lng": 102.814399
+        },
+        {
+          "lat": 15.03355,
+          "lng": 102.263992
+        }
+      ]
+    },
+    {
+      "id": "SERMSUK-0042",
+      "company": "SERMSUK",
+      "origin": {
+        "name": "นครราชสีมา",
+        "latitude": 14.9799,
+        "longitude": 102.0977
+      },
+      "destination": {
+        "name": "ขอนแก่น",
+        "latitude": 16.4419,
+        "longitude": 102.835
+      },
+      "departure_time": "2025-05-19T19:00:00",
+      "estimated_arrival_time": "2025-05-21T03:36:00",
+      "distance_km": 635.0,
+      "estimated_duration_hours": 32.6,
+      "status": "in_transit",
+      "progress": 19,
+      "current_position": {
+        "latitude": 16.154234,
+        "longitude": 102.749648
+      },
+      "orders": [
+        {
+          "orderId": "ORD-SER1929",
+          "item": "สินค้า D",
+          "quantity": 14
+        },
+        {
+          "orderId": "ORD-SER9340",
+          "item": "สินค้า B",
+          "quantity": 1
+        },
+        {
+          "orderId": "ORD-SER6892",
+          "item": "สินค้า D",
+          "quantity": 10
+        }
+      ],
+      "route": [
+        {
+          "lat": 15.036833,
+          "lng": 102.12292
+        },
+        {
+          "lat": 15.0869,
+          "lng": 102.194973
+        },
+        {
+          "lat": 15.577174,
+          "lng": 102.472652
+        },
+        {
+          "lat": 16.032195,
+          "lng": 102.662736
+        },
+        {
+          "lat": 16.285825,
+          "lng": 102.759997
+        },
+        {
+          "lat": 16.446853,
+          "lng": 102.750152
+        }
+      ]
+    },
+    {
+      "id": "SERMSUK-0043",
+      "company": "SERMSUK",
+      "origin": {
+        "name": "ขอนแก่น",
+        "latitude": 16.4419,
+        "longitude": 102.835
+      },
+      "destination": {
+        "name": "เชียงใหม่",
+        "latitude": 18.7883,
+        "longitude": 98.9853
+      },
+      "departure_time": "2025-05-21T20:00:00",
+      "estimated_arrival_time": "2025-05-22T05:48:00",
+      "distance_km": 399.1,
+      "estimated_duration_hours": 9.8,
+      "status": "in_transit",
+      "progress": 35,
+      "current_position": {
+        "latitude": 17.89935,
+        "longitude": 99.083825
+      },
+      "orders": [
+        {
+          "orderId": "ORD-SER5231",
+          "item": "สินค้า E",
+          "quantity": 6
+        },
+        {
+          "orderId": "ORD-SER6056",
+          "item": "สินค้า D",
+          "quantity": 7
+        }
+      ],
+      "route": [
+        {
+          "lat": 16.378007,
+          "lng": 102.818231
+        },
+        {
+          "lat": 16.913889,
+          "lng": 101.900687
+        },
+        {
+          "lat": 17.497392,
+          "lng": 101.285022
+        },
+        {
+          "lat": 18.024573,
+          "lng": 100.723072
+        },
+        {
+          "lat": 18.473514,
+          "lng": 99.605748
+        },
+        {
+          "lat": 18.754491,
+          "lng": 98.962808
+        }
+      ]
+    },
+    {
+      "id": "SERMSUK-0044",
+      "company": "SERMSUK",
+      "origin": {
+        "name": "เชียงใหม่",
+        "latitude": 18.7883,
+        "longitude": 98.9853
+      },
+      "destination": {
+        "name": "สกลนคร",
+        "latitude": 17.168,
+        "longitude": 104.1456
+      },
+      "departure_time": "2025-05-21T03:00:00",
+      "estimated_arrival_time": "2025-05-22T06:30:00",
+      "distance_km": 1104.1,
+      "estimated_duration_hours": 27.5,
+      "status": "in_transit",
+      "progress": 4,
+      "current_position": {
+        "latitude": 17.344487,
+        "longitude": 103.082485
+      },
+      "orders": [
+        {
+          "orderId": "ORD-SER7898",
+          "item": "สินค้า E",
+          "quantity": 4
+        },
+        {
+          "orderId": "ORD-SER4554",
+          "item": "สินค้า A",
+          "quantity": 10
+        }
+      ],
+      "route": [
+        {
+          "lat": 18.758667,
+          "lng": 99.115809
+        },
+        {
+          "lat": 18.517667,
+          "lng": 100.0164
+        },
+        {
+          "lat": 18.08086,
+          "lng": 101.150607
+        },
+        {
+          "lat": 17.718201,
+          "lng": 102.020977
+        },
+        {
+          "lat": 17.482032,
+          "lng": 103.036917
+        },
+        {
+          "lat": 17.188251,
+          "lng": 104.051727
+        }
+      ]
+    },
+    {
+      "id": "SERMSUK-0045",
+      "company": "SERMSUK",
+      "origin": {
+        "name": "อุดรธานี",
+        "latitude": 17.4156,
+        "longitude": 102.785
+      },
+      "destination": {
+        "name": "สกลนคร",
+        "latitude": 17.168,
+        "longitude": 104.1456
+      },
+      "departure_time": "2025-05-20T01:00:00",
+      "estimated_arrival_time": "2025-05-21T02:24:00",
+      "distance_km": 621.4,
+      "estimated_duration_hours": 25.4,
+      "status": "available",
+      "progress": 100,
+      "current_position": {
+        "latitude": 17.337431,
+        "longitude": 103.859118
+      },
+      "orders": [
+        {
+          "orderId": "ORD-SER6127",
+          "item": "สินค้า B",
+          "quantity": 16
+        }
+      ],
+      "route": [
+        {
+          "lat": 17.331041,
+          "lng": 102.88198
+        },
+        {
+          "lat": 17.427142,
+          "lng": 103.208225
+        },
+        {
+          "lat": 17.259302,
+          "lng": 103.400498
+        },
+        {
+          "lat": 17.254305,
+          "lng": 103.600463
+        },
+        {
+          "lat": 17.019057,
+          "lng": 104.069034
+        },
+        {
+          "lat": 17.091626,
+          "lng": 104.023351
+        }
+      ]
+    },
+    {
+      "id": "SERMSUK-0046",
+      "company": "SERMSUK",
+      "origin": {
+        "name": "สุราษฎร์ธานี",
+        "latitude": 9.0397,
+        "longitude": 99.1715
+      },
+      "destination": {
+        "name": "อุดรธานี",
+        "latitude": 17.4156,
+        "longitude": 102.785
+      },
+      "departure_time": "2025-05-20T18:00:00",
+      "estimated_arrival_time": "2025-05-21T14:42:00",
+      "distance_km": 80.0,
+      "estimated_duration_hours": 20.7,
+      "status": "available",
+      "progress": 100,
+      "current_position": {
+        "latitude": 17.385251,
+        "longitude": 102.191698
+      },
+      "orders": [
+        {
+          "orderId": "ORD-SER3860",
+          "item": "สินค้า A",
+          "quantity": 11
+        },
+        {
+          "orderId": "ORD-SER4915",
+          "item": "สินค้า D",
+          "quantity": 6
+        }
+      ],
+      "route": [
+        {
+          "lat": 9.008773,
+          "lng": 98.975892
+        },
+        {
+          "lat": 10.747295,
+          "lng": 99.919056
+        },
+        {
+          "lat": 12.570361,
+          "lng": 100.78934
+        },
+        {
+          "lat": 14.11669,
+          "lng": 101.356534
+        },
+        {
+          "lat": 15.908135,
+          "lng": 102.149216
+        },
+        {
+          "lat": 17.399394,
+          "lng": 102.869016
+        }
+      ]
+    },
+    {
+      "id": "SERMSUK-0047",
+      "company": "SERMSUK",
+      "origin": {
+        "name": "เชียงใหม่",
+        "latitude": 18.7883,
+        "longitude": 98.9853
+      },
+      "destination": {
+        "name": "อุดรธานี",
+        "latitude": 17.4156,
+        "longitude": 102.785
+      },
+      "departure_time": "2025-05-20T09:00:00",
+      "estimated_arrival_time": "2025-05-21T12:24:00",
+      "distance_km": 635.1,
+      "estimated_duration_hours": 27.4,
+      "status": "in_transit",
+      "progress": 9,
+      "current_position": {
+        "latitude": 18.344897,
+        "longitude": 101.936972
+      },
+      "orders": [
+        {
+          "orderId": "ORD-SER5459",
+          "item": "สินค้า A",
+          "quantity": 12
+        },
+        {
+          "orderId": "ORD-SER4470",
+          "item": "สินค้า B",
+          "quantity": 3
+        }
+      ],
+      "route": [
+        {
+          "lat": 18.695479,
+          "lng": 99.02662
+        },
+        {
+          "lat": 18.685919,
+          "lng": 99.814578
+        },
+        {
+          "lat": 18.103372,
+          "lng": 100.64326
+        },
+        {
+          "lat": 17.922975,
+          "lng": 101.278201
+        },
+        {
+          "lat": 17.613428,
+          "lng": 101.862603
+        },
+        {
+          "lat": 17.513212,
+          "lng": 102.611433
+        }
+      ]
+    },
+    {
+      "id": "SERMSUK-0048",
+      "company": "SERMSUK",
+      "origin": {
+        "name": "เชียงใหม่",
+        "latitude": 18.7883,
+        "longitude": 98.9853
+      },
+      "destination": {
+        "name": "อุบลราชธานี",
+        "latitude": 15.2449,
+        "longitude": 104.847
+      },
+      "departure_time": "2025-05-21T12:00:00",
+      "estimated_arrival_time": "2025-05-22T22:42:00",
+      "distance_km": 836.4,
+      "estimated_duration_hours": 34.7,
+      "status": "broken",
+      "progress": 100,
+      "current_position": {
+        "latitude": 17.692946,
+        "longitude": 104.26061
+      },
+      "orders": [
+        {
+          "orderId": "ORD-SER5782",
+          "item": "สินค้า C",
+          "quantity": 7
+        },
+        {
+          "orderId": "ORD-SER4762",
+          "item": "สินค้า B",
+          "quantity": 16
+        },
+        {
+          "orderId": "ORD-SER5943",
+          "item": "สินค้า D",
+          "quantity": 11
+        }
+      ],
+      "route": [
+        {
+          "lat": 18.685008,
+          "lng": 98.969559
+        },
+        {
+          "lat": 17.955271,
+          "lng": 100.160811
+        },
+        {
+          "lat": 17.304291,
+          "lng": 101.413908
+        },
+        {
+          "lat": 16.774383,
+          "lng": 102.379953
+        },
+        {
+          "lat": 16.055186,
+          "lng": 103.553779
+        },
+        {
+          "lat": 15.407129,
+          "lng": 104.972054
+        }
+      ]
+    },
+    {
+      "id": "SERMSUK-0049",
+      "company": "SERMSUK",
+      "origin": {
+        "name": "สกลนคร",
+        "latitude": 17.168,
+        "longitude": 104.1456
+      },
+      "destination": {
+        "name": "ภูเก็ต",
+        "latitude": 7.8804,
+        "longitude": 98.3923
+      },
+      "departure_time": "2025-05-20T02:00:00",
+      "estimated_arrival_time": "2025-05-21T14:18:00",
+      "distance_km": 1417.3,
+      "estimated_duration_hours": 36.3,
+      "status": "broken",
+      "progress": 100,
+      "current_position": {
+        "latitude": 15.027763,
+        "longitude": 103.378276
+      },
+      "orders": [
+        {
+          "orderId": "ORD-SER2231",
+          "item": "สินค้า B",
+          "quantity": 18
+        },
+        {
+          "orderId": "ORD-SER3645",
+          "item": "สินค้า A",
+          "quantity": 15
+        }
+      ],
+      "route": [
+        {
+          "lat": 17.174046,
+          "lng": 104.266813
+        },
+        {
+          "lat": 15.180229,
+          "lng": 102.816021
+        },
+        {
+          "lat": 13.54181,
+          "lng": 101.708844
+        },
+        {
+          "lat": 11.561264,
+          "lng": 100.506278
+        },
+        {
+          "lat": 9.805295,
+          "lng": 99.501993
+        },
+        {
+          "lat": 8.018163,
+          "lng": 98.41158
+        }
+      ]
+    },
+    {
+      "id": "SERMSUK-0050",
+      "company": "SERMSUK",
+      "origin": {
+        "name": "อุบลราชธานี",
+        "latitude": 15.2449,
+        "longitude": 104.847
+      },
+      "destination": {
+        "name": "หาดใหญ่",
+        "latitude": 6.9969,
+        "longitude": 100.4669
+      },
+      "departure_time": "2025-05-20T12:00:00",
+      "estimated_arrival_time": "2025-05-21T22:24:00",
+      "distance_km": 1023.2,
+      "estimated_duration_hours": 34.4,
+      "status": "in_transit",
+      "progress": 6,
+      "current_position": {
+        "latitude": 14.264994,
+        "longitude": 101.004448
+      },
+      "orders": [
+        {
+          "orderId": "ORD-SER2268",
+          "item": "สินค้า C",
+          "quantity": 10
+        },
+        {
+          "orderId": "ORD-SER1077",
+          "item": "สินค้า B",
+          "quantity": 3
+        },
+        {
+          "orderId": "ORD-SER1267",
+          "item": "สินค้า C",
+          "quantity": 4
+        }
+      ],
+      "route": [
+        {
+          "lat": 15.10751,
+          "lng": 105.018824
+        },
+        {
+          "lat": 13.771726,
+          "lng": 103.935023
+        },
+        {
+          "lat": 12.038442,
+          "lng": 103.182863
+        },
+        {
+          "lat": 10.282352,
+          "lng": 102.097471
+        },
+        {
+          "lat": 8.542488,
+          "lng": 101.40302
+        },
+        {
+          "lat": 6.806862,
+          "lng": 100.419002
+        }
+      ]
+    },
+    {
+      "id": "HAVI-0001",
+      "company": "HAVI",
+      "origin": {
+        "name": "ขอนแก่น",
+        "latitude": 16.4419,
+        "longitude": 102.835
+      },
+      "destination": {
+        "name": "สุราษฎร์ธานี",
+        "latitude": 9.0397,
+        "longitude": 99.1715
+      },
+      "departure_time": "2025-05-19T17:00:00",
+      "estimated_arrival_time": "2025-05-20T17:00:00",
+      "distance_km": 1084.4,
+      "estimated_duration_hours": 24.0,
+      "status": "available",
+      "progress": 100,
+      "current_position": {
+        "latitude": 11.284651,
+        "longitude": 102.006159
+      },
+      "orders": [
+        {
+          "orderId": "ORD-HAV6331",
+          "item": "สินค้า D",
+          "quantity": 13
+        },
+        {
+          "orderId": "ORD-HAV3730",
+          "item": "สินค้า A",
+          "quantity": 12
+        }
+      ],
+      "route": [
+        {
+          "lat": 16.342145,
+          "lng": 102.89751
+        },
+        {
+          "lat": 15.144192,
+          "lng": 102.134214
+        },
+        {
+          "lat": 13.621157,
+          "lng": 101.495934
+        },
+        {
+          "lat": 11.99731,
+          "lng": 100.574005
+        },
+        {
+          "lat": 10.634192,
+          "lng": 100.011559
+        },
+        {
+          "lat": 9.079539,
+          "lng": 99.273396
+        }
+      ]
+    },
+    {
+      "id": "HAVI-0002",
+      "company": "HAVI",
+      "origin": {
+        "name": "หาดใหญ่",
+        "latitude": 6.9969,
+        "longitude": 100.4669
+      },
+      "destination": {
+        "name": "สกลนคร",
+        "latitude": 17.168,
+        "longitude": 104.1456
+      },
+      "departure_time": "2025-05-20T03:00:00",
+      "estimated_arrival_time": "2025-05-21T05:06:00",
+      "distance_km": 1477.8,
+      "estimated_duration_hours": 26.1,
+      "status": "available",
+      "progress": 100,
+      "current_position": {
+        "latitude": 9.339669,
+        "longitude": 102.907708
+      },
+      "orders": [
+        {
+          "orderId": "ORD-HAV7461",
+          "item": "สินค้า D",
+          "quantity": 15
+        },
+        {
+          "orderId": "ORD-HAV7832",
+          "item": "สินค้า D",
+          "quantity": 13
+        },
+        {
+          "orderId": "ORD-HAV8166",
+          "item": "สินค้า B",
+          "quantity": 3
+        }
+      ],
+      "route": [
+        {
+          "lat": 7.005525,
+          "lng": 100.562042
+        },
+        {
+          "lat": 9.228839,
+          "lng": 101.293806
+        },
+        {
+          "lat": 10.874341,
+          "lng": 102.090709
+        },
+        {
+          "lat": 13.140168,
+          "lng": 102.812757
+        },
+        {
+          "lat": 15.026867,
+          "lng": 103.495256
+        },
+        {
+          "lat": 17.139075,
+          "lng": 104.246865
+        }
+      ]
+    },
+    {
+      "id": "HAVI-0003",
+      "company": "HAVI",
+      "origin": {
+        "name": "สุราษฎร์ธานี",
+        "latitude": 9.0397,
+        "longitude": 99.1715
+      },
+      "destination": {
+        "name": "สกลนคร",
+        "latitude": 17.168,
+        "longitude": 104.1456
+      },
+      "departure_time": "2025-05-20T03:00:00",
+      "estimated_arrival_time": "2025-05-21T13:48:00",
+      "distance_km": 1201.7,
+      "estimated_duration_hours": 34.8,
+      "status": "in_transit",
+      "progress": 20,
+      "current_position": {
+        "latitude": 9.980162,
+        "longitude": 101.936837
+      },
+      "orders": [
+        {
+          "orderId": "ORD-HAV2758",
+          "item": "สินค้า B",
+          "quantity": 3
+        },
+        {
+          "orderId": "ORD-HAV2158",
+          "item": "สินค้า C",
+          "quantity": 11
+        },
+        {
+          "orderId": "ORD-HAV9732",
+          "item": "สินค้า E",
+          "quantity": 9
+        }
+      ],
+      "route": [
+        {
+          "lat": 9.113624,
+          "lng": 99.051993
+        },
+        {
+          "lat": 10.778622,
+          "lng": 100.075251
+        },
+        {
+          "lat": 12.258887,
+          "lng": 101.217597
+        },
+        {
+          "lat": 13.884188,
+          "lng": 102.339056
+        },
+        {
+          "lat": 15.426886,
+          "lng": 103.05693
+        },
+        {
+          "lat": 17.230601,
+          "lng": 104.117377
+        }
+      ]
+    },
+    {
+      "id": "HAVI-0004",
+      "company": "HAVI",
+      "origin": {
+        "name": "ขอนแก่น",
+        "latitude": 16.4419,
+        "longitude": 102.835
+      },
+      "destination": {
+        "name": "สุราษฎร์ธานี",
+        "latitude": 9.0397,
+        "longitude": 99.1715
+      },
+      "departure_time": "2025-05-19T10:00:00",
+      "estimated_arrival_time": "2025-05-20T20:06:00",
+      "distance_km": 287.6,
+      "estimated_duration_hours": 34.1,
+      "status": "available",
+      "progress": 100,
+      "current_position": {
+        "latitude": 11.942371,
+        "longitude": 101.831257
+      },
+      "orders": [
+        {
+          "orderId": "ORD-HAV2301",
+          "item": "สินค้า E",
+          "quantity": 13
+        },
+        {
+          "orderId": "ORD-HAV8877",
+          "item": "สินค้า E",
+          "quantity": 15
+        },
+        {
+          "orderId": "ORD-HAV7377",
+          "item": "สินค้า A",
+          "quantity": 15
+        }
+      ],
+      "route": [
+        {
+          "lat": 16.564956,
+          "lng": 102.745331
+        },
+        {
+          "lat": 15.068401,
+          "lng": 102.048239
+        },
+        {
+          "lat": 13.431804,
+          "lng": 101.493751
+        },
+        {
+          "lat": 12.144352,
+          "lng": 100.807935
+        },
+        {
+          "lat": 10.633469,
+          "lng": 99.708047
+        },
+        {
+          "lat": 9.001517,
+          "lng": 99.295179
+        }
+      ]
+    },
+    {
+      "id": "HAVI-0005",
+      "company": "HAVI",
+      "origin": {
+        "name": "อุบลราชธานี",
+        "latitude": 15.2449,
+        "longitude": 104.847
+      },
+      "destination": {
+        "name": "อุดรธานี",
+        "latitude": 17.4156,
+        "longitude": 102.785
+      },
+      "departure_time": "2025-05-20T02:00:00",
+      "estimated_arrival_time": "2025-05-22T00:12:00",
+      "distance_km": 406.6,
+      "estimated_duration_hours": 46.2,
+      "status": "available",
+      "progress": 100,
+      "current_position": {
+        "latitude": 16.671667,
+        "longitude": 103.792397
+      },
+      "orders": [
+        {
+          "orderId": "ORD-HAV2728",
+          "item": "สินค้า B",
+          "quantity": 9
+        },
+        {
+          "orderId": "ORD-HAV4470",
+          "item": "สินค้า A",
+          "quantity": 17
+        },
+        {
+          "orderId": "ORD-HAV3938",
+          "item": "สินค้า E",
+          "quantity": 13
+        }
+      ],
+      "route": [
+        {
+          "lat": 15.362522,
+          "lng": 104.992508
+        },
+        {
+          "lat": 15.743383,
+          "lng": 104.398479
+        },
+        {
+          "lat": 16.044296,
+          "lng": 104.001812
+        },
+        {
+          "lat": 16.524336,
+          "lng": 103.634509
+        },
+        {
+          "lat": 16.840286,
+          "lng": 103.111505
+        },
+        {
+          "lat": 17.611165,
+          "lng": 102.900153
+        }
+      ]
+    },
+    {
+      "id": "HAVI-0006",
+      "company": "HAVI",
+      "origin": {
+        "name": "กรุงเทพฯ",
+        "latitude": 13.7563,
+        "longitude": 100.5018
+      },
+      "destination": {
+        "name": "ขอนแก่น",
+        "latitude": 16.4419,
+        "longitude": 102.835
+      },
+      "departure_time": "2025-05-20T23:00:00",
+      "estimated_arrival_time": "2025-05-22T14:18:00",
+      "distance_km": 462.4,
+      "estimated_duration_hours": 39.3,
+      "status": "in_transit",
+      "progress": 7,
+      "current_position": {
+        "latitude": 15.283706,
+        "longitude": 102.792398
+      },
+      "orders": [
+        {
+          "orderId": "ORD-HAV6945",
+          "item": "สินค้า E",
+          "quantity": 4
+        },
+        {
+          "orderId": "ORD-HAV8079",
+          "item": "สินค้า C",
+          "quantity": 4
+        },
+        {
+          "orderId": "ORD-HAV7051",
+          "item": "สินค้า E",
+          "quantity": 1
+        }
+      ],
+      "route": [
+        {
+          "lat": 13.62677,
+          "lng": 100.621807
+        },
+        {
+          "lat": 14.306877,
+          "lng": 100.975711
+        },
+        {
+          "lat": 15.002378,
+          "lng": 101.275213
+        },
+        {
+          "lat": 15.253035,
+          "lng": 101.785564
+        },
+        {
+          "lat": 15.912933,
+          "lng": 102.250682
+        },
+        {
+          "lat": 16.384517,
+          "lng": 102.901318
+        }
+      ]
+    },
+    {
+      "id": "HAVI-0007",
+      "company": "HAVI",
+      "origin": {
+        "name": "นครราชสีมา",
+        "latitude": 14.9799,
+        "longitude": 102.0977
+      },
+      "destination": {
+        "name": "หาดใหญ่",
+        "latitude": 6.9969,
+        "longitude": 100.4669
+      },
+      "departure_time": "2025-05-22T06:00:00",
+      "estimated_arrival_time": "2025-05-24T04:06:00",
+      "distance_km": 432.8,
+      "estimated_duration_hours": 46.1,
+      "status": "available",
+      "progress": 100,
+      "current_position": {
+        "latitude": 14.643712,
+        "longitude": 101.815083
+      },
+      "orders": [
+        {
+          "orderId": "ORD-HAV1834",
+          "item": "สินค้า E",
+          "quantity": 6
+        },
+        {
+          "orderId": "ORD-HAV6652",
+          "item": "สินค้า C",
+          "quantity": 17
+        }
+      ],
+      "route": [
+        {
+          "lat": 15.055059,
+          "lng": 102.237476
+        },
+        {
+          "lat": 13.237994,
+          "lng": 101.783414
+        },
+        {
+          "lat": 11.88986,
+          "lng": 101.525389
+        },
+        {
+          "lat": 10.382779,
+          "lng": 101.163422
+        },
+        {
+          "lat": 8.619113,
+          "lng": 100.600292
+        },
+        {
+          "lat": 7.066084,
+          "lng": 100.269018
+        }
+      ]
+    },
+    {
+      "id": "HAVI-0008",
+      "company": "HAVI",
+      "origin": {
+        "name": "หาดใหญ่",
+        "latitude": 6.9969,
+        "longitude": 100.4669
+      },
+      "destination": {
+        "name": "นครราชสีมา",
+        "latitude": 14.9799,
+        "longitude": 102.0977
+      },
+      "departure_time": "2025-05-21T04:00:00",
+      "estimated_arrival_time": "2025-05-21T16:48:00",
+      "distance_km": 1423.9,
+      "estimated_duration_hours": 12.8,
+      "status": "available",
+      "progress": 100,
+      "current_position": {
+        "latitude": 10.981869,
+        "longitude": 100.985001
+      },
+      "orders": [
+        {
+          "orderId": "ORD-HAV3681",
+          "item": "สินค้า B",
+          "quantity": 1
+        },
+        {
+          "orderId": "ORD-HAV8655",
+          "item": "สินค้า C",
+          "quantity": 19
+        }
+      ],
+      "route": [
+        {
+          "lat": 6.833174,
+          "lng": 100.317305
+        },
+        {
+          "lat": 8.708539,
+          "lng": 100.594205
+        },
+        {
+          "lat": 10.148329,
+          "lng": 101.17151
+        },
+        {
+          "lat": 11.60305,
+          "lng": 101.363145
+        },
+        {
+          "lat": 13.22853,
+          "lng": 101.923897
+        },
+        {
+          "lat": 14.935485,
+          "lng": 102.179443
+        }
+      ]
+    },
+    {
+      "id": "HAVI-0009",
+      "company": "HAVI",
+      "origin": {
+        "name": "ขอนแก่น",
+        "latitude": 16.4419,
+        "longitude": 102.835
+      },
+      "destination": {
+        "name": "อุบลราชธานี",
+        "latitude": 15.2449,
+        "longitude": 104.847
+      },
+      "departure_time": "2025-05-20T20:00:00",
+      "estimated_arrival_time": "2025-05-22T13:00:00",
+      "distance_km": 218.1,
+      "estimated_duration_hours": 41.0,
+      "status": "available",
+      "progress": 100,
+      "current_position": {
+        "latitude": 16.362195,
+        "longitude": 103.48476
+      },
+      "orders": [
+        {
+          "orderId": "ORD-HAV8120",
+          "item": "สินค้า A",
+          "quantity": 15
+        },
+        {
+          "orderId": "ORD-HAV6159",
+          "item": "สินค้า B",
+          "quantity": 18
+        }
+      ],
+      "route": [
+        {
+          "lat": 16.358937,
+          "lng": 102.733588
+        },
+        {
+          "lat": 16.276604,
+          "lng": 103.344447
+        },
+        {
+          "lat": 15.919198,
+          "lng": 103.471595
+        },
+        {
+          "lat": 15.614684,
+          "lng": 104.182866
+        },
+        {
+          "lat": 15.350562,
+          "lng": 104.365611
+        },
+        {
+          "lat": 15.441843,
+          "lng": 104.809857
+        }
+      ]
+    },
+    {
+      "id": "HAVI-0010",
+      "company": "HAVI",
+      "origin": {
+        "name": "กรุงเทพฯ",
+        "latitude": 13.7563,
+        "longitude": 100.5018
+      },
+      "destination": {
+        "name": "อุบลราชธานี",
+        "latitude": 15.2449,
+        "longitude": 104.847
+      },
+      "departure_time": "2025-05-19T21:00:00",
+      "estimated_arrival_time": "2025-05-20T19:42:00",
+      "distance_km": 730.2,
+      "estimated_duration_hours": 22.7,
+      "status": "in_transit",
+      "progress": 91,
+      "current_position": {
+        "latitude": 14.521234,
+        "longitude": 103.271296
+      },
+      "orders": [
+        {
+          "orderId": "ORD-HAV5867",
+          "item": "สินค้า E",
+          "quantity": 14
+        }
+      ],
+      "route": [
+        {
+          "lat": 13.703565,
+          "lng": 100.535346
+        },
+        {
+          "lat": 13.997839,
+          "lng": 101.188336
+        },
+        {
+          "lat": 14.541977,
+          "lng": 102.062142
+        },
+        {
+          "lat": 14.556068,
+          "lng": 103.018586
+        },
+        {
+          "lat": 14.779809,
+          "lng": 103.880855
+        },
+        {
+          "lat": 15.050804,
+          "lng": 104.851128
+        }
+      ]
+    },
+    {
+      "id": "HAVI-0011",
+      "company": "HAVI",
+      "origin": {
+        "name": "อุดรธานี",
+        "latitude": 17.4156,
+        "longitude": 102.785
+      },
+      "destination": {
+        "name": "เชียงใหม่",
+        "latitude": 18.7883,
+        "longitude": 98.9853
+      },
+      "departure_time": "2025-05-21T09:00:00",
+      "estimated_arrival_time": "2025-05-23T00:48:00",
+      "distance_km": 851.1,
+      "estimated_duration_hours": 39.8,
+      "status": "in_transit",
+      "progress": 82,
+      "current_position": {
+        "latitude": 18.037471,
+        "longitude": 99.297224
+      },
+      "orders": [
+        {
+          "orderId": "ORD-HAV6517",
+          "item": "สินค้า E",
+          "quantity": 7
+        }
+      ],
+      "route": [
+        {
+          "lat": 17.398433,
+          "lng": 102.744463
+        },
+        {
+          "lat": 17.68351,
+          "lng": 101.899751
+        },
+        {
+          "lat": 18.128122,
+          "lng": 101.389456
+        },
+        {
+          "lat": 18.383077,
+          "lng": 100.63899
+        },
+        {
+          "lat": 18.399386,
+          "lng": 99.929072
+        },
+        {
+          "lat": 18.90166,
+          "lng": 99.181303
+        }
+      ]
+    },
+    {
+      "id": "HAVI-0012",
+      "company": "HAVI",
+      "origin": {
+        "name": "ขอนแก่น",
+        "latitude": 16.4419,
+        "longitude": 102.835
+      },
+      "destination": {
+        "name": "สกลนคร",
+        "latitude": 17.168,
+        "longitude": 104.1456
+      },
+      "departure_time": "2025-05-19T06:00:00",
+      "estimated_arrival_time": "2025-05-20T21:36:00",
+      "distance_km": 568.1,
+      "estimated_duration_hours": 39.6,
+      "status": "in_transit",
+      "progress": 8,
+      "current_position": {
+        "latitude": 17.023952,
+        "longitude": 104.133081
+      },
+      "orders": [
+        {
+          "orderId": "ORD-HAV3292",
+          "item": "สินค้า E",
+          "quantity": 12
+        },
+        {
+          "orderId": "ORD-HAV2197",
+          "item": "สินค้า D",
+          "quantity": 20
+        },
+        {
+          "orderId": "ORD-HAV6018",
+          "item": "สินค้า B",
+          "quantity": 11
+        }
+      ],
+      "route": [
+        {
+          "lat": 16.266999,
+          "lng": 102.740472
+        },
+        {
+          "lat": 16.500575,
+          "lng": 103.106671
+        },
+        {
+          "lat": 16.700236,
+          "lng": 103.418076
+        },
+        {
+          "lat": 16.713321,
+          "lng": 103.651013
+        },
+        {
+          "lat": 16.842556,
+          "lng": 103.769202
+        },
+        {
+          "lat": 17.174567,
+          "lng": 104.123608
+        }
+      ]
+    },
+    {
+      "id": "HAVI-0013",
+      "company": "HAVI",
+      "origin": {
+        "name": "อุดรธานี",
+        "latitude": 17.4156,
+        "longitude": 102.785
+      },
+      "destination": {
+        "name": "กรุงเทพฯ",
+        "latitude": 13.7563,
+        "longitude": 100.5018
+      },
+      "departure_time": "2025-05-21T07:00:00",
+      "estimated_arrival_time": "2025-05-22T14:42:00",
+      "distance_km": 139.2,
+      "estimated_duration_hours": 31.7,
+      "status": "available",
+      "progress": 100,
+      "current_position": {
+        "latitude": 15.141206,
+        "longitude": 101.232583
+      },
+      "orders": [
+        {
+          "orderId": "ORD-HAV3713",
+          "item": "สินค้า E",
+          "quantity": 18
+        },
+        {
+          "orderId": "ORD-HAV8196",
+          "item": "สินค้า B",
+          "quantity": 13
+        },
+        {
+          "orderId": "ORD-HAV6167",
+          "item": "สินค้า B",
+          "quantity": 15
+        }
+      ],
+      "route": [
+        {
+          "lat": 17.520914,
+          "lng": 102.609526
+        },
+        {
+          "lat": 16.78317,
+          "lng": 102.138252
+        },
+        {
+          "lat": 15.834321,
+          "lng": 101.853707
+        },
+        {
+          "lat": 15.40449,
+          "lng": 101.538704
+        },
+        {
+          "lat": 14.401232,
+          "lng": 100.916538
+        },
+        {
+          "lat": 13.796483,
+          "lng": 100.467998
+        }
+      ]
+    },
+    {
+      "id": "HAVI-0014",
+      "company": "HAVI",
+      "origin": {
+        "name": "สุราษฎร์ธานี",
+        "latitude": 9.0397,
+        "longitude": 99.1715
+      },
+      "destination": {
+        "name": "หาดใหญ่",
+        "latitude": 6.9969,
+        "longitude": 100.4669
+      },
+      "departure_time": "2025-05-21T10:00:00",
+      "estimated_arrival_time": "2025-05-23T09:48:00",
+      "distance_km": 1212.6,
+      "estimated_duration_hours": 47.8,
+      "status": "broken",
+      "progress": 100,
+      "current_position": {
+        "latitude": 8.405179,
+        "longitude": 100.190212
+      },
+      "orders": [
+        {
+          "orderId": "ORD-HAV9448",
+          "item": "สินค้า E",
+          "quantity": 20
+        },
+        {
+          "orderId": "ORD-HAV4070",
+          "item": "สินค้า C",
+          "quantity": 18
+        },
+        {
+          "orderId": "ORD-HAV7045",
+          "item": "สินค้า C",
+          "quantity": 3
+        }
+      ],
+      "route": [
+        {
+          "lat": 9.044875,
+          "lng": 99.193244
+        },
+        {
+          "lat": 8.671288,
+          "lng": 99.358522
+        },
+        {
+          "lat": 8.27054,
+          "lng": 99.779055
+        },
+        {
+          "lat": 7.710673,
+          "lng": 99.955523
+        },
+        {
+          "lat": 7.333855,
+          "lng": 100.215536
+        },
+        {
+          "lat": 7.067584,
+          "lng": 100.59024
+        }
+      ]
+    },
+    {
+      "id": "HAVI-0015",
+      "company": "HAVI",
+      "origin": {
+        "name": "นครราชสีมา",
+        "latitude": 14.9799,
+        "longitude": 102.0977
+      },
+      "destination": {
+        "name": "สุราษฎร์ธานี",
+        "latitude": 9.0397,
+        "longitude": 99.1715
+      },
+      "departure_time": "2025-05-19T14:00:00",
+      "estimated_arrival_time": "2025-05-21T05:12:00",
+      "distance_km": 276.6,
+      "estimated_duration_hours": 39.2,
+      "status": "broken",
+      "progress": 100,
+      "current_position": {
+        "latitude": 14.818763,
+        "longitude": 101.910921
+      },
+      "orders": [
+        {
+          "orderId": "ORD-HAV9115",
+          "item": "สินค้า E",
+          "quantity": 8
+        },
+        {
+          "orderId": "ORD-HAV7831",
+          "item": "สินค้า C",
+          "quantity": 11
+        }
+      ],
+      "route": [
+        {
+          "lat": 14.962582,
+          "lng": 102.131933
+        },
+        {
+          "lat": 13.971597,
+          "lng": 101.656634
+        },
+        {
+          "lat": 12.517151,
+          "lng": 100.895947
+        },
+        {
+          "lat": 11.51385,
+          "lng": 100.238295
+        },
+        {
+          "lat": 10.17143,
+          "lng": 99.895208
+        },
+        {
+          "lat": 8.947984,
+          "lng": 99.122408
+        }
+      ]
+    },
+    {
+      "id": "HAVI-0016",
+      "company": "HAVI",
+      "origin": {
+        "name": "สกลนคร",
+        "latitude": 17.168,
+        "longitude": 104.1456
+      },
+      "destination": {
+        "name": "หาดใหญ่",
+        "latitude": 6.9969,
+        "longitude": 100.4669
+      },
+      "departure_time": "2025-05-21T09:00:00",
+      "estimated_arrival_time": "2025-05-23T08:00:00",
+      "distance_km": 1361.1,
+      "estimated_duration_hours": 47.0,
+      "status": "in_transit",
+      "progress": 73,
+      "current_position": {
+        "latitude": 13.756786,
+        "longitude": 104.095135
+      },
+      "orders": [
+        {
+          "orderId": "ORD-HAV3594",
+          "item": "สินค้า C",
+          "quantity": 17
+        },
+        {
+          "orderId": "ORD-HAV7992",
+          "item": "สินค้า A",
+          "quantity": 1
+        }
+      ],
+      "route": [
+        {
+          "lat": 17.355299,
+          "lng": 104.09434
+        },
+        {
+          "lat": 15.186567,
+          "lng": 103.281003
+        },
+        {
+          "lat": 13.061286,
+          "lng": 102.558125
+        },
+        {
+          "lat": 11.131434,
+          "lng": 102.130813
+        },
+        {
+          "lat": 8.863109,
+          "lng": 101.343591
+        },
+        {
+          "lat": 7.144707,
+          "lng": 100.665137
+        }
+      ]
+    },
+    {
+      "id": "HAVI-0017",
+      "company": "HAVI",
+      "origin": {
+        "name": "นครราชสีมา",
+        "latitude": 14.9799,
+        "longitude": 102.0977
+      },
+      "destination": {
+        "name": "กรุงเทพฯ",
+        "latitude": 13.7563,
+        "longitude": 100.5018
+      },
+      "departure_time": "2025-05-19T06:00:00",
+      "estimated_arrival_time": "2025-05-19T18:30:00",
+      "distance_km": 1484.8,
+      "estimated_duration_hours": 12.5,
+      "status": "in_transit",
+      "progress": 87,
+      "current_position": {
+        "latitude": 13.827665,
+        "longitude": 101.266314
+      },
+      "orders": [
+        {
+          "orderId": "ORD-HAV2420",
+          "item": "สินค้า C",
+          "quantity": 4
+        },
+        {
+          "orderId": "ORD-HAV8501",
+          "item": "สินค้า A",
+          "quantity": 19
+        },
+        {
+          "orderId": "ORD-HAV4739",
+          "item": "สินค้า C",
+          "quantity": 3
+        }
+      ],
+      "route": [
+        {
+          "lat": 14.832086,
+          "lng": 101.985174
+        },
+        {
+          "lat": 14.756115,
+          "lng": 101.618228
+        },
+        {
+          "lat": 14.396567,
+          "lng": 101.388326
+        },
+        {
+          "lat": 14.357783,
+          "lng": 101.289372
+        },
+        {
+          "lat": 13.839892,
+          "lng": 100.962064
+        },
+        {
+          "lat": 13.827302,
+          "lng": 100.513248
+        }
+      ]
+    },
+    {
+      "id": "HAVI-0018",
+      "company": "HAVI",
+      "origin": {
+        "name": "กรุงเทพฯ",
+        "latitude": 13.7563,
+        "longitude": 100.5018
+      },
+      "destination": {
+        "name": "สกลนคร",
+        "latitude": 17.168,
+        "longitude": 104.1456
+      },
+      "departure_time": "2025-05-19T06:00:00",
+      "estimated_arrival_time": "2025-05-20T09:18:00",
+      "distance_km": 807.2,
+      "estimated_duration_hours": 27.3,
+      "status": "in_transit",
+      "progress": 52,
+      "current_position": {
+        "latitude": 14.620799,
+        "longitude": 103.489413
+      },
+      "orders": [
+        {
+          "orderId": "ORD-HAV1675",
+          "item": "สินค้า E",
+          "quantity": 5
+        }
+      ],
+      "route": [
+        {
+          "lat": 13.731036,
+          "lng": 100.47164
+        },
+        {
+          "lat": 14.356958,
+          "lng": 101.420713
+        },
+        {
+          "lat": 15.28105,
+          "lng": 101.937624
+        },
+        {
+          "lat": 15.635795,
+          "lng": 102.782752
+        },
+        {
+          "lat": 16.443715,
+          "lng": 103.524917
+        },
+        {
+          "lat": 17.214546,
+          "lng": 103.98106
+        }
+      ]
+    },
+    {
+      "id": "HAVI-0019",
+      "company": "HAVI",
+      "origin": {
+        "name": "กรุงเทพฯ",
+        "latitude": 13.7563,
+        "longitude": 100.5018
+      },
+      "destination": {
+        "name": "เชียงใหม่",
+        "latitude": 18.7883,
+        "longitude": 98.9853
+      },
+      "departure_time": "2025-05-19T06:00:00",
+      "estimated_arrival_time": "2025-05-20T19:54:00",
+      "distance_km": 974.1,
+      "estimated_duration_hours": 37.9,
+      "status": "in_transit",
+      "progress": 77,
+      "current_position": {
+        "latitude": 15.086457,
+        "longitude": 99.291181
+      },
+      "orders": [
+        {
+          "orderId": "ORD-HAV5137",
+          "item": "สินค้า C",
+          "quantity": 7
+        }
+      ],
+      "route": [
+        {
+          "lat": 13.824699,
+          "lng": 100.313789
+        },
+        {
+          "lat": 14.773498,
+          "lng": 100.137479
+        },
+        {
+          "lat": 15.805564,
+          "lng": 100.072888
+        },
+        {
+          "lat": 16.938207,
+          "lng": 99.690468
+        },
+        {
+          "lat": 17.832294,
+          "lng": 99.251837
+        },
+        {
+          "lat": 18.786807,
+          "lng": 99.11548
+        }
+      ]
+    },
+    {
+      "id": "HAVI-0020",
+      "company": "HAVI",
+      "origin": {
+        "name": "นครราชสีมา",
+        "latitude": 14.9799,
+        "longitude": 102.0977
+      },
+      "destination": {
+        "name": "หาดใหญ่",
+        "latitude": 6.9969,
+        "longitude": 100.4669
+      },
+      "departure_time": "2025-05-20T08:00:00",
+      "estimated_arrival_time": "2025-05-22T04:00:00",
+      "distance_km": 74.2,
+      "estimated_duration_hours": 44.0,
+      "status": "available",
+      "progress": 100,
+      "current_position": {
+        "latitude": 14.815344,
+        "longitude": 100.737441
+      },
+      "orders": [
+        {
+          "orderId": "ORD-HAV3683",
+          "item": "สินค้า B",
+          "quantity": 17
+        },
+        {
+          "orderId": "ORD-HAV9267",
+          "item": "สินค้า C",
+          "quantity": 6
+        }
+      ],
+      "route": [
+        {
+          "lat": 14.800686,
+          "lng": 102.1509
+        },
+        {
+          "lat": 13.215074,
+          "lng": 101.619019
+        },
+        {
+          "lat": 11.781446,
+          "lng": 101.33499
+        },
+        {
+          "lat": 10.171923,
+          "lng": 100.96782
+        },
+        {
+          "lat": 8.724709,
+          "lng": 100.926392
+        },
+        {
+          "lat": 6.799038,
+          "lng": 100.307921
+        }
+      ]
+    },
+    {
+      "id": "HAVI-0021",
+      "company": "HAVI",
+      "origin": {
+        "name": "หาดใหญ่",
+        "latitude": 6.9969,
+        "longitude": 100.4669
+      },
+      "destination": {
+        "name": "สุราษฎร์ธานี",
+        "latitude": 9.0397,
+        "longitude": 99.1715
+      },
+      "departure_time": "2025-05-20T10:00:00",
+      "estimated_arrival_time": "2025-05-21T22:54:00",
+      "distance_km": 1440.4,
+      "estimated_duration_hours": 36.9,
+      "status": "in_transit",
+      "progress": 33,
+      "current_position": {
+        "latitude": 7.636021,
+        "longitude": 99.2075
+      },
+      "orders": [
+        {
+          "orderId": "ORD-HAV2034",
+          "item": "สินค้า C",
+          "quantity": 1
+        },
+        {
+          "orderId": "ORD-HAV4785",
+          "item": "สินค้า D",
+          "quantity": 3
+        },
+        {
+          "orderId": "ORD-HAV2638",
+          "item": "สินค้า B",
+          "quantity": 1
+        }
+      ],
+      "route": [
+        {
+          "lat": 7.025469,
+          "lng": 100.561192
+        },
+        {
+          "lat": 7.357465,
+          "lng": 100.212156
+        },
+        {
+          "lat": 7.749968,
+          "lng": 99.927665
+        },
+        {
+          "lat": 8.121229,
+          "lng": 99.850512
+        },
+        {
+          "lat": 8.602533,
+          "lng": 99.559352
+        },
+        {
+          "lat": 9.166014,
+          "lng": 99.170975
+        }
+      ]
+    },
+    {
+      "id": "HAVI-0022",
+      "company": "HAVI",
+      "origin": {
+        "name": "สกลนคร",
+        "latitude": 17.168,
+        "longitude": 104.1456
+      },
+      "destination": {
+        "name": "ภูเก็ต",
+        "latitude": 7.8804,
+        "longitude": 98.3923
+      },
+      "departure_time": "2025-05-22T03:00:00",
+      "estimated_arrival_time": "2025-05-23T09:18:00",
+      "distance_km": 1240.8,
+      "estimated_duration_hours": 30.3,
+      "status": "in_transit",
+      "progress": 68,
+      "current_position": {
+        "latitude": 9.425132,
+        "longitude": 100.895648
+      },
+      "orders": [
+        {
+          "orderId": "ORD-HAV1816",
+          "item": "สินค้า E",
+          "quantity": 17
+        },
+        {
+          "orderId": "ORD-HAV7686",
+          "item": "สินค้า E",
+          "quantity": 16
+        },
+        {
+          "orderId": "ORD-HAV3468",
+          "item": "สินค้า B",
+          "quantity": 17
+        }
+      ],
+      "route": [
+        {
+          "lat": 17.263199,
+          "lng": 103.970757
+        },
+        {
+          "lat": 15.13136,
+          "lng": 102.841486
+        },
+        {
+          "lat": 13.46844,
+          "lng": 101.789805
+        },
+        {
+          "lat": 11.615843,
+          "lng": 100.58805
+        },
+        {
+          "lat": 9.577477,
+          "lng": 99.709754
+        },
+        {
+          "lat": 7.852648,
+          "lng": 98.309576
+        }
+      ]
+    },
+    {
+      "id": "HAVI-0023",
+      "company": "HAVI",
+      "origin": {
+        "name": "อุบลราชธานี",
+        "latitude": 15.2449,
+        "longitude": 104.847
+      },
+      "destination": {
+        "name": "นครราชสีมา",
+        "latitude": 14.9799,
+        "longitude": 102.0977
+      },
+      "departure_time": "2025-05-20T09:00:00",
+      "estimated_arrival_time": "2025-05-22T04:12:00",
+      "distance_km": 201.5,
+      "estimated_duration_hours": 43.2,
+      "status": "available",
+      "progress": 100,
+      "current_position": {
+        "latitude": 14.997398,
+        "longitude": 104.113197
+      },
+      "orders": [
+        {
+          "orderId": "ORD-HAV6872",
+          "item": "สินค้า E",
+          "quantity": 7
+        }
+      ],
+      "route": [
+        {
+          "lat": 15.379318,
+          "lng": 104.77119
+        },
+        {
+          "lat": 15.184066,
+          "lng": 104.129574
+        },
+        {
+          "lat": 15.047473,
+          "lng": 103.683056
+        },
+        {
+          "lat": 15.12178,
+          "lng": 103.078095
+        },
+        {
+          "lat": 15.062113,
+          "lng": 102.57013
+        },
+        {
+          "lat": 15.015314,
+          "lng": 102.117583
+        }
+      ]
+    },
+    {
+      "id": "HAVI-0024",
+      "company": "HAVI",
+      "origin": {
+        "name": "เชียงใหม่",
+        "latitude": 18.7883,
+        "longitude": 98.9853
+      },
+      "destination": {
+        "name": "สุราษฎร์ธานี",
+        "latitude": 9.0397,
+        "longitude": 99.1715
+      },
+      "departure_time": "2025-05-21T13:00:00",
+      "estimated_arrival_time": "2025-05-22T12:30:00",
+      "distance_km": 721.3,
+      "estimated_duration_hours": 23.5,
+      "status": "in_transit",
+      "progress": 2,
+      "current_position": {
+        "latitude": 9.864967,
+        "longitude": 99.035111
+      },
+      "orders": [
+        {
+          "orderId": "ORD-HAV9643",
+          "item": "สินค้า E",
+          "quantity": 20
+        },
+        {
+          "orderId": "ORD-HAV1249",
+          "item": "สินค้า E",
+          "quantity": 9
+        },
+        {
+          "orderId": "ORD-HAV2173",
+          "item": "สินค้า B",
+          "quantity": 9
+        }
+      ],
+      "route": [
+        {
+          "lat": 18.65198,
+          "lng": 98.8548
+        },
+        {
+          "lat": 16.833681,
+          "lng": 98.925051
+        },
+        {
+          "lat": 14.745729,
+          "lng": 99.195077
+        },
+        {
+          "lat": 13.046549,
+          "lng": 98.929137
+        },
+        {
+          "lat": 11.060075,
+          "lng": 99.068915
+        },
+        {
+          "lat": 9.010909,
+          "lng": 99.032772
+        }
+      ]
+    },
+    {
+      "id": "HAVI-0025",
+      "company": "HAVI",
+      "origin": {
+        "name": "สุราษฎร์ธานี",
+        "latitude": 9.0397,
+        "longitude": 99.1715
+      },
+      "destination": {
+        "name": "เชียงใหม่",
+        "latitude": 18.7883,
+        "longitude": 98.9853
+      },
+      "departure_time": "2025-05-20T07:00:00",
+      "estimated_arrival_time": "2025-05-21T06:42:00",
+      "distance_km": 871.7,
+      "estimated_duration_hours": 23.7,
+      "status": "broken",
+      "progress": 100,
+      "current_position": {
+        "latitude": 14.30643,
+        "longitude": 99.047429
+      },
+      "orders": [
+        {
+          "orderId": "ORD-HAV2287",
+          "item": "สินค้า B",
+          "quantity": 17
+        },
+        {
+          "orderId": "ORD-HAV4967",
+          "item": "สินค้า E",
+          "quantity": 16
+        }
+      ],
+      "route": [
+        {
+          "lat": 8.880391,
+          "lng": 99.19674
+        },
+        {
+          "lat": 10.861402,
+          "lng": 99.264131
+        },
+        {
+          "lat": 12.929557,
+          "lng": 98.999348
+        },
+        {
+          "lat": 14.803945,
+          "lng": 98.960077
+        },
+        {
+          "lat": 16.909309,
+          "lng": 99.192845
+        },
+        {
+          "lat": 18.740522,
+          "lng": 98.984834
+        }
+      ]
+    },
+    {
+      "id": "HAVI-0026",
+      "company": "HAVI",
+      "origin": {
+        "name": "สกลนคร",
+        "latitude": 17.168,
+        "longitude": 104.1456
+      },
+      "destination": {
+        "name": "หาดใหญ่",
+        "latitude": 6.9969,
+        "longitude": 100.4669
+      },
+      "departure_time": "2025-05-20T08:00:00",
+      "estimated_arrival_time": "2025-05-21T19:42:00",
+      "distance_km": 972.6,
+      "estimated_duration_hours": 35.7,
+      "status": "broken",
+      "progress": 100,
+      "current_position": {
+        "latitude": 13.564076,
+        "longitude": 102.396202
+      },
+      "orders": [
+        {
+          "orderId": "ORD-HAV4644",
+          "item": "สินค้า A",
+          "quantity": 17
+        }
+      ],
+      "route": [
+        {
+          "lat": 17.333537,
+          "lng": 104.320968
+        },
+        {
+          "lat": 15.185087,
+          "lng": 103.357034
+        },
+        {
+          "lat": 12.921755,
+          "lng": 102.771613
+        },
+        {
+          "lat": 11.037948,
+          "lng": 101.835974
+        },
+        {
+          "lat": 8.996937,
+          "lng": 101.234655
+        },
+        {
+          "lat": 7.055871,
+          "lng": 100.436838
+        }
+      ]
+    },
+    {
+      "id": "HAVI-0027",
+      "company": "HAVI",
+      "origin": {
+        "name": "กรุงเทพฯ",
+        "latitude": 13.7563,
+        "longitude": 100.5018
+      },
+      "destination": {
+        "name": "เชียงใหม่",
+        "latitude": 18.7883,
+        "longitude": 98.9853
+      },
+      "departure_time": "2025-05-20T09:00:00",
+      "estimated_arrival_time": "2025-05-21T00:12:00",
+      "distance_km": 442.0,
+      "estimated_duration_hours": 15.2,
+      "status": "in_transit",
+      "progress": 22,
+      "current_position": {
+        "latitude": 18.77342,
+        "longitude": 100.110947
+      },
+      "orders": [
+        {
+          "orderId": "ORD-HAV1606",
+          "item": "สินค้า B",
+          "quantity": 15
+        }
+      ],
+      "route": [
+        {
+          "lat": 13.620201,
+          "lng": 100.700586
+        },
+        {
+          "lat": 14.630086,
+          "lng": 100.210716
+        },
+        {
+          "lat": 15.714234,
+          "lng": 99.834329
+        },
+        {
+          "lat": 16.615998,
+          "lng": 99.546218
+        },
+        {
+          "lat": 17.898692,
+          "lng": 99.296278
+        },
+        {
+          "lat": 18.977048,
+          "lng": 99.006856
+        }
+      ]
+    },
+    {
+      "id": "HAVI-0028",
+      "company": "HAVI",
+      "origin": {
+        "name": "สกลนคร",
+        "latitude": 17.168,
+        "longitude": 104.1456
+      },
+      "destination": {
+        "name": "นครราชสีมา",
+        "latitude": 14.9799,
+        "longitude": 102.0977
+      },
+      "departure_time": "2025-05-19T10:00:00",
+      "estimated_arrival_time": "2025-05-21T06:24:00",
+      "distance_km": 1046.5,
+      "estimated_duration_hours": 44.4,
+      "status": "available",
+      "progress": 100,
+      "current_position": {
+        "latitude": 15.663022,
+        "longitude": 102.745157
+      },
+      "orders": [
+        {
+          "orderId": "ORD-HAV4651",
+          "item": "สินค้า B",
+          "quantity": 5
+        },
+        {
+          "orderId": "ORD-HAV4291",
+          "item": "สินค้า A",
+          "quantity": 8
+        }
+      ],
+      "route": [
+        {
+          "lat": 17.269107,
+          "lng": 104.265627
+        },
+        {
+          "lat": 16.56013,
+          "lng": 103.691095
+        },
+        {
+          "lat": 16.230545,
+          "lng": 103.276681
+        },
+        {
+          "lat": 15.685508,
+          "lng": 102.799802
+        },
+        {
+          "lat": 15.293844,
+          "lng": 102.618165
+        },
+        {
+          "lat": 15.175149,
+          "lng": 102.195826
+        }
+      ]
+    },
+    {
+      "id": "HAVI-0029",
+      "company": "HAVI",
+      "origin": {
+        "name": "เชียงใหม่",
+        "latitude": 18.7883,
+        "longitude": 98.9853
+      },
+      "destination": {
+        "name": "ภูเก็ต",
+        "latitude": 7.8804,
+        "longitude": 98.3923
+      },
+      "departure_time": "2025-05-21T01:00:00",
+      "estimated_arrival_time": "2025-05-22T08:36:00",
+      "distance_km": 999.7,
+      "estimated_duration_hours": 31.6,
+      "status": "in_transit",
+      "progress": 26,
+      "current_position": {
+        "latitude": 9.699092,
+        "longitude": 98.767433
+      },
+      "orders": [
+        {
+          "orderId": "ORD-HAV1826",
+          "item": "สินค้า A",
+          "quantity": 7
+        },
+        {
+          "orderId": "ORD-HAV3193",
+          "item": "สินค้า C",
+          "quantity": 18
+        },
+        {
+          "orderId": "ORD-HAV3047",
+          "item": "สินค้า E",
+          "quantity": 4
+        }
+      ],
+      "route": [
+        {
+          "lat": 18.984957,
+          "lng": 98.994444
+        },
+        {
+          "lat": 16.707173,
+          "lng": 98.980825
+        },
+        {
+          "lat": 14.342791,
+          "lng": 98.60928
+        },
+        {
+          "lat": 12.113822,
+          "lng": 98.711274
+        },
+        {
+          "lat": 9.98131,
+          "lng": 98.677164
+        },
+        {
+          "lat": 8.042509,
+          "lng": 98.350429
+        }
+      ]
+    },
+    {
+      "id": "HAVI-0030",
+      "company": "HAVI",
+      "origin": {
+        "name": "อุบลราชธานี",
+        "latitude": 15.2449,
+        "longitude": 104.847
+      },
+      "destination": {
+        "name": "หาดใหญ่",
+        "latitude": 6.9969,
+        "longitude": 100.4669
+      },
+      "departure_time": "2025-05-21T11:00:00",
+      "estimated_arrival_time": "2025-05-22T02:12:00",
+      "distance_km": 359.1,
+      "estimated_duration_hours": 15.2,
+      "status": "available",
+      "progress": 100,
+      "current_position": {
+        "latitude": 8.901606,
+        "longitude": 103.430232
+      },
+      "orders": [
+        {
+          "orderId": "ORD-HAV8107",
+          "item": "สินค้า A",
+          "quantity": 16
+        }
+      ],
+      "route": [
+        {
+          "lat": 15.359729,
+          "lng": 104.712595
+        },
+        {
+          "lat": 13.530831,
+          "lng": 103.91694
+        },
+        {
+          "lat": 11.820997,
+          "lng": 103.151354
+        },
+        {
+          "lat": 10.377953,
+          "lng": 102.374404
+        },
+        {
+          "lat": 8.625952,
+          "lng": 101.38861
+        },
+        {
+          "lat": 6.945205,
+          "lng": 100.387522
+        }
+      ]
+    },
+    {
+      "id": "HAVI-0031",
+      "company": "HAVI",
+      "origin": {
+        "name": "สกลนคร",
+        "latitude": 17.168,
+        "longitude": 104.1456
+      },
+      "destination": {
+        "name": "อุดรธานี",
+        "latitude": 17.4156,
+        "longitude": 102.785
+      },
+      "departure_time": "2025-05-21T06:00:00",
+      "estimated_arrival_time": "2025-05-22T21:24:00",
+      "distance_km": 1033.4,
+      "estimated_duration_hours": 39.4,
+      "status": "broken",
+      "progress": 100,
+      "current_position": {
+        "latitude": 17.1799,
+        "longitude": 103.044121
+      },
+      "orders": [
+        {
+          "orderId": "ORD-HAV5093",
+          "item": "สินค้า D",
+          "quantity": 6
+        }
+      ],
+      "route": [
+        {
+          "lat": 17.200284,
+          "lng": 104.253503
+        },
+        {
+          "lat": 17.167782,
+          "lng": 103.799768
+        },
+        {
+          "lat": 17.40198,
+          "lng": 103.484149
+        },
+        {
+          "lat": 17.502149,
+          "lng": 103.196928
+        },
+        {
+          "lat": 17.517332,
+          "lng": 102.874297
+        },
+        {
+          "lat": 17.412977,
+          "lng": 102.935896
+        }
+      ]
+    },
+    {
+      "id": "HAVI-0032",
+      "company": "HAVI",
+      "origin": {
+        "name": "สุราษฎร์ธานี",
+        "latitude": 9.0397,
+        "longitude": 99.1715
+      },
+      "destination": {
+        "name": "กรุงเทพฯ",
+        "latitude": 13.7563,
+        "longitude": 100.5018
+      },
+      "departure_time": "2025-05-21T17:00:00",
+      "estimated_arrival_time": "2025-05-22T13:42:00",
+      "distance_km": 218.8,
+      "estimated_duration_hours": 20.7,
+      "status": "available",
+      "progress": 100,
+      "current_position": {
+        "latitude": 10.552131,
+        "longitude": 99.17733
+      },
+      "orders": [
+        {
+          "orderId": "ORD-HAV7835",
+          "item": "สินค้า A",
+          "quantity": 7
+        },
+        {
+          "orderId": "ORD-HAV9293",
+          "item": "สินค้า C",
+          "quantity": 9
+        }
+      ],
+      "route": [
+        {
+          "lat": 9.097035,
+          "lng": 99.095441
+        },
+        {
+          "lat": 10.116245,
+          "lng": 99.613248
+        },
+        {
+          "lat": 11.112102,
+          "lng": 99.607891
+        },
+        {
+          "lat": 11.950318,
+          "lng": 100.107424
+        },
+        {
+          "lat": 12.747789,
+          "lng": 100.203008
+        },
+        {
+          "lat": 13.712427,
+          "lng": 100.56303
+        }
+      ]
+    },
+    {
+      "id": "HAVI-0033",
+      "company": "HAVI",
+      "origin": {
+        "name": "สกลนคร",
+        "latitude": 17.168,
+        "longitude": 104.1456
+      },
+      "destination": {
+        "name": "นครราชสีมา",
+        "latitude": 14.9799,
+        "longitude": 102.0977
+      },
+      "departure_time": "2025-05-19T18:00:00",
+      "estimated_arrival_time": "2025-05-20T04:42:00",
+      "distance_km": 1342.1,
+      "estimated_duration_hours": 10.7,
+      "status": "broken",
+      "progress": 100,
+      "current_position": {
+        "latitude": 15.49151,
+        "longitude": 102.88996
+      },
+      "orders": [
+        {
+          "orderId": "ORD-HAV2044",
+          "item": "สินค้า E",
+          "quantity": 2
+        },
+        {
+          "orderId": "ORD-HAV3122",
+          "item": "สินค้า A",
+          "quantity": 20
+        }
+      ],
+      "route": [
+        {
+          "lat": 17.304811,
+          "lng": 104.165935
+        },
+        {
+          "lat": 16.570443,
+          "lng": 103.819238
+        },
+        {
+          "lat": 16.16699,
+          "lng": 103.394765
+        },
+        {
+          "lat": 15.993467,
+          "lng": 102.876335
+        },
+        {
+          "lat": 15.383314,
+          "lng": 102.548331
+        },
+        {
+          "lat": 14.874705,
+          "lng": 101.901107
+        }
+      ]
+    },
+    {
+      "id": "HAVI-0034",
+      "company": "HAVI",
+      "origin": {
+        "name": "เชียงใหม่",
+        "latitude": 18.7883,
+        "longitude": 98.9853
+      },
+      "destination": {
+        "name": "นครราชสีมา",
+        "latitude": 14.9799,
+        "longitude": 102.0977
+      },
+      "departure_time": "2025-05-21T15:00:00",
+      "estimated_arrival_time": "2025-05-23T08:18:00",
+      "distance_km": 573.1,
+      "estimated_duration_hours": 41.3,
+      "status": "in_transit",
+      "progress": 76,
+      "current_position": {
+        "latitude": 18.576528,
+        "longitude": 99.343557
+      },
+      "orders": [
+        {
+          "orderId": "ORD-HAV6821",
+          "item": "สินค้า A",
+          "quantity": 15
+        },
+        {
+          "orderId": "ORD-HAV7745",
+          "item": "สินค้า C",
+          "quantity": 18
+        }
+      ],
+      "route": [
+        {
+          "lat": 18.965934,
+          "lng": 99.091312
+        },
+        {
+          "lat": 18.1306,
+          "lng": 99.654577
+        },
+        {
+          "lat": 17.190326,
+          "lng": 100.317731
+        },
+        {
+          "lat": 16.515352,
+          "lng": 100.676346
+        },
+        {
+          "lat": 15.850052,
+          "lng": 101.333317
+        },
+        {
+          "lat": 14.786336,
+          "lng": 102.203758
+        }
+      ]
+    },
+    {
+      "id": "HAVI-0035",
+      "company": "HAVI",
+      "origin": {
+        "name": "ภูเก็ต",
+        "latitude": 7.8804,
+        "longitude": 98.3923
+      },
+      "destination": {
+        "name": "เชียงใหม่",
+        "latitude": 18.7883,
+        "longitude": 98.9853
+      },
+      "departure_time": "2025-05-22T06:00:00",
+      "estimated_arrival_time": "2025-05-23T23:36:00",
+      "distance_km": 822.7,
+      "estimated_duration_hours": 41.6,
+      "status": "in_transit",
+      "progress": 14,
+      "current_position": {
+        "latitude": 14.394185,
+        "longitude": 98.437007
+      },
+      "orders": [
+        {
+          "orderId": "ORD-HAV8145",
+          "item": "สินค้า B",
+          "quantity": 4
+        },
+        {
+          "orderId": "ORD-HAV2086",
+          "item": "สินค้า D",
+          "quantity": 12
+        }
+      ],
+      "route": [
+        {
+          "lat": 7.741639,
+          "lng": 98.32694
+        },
+        {
+          "lat": 9.999432,
+          "lng": 98.352641
+        },
+        {
+          "lat": 12.103868,
+          "lng": 98.738481
+        },
+        {
+          "lat": 14.312502,
+          "lng": 98.562109
+        },
+        {
+          "lat": 16.488485,
+          "lng": 98.753011
+        },
+        {
+          "lat": 18.802132,
+          "lng": 99.142246
+        }
+      ]
+    },
+    {
+      "id": "HAVI-0036",
+      "company": "HAVI",
+      "origin": {
+        "name": "สกลนคร",
+        "latitude": 17.168,
+        "longitude": 104.1456
+      },
+      "destination": {
+        "name": "สุราษฎร์ธานี",
+        "latitude": 9.0397,
+        "longitude": 99.1715
+      },
+      "departure_time": "2025-05-21T09:00:00",
+      "estimated_arrival_time": "2025-05-22T08:06:00",
+      "distance_km": 776.7,
+      "estimated_duration_hours": 23.1,
+      "status": "available",
+      "progress": 100,
+      "current_position": {
+        "latitude": 12.351113,
+        "longitude": 99.69128
+      },
+      "orders": [
+        {
+          "orderId": "ORD-HAV3701",
+          "item": "สินค้า E",
+          "quantity": 3
+        }
+      ],
+      "route": [
+        {
+          "lat": 17.29258,
+          "lng": 104.155155
+        },
+        {
+          "lat": 15.606564,
+          "lng": 103.001603
+        },
+        {
+          "lat": 13.920655,
+          "lng": 102.155558
+        },
+        {
+          "lat": 12.488425,
+          "lng": 101.130801
+        },
+        {
+          "lat": 10.690612,
+          "lng": 100.041354
+        },
+        {
+          "lat": 8.858725,
+          "lng": 99.159255
+        }
+      ]
+    },
+    {
+      "id": "HAVI-0037",
+      "company": "HAVI",
+      "origin": {
+        "name": "ขอนแก่น",
+        "latitude": 16.4419,
+        "longitude": 102.835
+      },
+      "destination": {
+        "name": "นครราชสีมา",
+        "latitude": 14.9799,
+        "longitude": 102.0977
+      },
+      "departure_time": "2025-05-19T13:00:00",
+      "estimated_arrival_time": "2025-05-20T09:54:00",
+      "distance_km": 524.9,
+      "estimated_duration_hours": 20.9,
+      "status": "in_transit",
+      "progress": 28,
+      "current_position": {
+        "latitude": 16.299979,
+        "longitude": 102.484965
+      },
+      "orders": [
+        {
+          "orderId": "ORD-HAV6592",
+          "item": "สินค้า B",
+          "quantity": 7
+        }
+      ],
+      "route": [
+        {
+          "lat": 16.278287,
+          "lng": 102.695331
+        },
+        {
+          "lat": 16.235017,
+          "lng": 102.832569
+        },
+        {
+          "lat": 15.756475,
+          "lng": 102.574021
+        },
+        {
+          "lat": 15.616492,
+          "lng": 102.310811
+        },
+        {
+          "lat": 15.287179,
+          "lng": 102.356329
+        },
+        {
+          "lat": 15.174797,
+          "lng": 101.989363
+        }
+      ]
+    },
+    {
+      "id": "HAVI-0038",
+      "company": "HAVI",
+      "origin": {
+        "name": "เชียงใหม่",
+        "latitude": 18.7883,
+        "longitude": 98.9853
+      },
+      "destination": {
+        "name": "อุดรธานี",
+        "latitude": 17.4156,
+        "longitude": 102.785
+      },
+      "departure_time": "2025-05-20T15:00:00",
+      "estimated_arrival_time": "2025-05-22T00:24:00",
+      "distance_km": 767.3,
+      "estimated_duration_hours": 33.4,
+      "status": "available",
+      "progress": 100,
+      "current_position": {
+        "latitude": 18.008126,
+        "longitude": 99.233963
+      },
+      "orders": [
+        {
+          "orderId": "ORD-HAV8266",
+          "item": "สินค้า E",
+          "quantity": 10
+        },
+        {
+          "orderId": "ORD-HAV9598",
+          "item": "สินค้า B",
+          "quantity": 17
+        },
+        {
+          "orderId": "ORD-HAV6534",
+          "item": "สินค้า B",
+          "quantity": 18
+        }
+      ],
+      "route": [
+        {
+          "lat": 18.80851,
+          "lng": 98.973203
+        },
+        {
+          "lat": 18.630308,
+          "lng": 99.758863
+        },
+        {
+          "lat": 18.236585,
+          "lng": 100.444333
+        },
+        {
+          "lat": 17.806476,
+          "lng": 101.251666
+        },
+        {
+          "lat": 17.889651,
+          "lng": 102.033904
+        },
+        {
+          "lat": 17.360146,
+          "lng": 102.738529
+        }
+      ]
+    },
+    {
+      "id": "HAVI-0039",
+      "company": "HAVI",
+      "origin": {
+        "name": "อุดรธานี",
+        "latitude": 17.4156,
+        "longitude": 102.785
+      },
+      "destination": {
+        "name": "ภูเก็ต",
+        "latitude": 7.8804,
+        "longitude": 98.3923
+      },
+      "departure_time": "2025-05-19T16:00:00",
+      "estimated_arrival_time": "2025-05-20T21:24:00",
+      "distance_km": 1406.9,
+      "estimated_duration_hours": 29.4,
+      "status": "available",
+      "progress": 100,
+      "current_position": {
+        "latitude": 11.56346,
+        "longitude": 102.185574
+      },
+      "orders": [
+        {
+          "orderId": "ORD-HAV2981",
+          "item": "สินค้า E",
+          "quantity": 9
+        },
+        {
+          "orderId": "ORD-HAV8884",
+          "item": "สินค้า A",
+          "quantity": 11
+        },
+        {
+          "orderId": "ORD-HAV1276",
+          "item": "สินค้า C",
+          "quantity": 7
+        }
+      ],
+      "route": [
+        {
+          "lat": 17.531278,
+          "lng": 102.817586
+        },
+        {
+          "lat": 15.630783,
+          "lng": 101.904444
+        },
+        {
+          "lat": 13.594481,
+          "lng": 100.917326
+        },
+        {
+          "lat": 11.873079,
+          "lng": 100.214482
+        },
+        {
+          "lat": 9.655447,
+          "lng": 99.296948
+        },
+        {
+          "lat": 7.713285,
+          "lng": 98.502391
+        }
+      ]
+    },
+    {
+      "id": "HAVI-0040",
+      "company": "HAVI",
+      "origin": {
+        "name": "สุราษฎร์ธานี",
+        "latitude": 9.0397,
+        "longitude": 99.1715
+      },
+      "destination": {
+        "name": "อุดรธานี",
+        "latitude": 17.4156,
+        "longitude": 102.785
+      },
+      "departure_time": "2025-05-19T12:00:00",
+      "estimated_arrival_time": "2025-05-20T19:36:00",
+      "distance_km": 163.0,
+      "estimated_duration_hours": 31.6,
+      "status": "in_transit",
+      "progress": 97,
+      "current_position": {
+        "latitude": 15.089622,
+        "longitude": 101.500632
+      },
+      "orders": [
+        {
+          "orderId": "ORD-HAV7775",
+          "item": "สินค้า A",
+          "quantity": 9
+        },
+        {
+          "orderId": "ORD-HAV2408",
+          "item": "สินค้า E",
+          "quantity": 15
+        }
+      ],
+      "route": [
+        {
+          "lat": 9.103094,
+          "lng": 99.14372
+        },
+        {
+          "lat": 10.667225,
+          "lng": 100.04765
+        },
+        {
+          "lat": 12.32988,
+          "lng": 100.778369
+        },
+        {
+          "lat": 14.149762,
+          "lng": 101.236971
+        },
+        {
+          "lat": 15.578156,
+          "lng": 102.245158
+        },
+        {
+          "lat": 17.483383,
+          "lng": 102.750299
+        }
+      ]
+    }
+  ]
+}
