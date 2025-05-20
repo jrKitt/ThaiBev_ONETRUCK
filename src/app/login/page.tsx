@@ -55,7 +55,8 @@ export default function Login() {
           onSubmit={handleLogin}
           className="w-full max-w-md space-y-6"
         >
-          <h2 className="text-[64px] font-semibold text-center text-[#1049CD]">ONE TRUCK</h2>
+          <img src="/applogo.png" className="text-[64px] font-semibold text-center text-[#1049CD]"/>
+
           <h2 className="text-2xl font-semibold text-center text-black">เข้าสู่ระบบ</h2>
 
           <div>

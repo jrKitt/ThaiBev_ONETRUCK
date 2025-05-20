@@ -1,5 +1,8 @@
 'use client';
-import { useState } from 'react';
+
+
+import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 import Image from 'next/image';
 import {
   HomeIcon,
@@ -13,19 +16,20 @@ import {
   ChevronDoubleLeftIcon,
   ChevronDoubleRightIcon,
 } from '@heroicons/react/24/outline';
+import {useState} from 'react';
 
 const menuItems = [
-  { name: 'แดชบอร์ด', icon: HomeIcon },
-  { name: 'ยานพาหนะ', icon: TruckIcon },
-  { name: 'คำสั่งซื้อ', icon: ArchiveBoxIcon },
-  { name: 'เส้นทาง', icon: MapIcon },
-  { name: 'รายงาน', icon: ChartBarIcon },
-  { name: 'ผู้ใช้งาน', icon: UsersIcon },
-  { name: 'ตั้งค่า', icon: Cog6ToothIcon },
+  { name: 'แดชบอร์ด', icon: HomeIcon, href: '/region/south/rdc' },  // ตัวอย่าง default path
+  { name: 'ยานพาหนะ', icon: TruckIcon, href: '/vehicles' },
+  { name: 'คำสั่งซื้อ', icon: ArchiveBoxIcon, href: '/orders' },
+  { name: 'เส้นทาง', icon: MapIcon, href: '/routes' },
+  { name: 'รายงาน', icon: ChartBarIcon, href: '/reports' },
+  { name: 'ผู้ใช้งาน', icon: UsersIcon, href: '/users' },
+  { name: 'ตั้งค่า', icon: Cog6ToothIcon, href: '/settings' },
 ];
 
 export default function Sidebar() {
-  const [active, setActive] = useState('แดชบอร์ด');
+  const pathname = usePathname();
   const [collapsed, setCollapsed] = useState(false);
   const brandGradient = 'from-[#004E92] via-[#0066CC] to-[#0099FF]';
 
@@ -42,8 +46,8 @@ export default function Sidebar() {
       `}
     >
       <button
-        onClick={() => setCollapsed((c) => !c)}
-        className="absolute top-4 right-4 p-5 rounde"
+        onClick={() => setCollapsed(c => !c)}
+        className="absolute top-4 right-4 p-5 rounded"
       >
         {collapsed ? (
           <ChevronDoubleRightIcon className="w-5 h-5 p-3 opacity-100" />
@@ -66,11 +70,12 @@ export default function Sidebar() {
       {/* เมนูหลัก */}
       <nav className="flex-1 px-2 space-y-1 mt-4">
         {menuItems.map((item) => {
-          const isActive = active === item.name;
+          const isActive = pathname?.startsWith(item.href);
+
           return (
-            <button
+            <Link
               key={item.name}
-              onClick={() => setActive(item.name)}
+              href={item.href}
               className={`
                 w-full flex items-center space-x-3 px-4 py-2 rounded-lg transition-all
                 ${isActive
@@ -84,7 +89,7 @@ export default function Sidebar() {
                   {item.name}
                 </span>
               )}
-            </button>
+            </Link>
           );
         })}
       </nav>

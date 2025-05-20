@@ -1,6 +1,7 @@
-'use client';
+"use client";
 
 import React, { useState, useEffect } from "react";
+import { FaBars } from "react-icons/fa";
 import {
   MapContainer,
   TileLayer,
@@ -9,12 +10,48 @@ import {
   Polyline,
 } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import L from "leaflet";
-import shipmentsData from "../data/shipments.json";
-import { FaArrowUp, FaArrowDown, FaBars } from "react-icons/fa";
-import { PieChart, Pie, Cell } from "recharts";
+import MarkerClusterGroup from "react-leaflet-markercluster";
+import "leaflet.markercluster/dist/MarkerCluster.css";
+import "leaflet.markercluster/dist/MarkerCluster.Default.css";
 
-// ───────── ORS DIRECTIONS ─────────
+import { originIcon, destIcon, truckIcon, rdcIcon } from "./Icons";
+import { ZoomControlPositionFix, MapZoomListener } from "./MapControls";
+import RegionCard from "./RegionCard";
+import CompanyBadgeFilter from "./CompanyBadgeFilter";
+import StatusCardSlideDown from "./StatusCardSlideDown";
+
+import shipmentsData from "../data/shipments.json";
+import { RegionKey, regionNameMap } from "./constants";
+
+interface Metric {
+  label: string;
+  value: number;
+  positive: boolean;
+}
+interface TruckInfo {
+  licensePlate: string;
+  driverName: string;
+  driverPhone: string;
+  truckClass: string;
+  region: number;
+  depot: string;
+}
+interface Shipment {
+  id: string;
+  company: "TBL" | "SERMSUK" | "HAVI" | "All";
+  origin: { name: string; latitude: number; longitude: number };
+  destination: { name: string; latitude: number; longitude: number };
+  departure_time: string;
+  estimated_arrival_time: string;
+  distance_km: number;
+  estimated_duration_hours: number;
+  status: "All" | "available" | "in_transit" | "broken";
+  progress: number;
+  orders: { orderId: string; item: string; quantity: number }[];
+  route?: { lat: number; lng: number }[];
+  truck?: TruckInfo;
+}
+
 async function fetchRoute(
   start: [number, number],
   end: [number, number]
@@ -40,158 +77,20 @@ async function fetchRoute(
   }
 }
 
-// ───────── TYPES ─────────
-type RegionKey = "north" | "northeast" | "central" | "south";
-interface Metric {
-  label: string;
-  value: number;
-  positive: boolean;
+// CSS animation string (inject in useEffect)
+const styleSheet = `
+@keyframes slideDownFade {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-interface TruckInfo {
-  licensePlate: string;
-  driverName: string;
-  driverPhone: string;
-  truckClass: string;
-  region: number;
-  depot: string;
-}
-interface Shipment {
-  id: string;
-  company: "TBL" | "SERMSUK" | "HAVI";
-  origin: { name: string; latitude: number; longitude: number };
-  destination: { name: string; latitude: number; longitude: number };
-  departure_time: string;
-  estimated_arrival_time: string;
-  distance_km: number;
-  estimated_duration_hours: number;
-  status: "พร้อมใช้งาน / ว่าง" | "กำลังจัดส่ง" | "ขัดข้อง";
-  progress: number;
-  orders: { orderId: string; item: string; quantity: number }[];
-  route?: { lat: number; lng: number }[];
-  truck?: TruckInfo;
-}
+`;
 
-// ───────── ICONS ─────────
-const originIcon = new L.DivIcon({
-  html: "🏭",
-  className: "",
-  iconSize: [16, 16],
-  iconAnchor: [16, 16],
-});
-const destIcon = new L.DivIcon({
-  html: "🎯",
-  className: "",
-  iconSize: [16, 16],
-  iconAnchor: [16, 16],
-});
-function truckIcon(status: Shipment["status"]) {
-  const color =
-    status === "พร้อมใช้งาน / ว่าง"
-      ? "#22C55E"
-      : status === "ขัดข้อง"
-      ? "#F59E0B"
-      : "#EF4444";
-  return new L.DivIcon({
-    html: `<div style="
-      background:${color};
-      width:32px;height:32px;
-      border-radius:50%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      border:2px solid white;
-      font-size:18px
-    ">🚚</div>`,
-    className: "",
-    iconSize: [16, 16],
-    iconAnchor: [16, 16],
-    popupAnchor: [0, -16],
-  });
-}
-
-// ───────── REGION CARD ─────────
-function RegionCard({
-  regionName,
-  metrics,
-  weeklySales,
-  totalSales,
-  totalChange,
-  onClick,
-}: {
-  regionName: string;
-  metrics: Metric[];
-  weeklySales: number;
-  totalSales: number;
-  totalChange: number;
-  onClick?: () => void;
-}) {
-  const COLORS = ["#0066CC", "#0099FF", "#004a94", "#b7dbff"];
-  const data = metrics.map((m, i) => ({
-    name: m.label,
-    value: m.value,
-    fill: COLORS[i % COLORS.length],
-  }));
-  return (
-    <button
-      onClick={onClick}
-      className="w-full text-left bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition text-black"
-    >
-      <h2 className="text-xl font-bold mb-3">{regionName}</h2>
-      <div className="flex">
-        <div className="relative w-1/2 flex justify-center items-center">
-          <PieChart width={100} height={100}>
-            <Pie
-              data={data}
-              dataKey="value"
-              innerRadius={30}
-              outerRadius={45}
-              startAngle={90}
-              endAngle={-270}
-              paddingAngle={2}
-            >
-              {data.map((_, idx) => (
-                <Cell key={idx} fill={data[idx].fill} />
-              ))}
-            </Pie>
-          </PieChart>
-          <div className="absolute text-center">
-            <div className="text-lg font-bold">{weeklySales}k</div>
-            <div className="text-xs text-gray-500">ยอดรายสัปดาห์</div>
-          </div>
-        </div>
-        <div className="w-1/2 pl-3 space-y-1">
-          {metrics.map((m) => (
-            <div key={m.label} className="flex justify-between text-sm">
-              <span>{m.label}</span>
-              <span
-                className={`flex items-center ${
-                  m.positive ? "text-green-500" : "text-red-500"
-                }`}
-              >
-                {m.positive ? <FaArrowUp /> : <FaArrowDown />}{" "}
-                {Math.abs(m.value).toFixed(1)}%
-              </span>
-            </div>
-          ))}
-        </div>
-      </div>
-      <div className="border-t my-4" />
-      <div className="flex justify-between">
-        <span>ยอดรวม 7 วัน</span>
-        <span
-          className={`flex items-center ${
-            totalChange >= 0 ? "text-green-500" : "text-red-500"
-          }`}
-        >
-          {totalChange >= 0 ? <FaArrowUp /> : <FaArrowDown />}{" "}
-          {Math.abs(totalChange).toFixed(1)}%
-        </span>
-      </div>
-    </button>
-  );
-}
-
-// ───────── MAIN COMPONENT ─────────
 export default function LogisticsOverview() {
   const metrics: Metric[] = [
     { label: "กำลังขนส่ง", value: 25.8, positive: true },
@@ -200,23 +99,168 @@ export default function LogisticsOverview() {
     { label: "อัตราสำเร็จ", value: 35.6, positive: true },
   ];
 
+  // mockup ตำแหน่งและข้อมูล RDC แต่ละภาค
+  const rdcLocations: Record<
+    RegionKey,
+    { lat: number; lng: number; name: string }
+  > = {
+    north: { lat: 17.5, lng: 102.8, name: "RDC ภาคเหนือ" },
+    northeast: { lat: 16.4, lng: 103.1, name: "RDC ภาคอีสาน" },
+    central: { lat: 14.9, lng: 100.7, name: "RDC ภาคกลาง" },
+    south: { lat: 7.0, lng: 100.5, name: "RDC ภาคใต้" },
+  };
+
+  // mockup data สถานะรถในแต่ละ RDC (สำหรับ slide รายละเอียด)
+  const mockShipmentsByRegion: Record<RegionKey, Shipment[]> = {
+    north: [
+      {
+        id: "N-001",
+        company: "TBL",
+        origin: { name: "เชียงใหม่", latitude: 18.7883, longitude: 98.9853 },
+        destination: {
+          name: "เชียงราย",
+          latitude: 19.9107,
+          longitude: 99.8401,
+        },
+        departure_time: new Date().toISOString(),
+        estimated_arrival_time: new Date(Date.now() + 3600000).toISOString(),
+        distance_km: 200,
+        estimated_duration_hours: 3.5,
+        status: "in_transit",
+        progress: 40,
+        orders: [
+          { orderId: "O001", item: "สินค้า A", quantity: 10 },
+          { orderId: "O002", item: "สินค้า B", quantity: 5 },
+        ],
+        truck: {
+          licensePlate: "1กก 1234",
+          driverName: "สมชาย",
+          driverPhone: "0812345678",
+          truckClass: "6 ล้อ",
+          region: 1,
+          depot: "RDC เชียงใหม่",
+        },
+      },
+      {
+        id: "N-002",
+        company: "SERMSUK",
+        origin: { name: "ลำปาง", latitude: 18.2868, longitude: 99.4981 },
+        destination: { name: "แพร่", latitude: 18.1443, longitude: 100.1411 },
+        departure_time: new Date().toISOString(),
+        estimated_arrival_time: new Date(Date.now() + 7200000).toISOString(),
+        distance_km: 150,
+        estimated_duration_hours: 2.5,
+        status: "available",
+        progress: 0,
+        orders: [{ orderId: "O003", item: "สินค้า C", quantity: 8 }],
+        truck: {
+          licensePlate: "2กก 5678",
+          driverName: "จารุ",
+          driverPhone: "0898765432",
+          truckClass: "10 ล้อ",
+          region: 1,
+          depot: "RDC ลำปาง",
+        },
+      },
+    ],
+    northeast: [
+      {
+        id: "NE-001",
+        company: "HAVI",
+        origin: { name: "ขอนแก่น", latitude: 16.4419, longitude: 102.8355 },
+        destination: {
+          name: "อุดรธานี",
+          latitude: 17.4156,
+          longitude: 102.785,
+        },
+        departure_time: new Date().toISOString(),
+        estimated_arrival_time: new Date(Date.now() + 5400000).toISOString(),
+        distance_km: 120,
+        estimated_duration_hours: 2,
+        status: "in_transit",
+        progress: 60,
+        orders: [
+          { orderId: "O004", item: "สินค้า D", quantity: 12 },
+          { orderId: "O005", item: "สินค้า E", quantity: 7 },
+        ],
+        truck: {
+          licensePlate: "3กก 9012",
+          driverName: "สมหญิง",
+          driverPhone: "0823456789",
+          truckClass: "6 ล้อ",
+          region: 2,
+          depot: "RDC ขอนแก่น",
+        },
+      },
+    ],
+    central: [
+      {
+        id: "C-001",
+        company: "TBL",
+        origin: { name: "นนทบุรี", latitude: 13.9125, longitude: 100.493 },
+        destination: { name: "ปทุมธานี", latitude: 14.02, longitude: 100.5231 },
+        departure_time: new Date().toISOString(),
+        estimated_arrival_time: new Date(Date.now() + 3600000).toISOString(),
+        distance_km: 50,
+        estimated_duration_hours: 1,
+        status: "available",
+        progress: 0,
+        orders: [{ orderId: "O006", item: "สินค้า F", quantity: 20 }],
+        truck: {
+          licensePlate: "4กก 3456",
+          driverName: "สมชาย",
+          driverPhone: "0834567890",
+          truckClass: "10 ล้อ",
+          region: 3,
+          depot: "RDC นนทบุรี",
+        },
+      },
+    ],
+    south: [
+      {
+        id: "S-001",
+        company: "SERMSUK",
+        origin: { name: "สงขลา", latitude: 7.2035, longitude: 100.5974 },
+        destination: { name: "ตรัง", latitude: 7.565, longitude: 99.6113 },
+        departure_time: new Date().toISOString(),
+        estimated_arrival_time: new Date(Date.now() + 5400000).toISOString(),
+        distance_km: 180,
+        estimated_duration_hours: 3,
+        status: "broken",
+        progress: 10,
+        orders: [{ orderId: "O007", item: "สินค้า G", quantity: 15 }],
+        truck: {
+          licensePlate: "5กก 7890",
+          driverName: "สมปอง",
+          driverPhone: "0845678901",
+          truckClass: "6 ล้อ",
+          region: 4,
+          depot: "RDC สงขลา",
+        },
+      },
+    ],
+  };
+
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [companyFilter, setCompanyFilter] = useState<
     "All" | "TBL" | "SERMSUK" | "HAVI"
   >("All");
   const [statusFilter, setStatusFilter] = useState<
-    "All" | "พร้อมใช้งาน / ว่าง" | "กำลังจัดส่ง" | "ขัดข้อง"
+    "All" | "available" | "in_transit" | "broken"
   >("All");
   const [routes, setRoutes] = useState<Record<string, [number, number][]>>({});
   const [positions, setPositions] = useState<Record<string, number>>({});
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [selectedRegionRDC, setSelectedRegionRDC] = useState<RegionKey | null>(
+    null
+  );
+  const [useLogo, setUseLogo] = useState(false);
 
-  // **ใหม่**: ข้ามการอัปเดตตำแหน่งใน tick แรก เพื่อไม่ให้รถกระตุกตอนเปิดหน้า
-  const [firstTickSkipped, setFirstTickSkipped] = useState(false);
+  // Track zoom level
+  const [zoomLevel, setZoomLevel] = useState(7);
 
   const shipments: Shipment[] = shipmentsData.shipments;
 
-  // ───────── load / fallback routes ─────────
   useEffect(() => {
     shipments.forEach((s) => {
       if (s.route && s.route.length > 0) {
@@ -235,26 +279,6 @@ export default function LogisticsOverview() {
     });
   }, [shipments]);
 
-  // ───────── animate trucks ─────────
-//   useEffect(() => {
-//     const t = setInterval(() => {
-//       if (!firstTickSkipped) {
-//         setFirstTickSkipped(true);
-//         return;
-//       }
-//       setPositions((p) => {
-//         const next = { ...p };
-//         Object.entries(routes).forEach(([id, coords]) => {
-//           const i = p[id] || 0;
-//           if (i < coords.length - 1) next[id] = i + 1;
-//         });
-//         return next;
-//       });
-//     }, 1000);
-//     return () => clearInterval(t);
-//   }, [routes, firstTickSkipped]);
-
-  // ───────── filters & selection ─────────
   const filtered = shipments
     .filter((s) => companyFilter === "All" || s.company === companyFilter)
     .filter((s) => statusFilter === "All" || s.status === statusFilter);
@@ -263,23 +287,132 @@ export default function LogisticsOverview() {
     ? shipments.find((s) => s.id === selectedId) || null
     : null;
 
+  const filteredByCompany = shipments.filter(
+    (s) => companyFilter === "All" || s.company === companyFilter
+  );
+
+  const progressAvg =
+    filteredByCompany.length > 0
+      ? filteredByCompany.reduce((acc, s) => acc + s.progress, 0) /
+        filteredByCompany.length
+      : 0;
+
+  useEffect(() => {
+    const styleTag = document.createElement("style");
+    styleTag.innerHTML = styleSheet;
+    document.head.appendChild(styleTag);
+    return () => {
+      document.head.removeChild(styleTag);
+    };
+  }, []);
+
+  // แสดง Marker RDC แต่ละภาค และคลิกเปิด slide รายละเอียด
+  const RDCMarkers = Object.entries(rdcLocations).map(([key, loc]) => {
+    const regionKey = key as RegionKey;
+    return (
+      <Marker
+        key={`rdc-${key}`}
+        position={[loc.lat, loc.lng]}
+        icon={rdcIcon}
+        eventHandlers={{
+          click: () => {
+            setSelectedRegionRDC(regionKey);
+            setSelectedId(null);
+          },
+        }}
+      >
+        <Popup>{loc.name}</Popup>
+      </Marker>
+    );
+  });
+
   return (
     <div className="min-h-screen flex relative">
       <button
         onClick={() => setDrawerOpen((v) => !v)}
         className="absolute top-4 left-4 z-50 bg-white p-2 rounded shadow-lg text-black"
+        aria-label="Toggle drawer"
       >
-        <FaBars className="text-2xl" />
+        <svg
+          className="text-2xl"
+          fill="currentColor"
+          viewBox="0 0 448 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M16 132h416c8.837 0 16-7.163 16-16V84c0-8.837-7.163-16-16-16H16C7.163 68 0 75.163 0 84v32c0 8.837 7.163 16 16 16zm416 68H16c-8.837 0-16 7.163-16 16v32c0 8.837 7.163 16 16 16h416c8.837 0 16-7.163 16-16v-32c0-8.837-7.163-16-16-16zm0 128H16c-8.837 0-16 7.163-16 16v32c0 8.837 7.163 16 16 16h416c8.837 0 16-7.163 16-16v-32c0-8.837-7.163-16-16-16z" />
+        </svg>
       </button>
+
+      {/* ปุ่ม logo */}
+      <div
+        className="fixed top-3 left-[calc(20px+80px)] z-[9999] flex items-center space-x-2 transition-all duration-300"
+        style={{
+          pointerEvents: "auto",
+          left: drawerOpen ? 420 : 100,
+        }}
+      >
+        <div
+          onClick={() => setUseLogo((v) => !v)}
+          className="cursor-pointer rounded p-1 shadow hover:shadow-lg bg-white"
+          style={{
+            width: 64,
+            height: 64,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+          title="Toggle Logo / Truck Icons"
+        >
+          <img
+            src="/logo.png"
+            alt="Logo"
+            className={`w-32 h-32 object-contain transition-transform duration-300 ${
+              useLogo ? "opacity-100" : "opacity-50"
+            }`}
+            style={{ transformOrigin: "center" }}
+          />
+        </div>
+      </div>
+
+      <CompanyBadgeFilter
+        companyFilter={companyFilter}
+        setCompanyFilter={setCompanyFilter}
+        drawerOpen={drawerOpen}
+        onToggleLogo={() => {}}
+        useLogo={useLogo}
+      />
+
+      <StatusCardSlideDown
+        companyFilter={companyFilter}
+        statusFilter={statusFilter}
+        setStatusFilter={setStatusFilter}
+        drawerOpen={drawerOpen}
+      />
+
       <aside
-        className={`bg-gray-100 p-4 w-20 space-y-4 overflow-y-auto transition-all duration-300 text-black
-             ${
+        className={`bg-gray-100 p-4 space-y-4 overflow-y-auto w-20 text-black transition-all duration-300 ${
           drawerOpen ? "w-96" : "w-0 overflow-hidden"
         }`}
         style={{ height: "100vh" }}
       >
+        <button
+          onClick={() => setDrawerOpen((v) => !v)}
+          className="absolute top-4 left-4 z-50 bg-white p-2 rounded shadow-lg text-black"
+          aria-label="Toggle drawer"
+        >
+          <FaBars className="text-2xl" />
+        </button>
+
         {drawerOpen && (
           <>
+            <button
+              onClick={() => setDrawerOpen((v) => !v)}
+              className="absolute top-4 left-4 z-50 bg-white p-2 rounded shadow-lg text-black"
+              aria-label="Toggle drawer"
+            >
+              <FaBars className="text-2xl" />
+            </button>
+
             <h1 className="text-2xl font-bold mb-4 text-right">
               ภาพรวมภูมิภาค
             </h1>
@@ -287,20 +420,15 @@ export default function LogisticsOverview() {
               (key) => (
                 <RegionCard
                   key={key}
-                  regionName={
-                    {
-                      north: "ภาคเหนือ",
-                      northeast: "อีสาน",
-                      central: "ภาคกลาง",
-                      south: "ภาคใต้",
-                    }[key]
-                  }
+                  regionName={regionNameMap[key]}
                   metrics={metrics}
                   weeklySales={100}
                   totalSales={25980}
                   totalChange={15.6}
-                  onClick={() => (window.location.href = `/region/${key}/rdc`)}
-
+                  onClick={() => {
+                    setSelectedRegionRDC(key);
+                    setSelectedId(null);
+                  }}
                 />
               )
             )}
@@ -308,134 +436,111 @@ export default function LogisticsOverview() {
         )}
       </aside>
 
-      {/* main map */}
+      {/* แผนที่ */}
       <div className="flex-1">
-        {/* filters */}
-        <div className="absolute top-4 right-4 bg-white rounded-lg shadow-lg p-2 z-[999] flex space-x-2">
-          {["All", "TBL", "SERMSUK", "HAVI"].map((c) => (
-            <button
-              key={c}
-              onClick={() => {
-                setCompanyFilter(c as any);
-                setStatusFilter("All");
-                setSelectedId(null);
-              }}
-              className={`px-2 py-1 rounded ${
-                companyFilter === c
-                  ? "bg-gradient-to-r from-[#004E92] via-[#0066CC] to-[#0099FF] text-white"
-                  : "bg-gray-200 text-gray-700"
-              }`}
-            >
-              {c === "All" ? "One Logistic" : c}
-            </button>
-          ))}
-        </div>
-        {companyFilter !== "All" && (
-          <div className="absolute top-16 right-4 bg-white rounded-lg mt-2 shadow-lg p-2 z-[999] flex space-x-2">
-            {(["All", "กำลังจัดส่ง", "ขัดข้อง", "พร้อมใช้งาน / ว่าง"] as const).map(
-              (s) => {
-                const label =
-                  s === "All"
-                    ? "All Status"
-                    : s === "กำลังจัดส่ง"
-                    ? "กำลังจัดส่ง"
-                    : s === "ขัดข้อง"
-                    ? "ขัดข้อง"
-                    : "ว่าง";
-
-                const isActive = statusFilter === s;
-
-                const dotColor =
-                  s === "กำลังจัดส่ง"
-                    ? "bg-red-500"
-                    : s === "ขัดข้อง"
-                    ? "bg-yellow-500"
-                    : s === "พร้อมใช้งาน / ว่าง"
-                    ? "bg-green-500"
-                    : "bg-gray-400";
-
-                const activeDotColor = isActive ? "bg-white" : dotColor;
-
-                const badgeBg = isActive
-                  ? "bg-gradient-to-r from-[#004E92] via-[#0066CC] to-[#0099FF]"
-                  : "bg-gray-100";
-                const badgeText = isActive ? "text-white" : "text-gray-700";
-
-                return (
-                  <button
-                    key={s}
-                    onClick={() => {
-                      setStatusFilter(s);
-                      setSelectedId(null);
-                    }}
-                    className={`flex items-center space-x-2 px-3 py-1 rounded-full font-medium transition ${badgeBg} ${badgeText}`}
-                  >
-                    <span
-                      className={`h-2 w-2 rounded-full ${activeDotColor}`}
-                    ></span>
-                    <span className="text-sm">{label}</span>
-                  </button>
-                );
-              }
-            )}
-          </div>
-        )}
-
         <MapContainer
           center={[13.7367, 100.5232]}
           zoom={7}
           style={{ height: "100vh", width: "100%" }}
         >
+          <ZoomControlPositionFix />
+          <MapZoomListener setZoomLevel={setZoomLevel} />
+
           <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
-          {/* only show selected route if statusFilter is กำลังจัดส่ง */}
-          {statusFilter === "กำลังจัดส่ง" &&
-            selectedId &&
-            routes[selectedId] && (
+          {selectedShipment?.status === "in_transit" &&
+            routes[selectedShipment.id] && (
               <Polyline
-                positions={routes[selectedId]!}
+                positions={routes[selectedShipment.id]!}
                 pathOptions={{ color: "#1100ff", weight: 6, opacity: 0.8 }}
               />
             )}
 
-          {/* trucks */}
-          {filtered.map((s) => {
-            const coords = routes[s.id];
-            const idx = positions[s.id] || 0;
-            const pos: [number, number] = coords
-              ? coords[idx]
-              : [s.origin.latitude, s.origin.longitude];
-            return (
-              <Marker
-                key={s.id}
-                position={pos}
-                icon={truckIcon(s.status)}
-                eventHandlers={{
-                  click: () => setSelectedId(s.id),
-                }}
-              >
-                <Popup>
-                  <strong>{s.id}</strong>
-                  <br />
-                  Company: {s.company}
-                  <br />
-                  Status: {s.status}
-                  <br />
-                  Progress: {s.progress}%<br />
-                  Orders:
-                  <ul className="list-disc ml-4">
-                    {s.orders.map((o) => (
-                      <li key={o.orderId}>
-                        {o.orderId}: {o.item} ×{o.quantity}
-                      </li>
-                    ))}
-                  </ul>
-                </Popup>  
-              </Marker>
-            );
-          })}
+          {/* แสดง RDCMarkers แยกออกมาจาก MarkerClusterGroup */}
+          {RDCMarkers}
 
-          {/* origins & destinations */}
+          {/* MarkerClusterGroup สำหรับ shipment markers */}
+          <MarkerClusterGroup
+            iconCreateFunction={(cluster) => {
+              const count = cluster.getChildCount();
+
+              // สี cluster ตามจำนวน
+              let color = "#3B82F6"; // default น้ำเงิน
+              if (count >= 500) color = "#EF4444"; // แดง
+              else if (count >= 150) color = "#F59E0B"; // ส้มเข้ม
+              else if (count >= 30) color = "#FBBF24"; // ส้มอ่อน
+
+              const size = count > 150 ? 64 : count > 30 ? 48 : 36;
+              const fontSize = count > 150 ? 18 : count > 30 ? 14 : 12;
+
+              return new L.DivIcon({
+                html: `
+                  <div style="
+                    position: relative;
+                    width: ${size}px;
+                    height: ${size}px;
+                    border-radius: 50%;
+                    background: ${color};
+                    box-shadow: 0 0 8px rgba(0,0,0,0.3);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: white;
+                    font-weight: bold;
+                    font-size: ${fontSize}px;
+                    border: 3px solid white;
+                    user-select: none;
+                    cursor: pointer;
+                  ">
+                    ${count}
+                  </div>
+                `,
+                className: "",
+                iconSize: [size, size],
+                iconAnchor: [size / 2, size / 2],
+              });
+            }}
+          >
+            {filtered.map((s) => {
+              const coords = routes[s.id];
+              const idx = positions[s.id] || 0;
+              const pos: [number, number] = coords
+                ? coords[idx]
+                : [s.origin.latitude, s.origin.longitude];
+              return (
+                <Marker
+                  key={s.id}
+                  position={pos}
+                  icon={truckIcon(s.status, useLogo)}
+                  eventHandlers={{
+                    click: () => {
+                      setSelectedId(s.id);
+                      setSelectedRegionRDC(null);
+                    },
+                  }}
+                >
+                  <Popup>
+                    <strong>{s.id}</strong>
+                    <br />
+                    Company: {s.company}
+                    <br />
+                    Status: {s.status}
+                    <br />
+                    Progress: {s.progress}%<br />
+                    Orders:
+                    <ul className="list-disc ml-4">
+                      {s.orders.map((o) => (
+                        <li key={o.orderId}>
+                          {o.orderId}: {o.item} ×{o.quantity}
+                        </li>
+                      ))}
+                    </ul>
+                  </Popup>
+                </Marker>
+              );
+            })}
+          </MarkerClusterGroup>
+
           {filtered.flatMap((s) => [
             <Marker
               key={`${s.id}-o`}
@@ -459,65 +564,153 @@ export default function LogisticsOverview() {
         </MapContainer>
       </div>
 
-      {/* right‐side detail panel */}
+      {/* Slide รายละเอียด RDC */}
       <aside
-        className={`bg-white p-6 shadow-xl fixed top-0 right-0 h-full w-80 transition-transform duration-300 z-[999] text-black ${
-          selectedShipment ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={`bg-white p-6 shadow-2xl fixed top-16 right-8 max-w-sm w-96 rounded-3xl transition-transform duration-300 z-[999] text-black
+          ${selectedRegionRDC ? "translate-x-0" : "translate-x-full"}
+          backdrop-blur-md bg-white/70 border border-gray-200 overflow-y-auto`}
+        style={{ boxShadow: "0 12px 40px rgba(0,0,0,0.15)", maxHeight: "80vh" }}
       >
-        {selectedShipment && (
+        {selectedRegionRDC && (
+          <>
+            <button
+              onClick={() => setSelectedRegionRDC(null)}
+              className="text-gray-500 hover:text-gray-800 mb-4"
+              aria-label="Close RDC detail"
+            >
+              ✕ Close
+            </button>
+            <h2 className="text-2xl font-bold mb-4">
+              คลังกระจายสินค้า - {regionNameMap[selectedRegionRDC]}
+            </h2>
+            <p className="mb-4">
+              จำนวนรถในคลัง: {mockShipmentsByRegion[selectedRegionRDC].length}{" "}
+              คัน
+            </p>
+
+            {mockShipmentsByRegion[selectedRegionRDC].map((s) => (
+              <div
+                key={s.id}
+                className="mb-6 p-4 bg-gray-100 rounded-xl shadow-inner"
+              >
+                <h3 className="font-semibold mb-2">{s.id}</h3>
+                <p>
+                  <strong>บริษัท:</strong> {s.company}
+                </p>
+                <p>
+                  <strong>สถานะ:</strong>{" "}
+                  {{
+                    available: "ว่าง",
+                    in_transit: "กำลังขนส่ง",
+                    broken: "เสีย",
+                    All: "ทั้งหมด",
+                  }[s.status] || s.status}
+                </p>
+                <p>
+                  <strong>เวลาเข้า:</strong>{" "}
+                  {new Date(s.departure_time).toLocaleString()}
+                </p>
+                <p>
+                  <strong>ออเดอร์:</strong> {s.orders.length} รายการ
+                </p>
+                <p>
+                  <strong>ความคืบหน้า:</strong> {s.progress}%
+                </p>
+              </div>
+            ))}
+          </>
+        )}
+      </aside>
+
+      {/* Slide รายละเอียดรถ */}
+      <aside
+        className={`bg-white p-6 shadow-2xl fixed top-16 right-8 max-w-sm w-80 rounded-3xl transition-transform duration-300 z-[999] text-black
+          ${
+            selectedShipment && !selectedRegionRDC
+              ? "translate-x-0"
+              : "translate-x-full"
+          }
+          backdrop-blur-md bg-white/70 border border-gray-200`}
+        style={{ boxShadow: "0 12px 40px rgba(0,0,0,0.15)" }}
+      >
+        {selectedShipment && !selectedRegionRDC ? (
           <>
             <button
               onClick={() => setSelectedId(null)}
               className="text-gray-500 hover:text-gray-800 mb-4"
+              aria-label="Close shipment detail"
             >
               ✕ Close
             </button>
             <h2 className="text-2xl font-bold mb-2">{selectedShipment.id}</h2>
             <p className="mb-1">
-              <strong>Company:</strong> {selectedShipment.company}
+              <strong>บริษัท:</strong> {selectedShipment.company}
             </p>
             <p className="mb-1">
-              <strong>Status:</strong> {selectedShipment.status}
+              <strong>สถานะ:</strong>{" "}
+              {{
+                available: "ว่าง",
+                in_transit: "กำลังขนส่ง",
+                broken: "เสีย",
+                All: "ทั้งหมด",
+              }[selectedShipment.status] || selectedShipment.status}
             </p>
             <p className="mb-1">
-              <strong>Progress:</strong> {selectedShipment.progress}%
+              <strong>ความคืบหน้า:</strong> {selectedShipment.progress}%
+            </p>
+
+            <div className="w-full bg-gray-200 rounded-full h-4 mb-4 overflow-hidden">
+              <div
+                className="h-4 bg-blue-600 rounded-full transition-all duration-500"
+                style={{ width: `${selectedShipment.progress}%` }}
+              />
+            </div>
+
+            <p className="mb-1">
+              <strong>ต้นทาง:</strong> {selectedShipment.origin.name}
             </p>
             <p className="mb-1">
-              <strong>From:</strong> {selectedShipment.origin.name}
+              <strong>ปลายทาง:</strong> {selectedShipment.destination.name}
             </p>
             <p className="mb-1">
-              <strong>To:</strong> {selectedShipment.destination.name}
-            </p>
-            <p className="mb-1">
-              <strong>Departs:</strong>{" "}
+              <strong>ออกเดินทาง:</strong>{" "}
               {new Date(selectedShipment.departure_time).toLocaleString()}
             </p>
             <p className="mb-4">
-              <strong>ETA:</strong>{" "}
+              <strong>ถึงโดยประมาณ:</strong>{" "}
               {new Date(
                 selectedShipment.estimated_arrival_time
               ).toLocaleString()}
             </p>
 
-            {/* NEW: Truck Info */}
             {selectedShipment.truck && (
               <div className="mb-4">
-                <h3 className="font-semibold mb-2">Truck Info</h3>
-                <div>
-                    
-                </div>
-                <p><strong>Plate:</strong> {selectedShipment.truck.licensePlate}</p>
-                <p><strong>Driver:</strong> {selectedShipment.truck.driverName}</p>
-                <p><strong>Phone:</strong> 0{selectedShipment.truck.driverPhone}</p>
-                <p><strong>Class:</strong> {selectedShipment.truck.truckClass}</p>
-                <p><strong>Depot:</strong> {selectedShipment.truck.depot}</p>
-                <p><strong>Region #:</strong> {selectedShipment.truck.region}</p>
+                <h3 className="font-semibold mb-2">ข้อมูลรถ</h3>
+                <p>
+                  <strong>ทะเบียน:</strong>{" "}
+                  {selectedShipment.truck.licensePlate}
+                </p>
+                <p>
+                  <strong>คนขับ:</strong> {selectedShipment.truck.driverName}
+                </p>
+                <p>
+                  <strong>โทรศัพท์:</strong> 0
+                  {selectedShipment.truck.driverPhone}
+                </p>
+                <p>
+                  <strong>ประเภท:</strong> {selectedShipment.truck.truckClass}
+                </p>
+                <p>
+                  <strong>ฐานจอดรถ:</strong> {selectedShipment.truck.depot}
+                </p>
+                <p>
+                  <strong>ภูมิภาค #:</strong> {selectedShipment.truck.region}
+                </p>
               </div>
             )}
 
             <div className="mb-4">
-              <h3 className="font-semibold mb-1">Orders:</h3>
+              <h3 className="font-semibold mb-1">คำสั่งซื้อ:</h3>
               <ul className="list-disc pl-5 space-y-1">
                 {selectedShipment.orders.map((o) => (
                   <li key={o.orderId}>
@@ -526,18 +719,19 @@ export default function LogisticsOverview() {
                 ))}
               </ul>
             </div>
+
             <div>
               <p className="mb-1">
-                <strong>Distance:</strong>{" "}
-                {selectedShipment.distance_km.toFixed(1)} km
+                <strong>ระยะทาง:</strong>{" "}
+                {selectedShipment.distance_km.toFixed(1)} กม.
               </p>
               <p>
-                <strong>Est. Duration:</strong>{" "}
-                {selectedShipment.estimated_duration_hours.toFixed(1)} hrs
+                <strong>ระยะเวลาที่คาด:</strong>{" "}
+                {selectedShipment.estimated_duration_hours.toFixed(1)} ชม.
               </p>
             </div>
           </>
-        )}
+        ) : null}
       </aside>
     </div>
   );
