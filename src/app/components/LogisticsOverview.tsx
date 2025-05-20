@@ -17,10 +17,18 @@ import "leaflet.markercluster/dist/MarkerCluster.Default.css";
 
 import { truckIcon, rdcIcon } from "./Icons";
 import { ZoomControlPositionFix, MapZoomListener } from "./MapControls";
-import RegionCard from "./RegionCard";
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+} from "recharts";
 import CompanyBadgeFilter from "./CompanyBadgeFilter";
 import StatusCardSlideDown from "./StatusCardSlideDown";
-
+import VeicleOverview from "./VehicleOverview";
 import shipmentsData from "../data/shipments.json";
 import { RegionKey, regionNameMap } from "./constants";
 
@@ -302,25 +310,15 @@ export default function LogisticsOverview() {
       document.head.removeChild(styleTag);
     };
   }, []);
-
-  const RDCMarkers = Object.entries(rdcLocations).map(([key, loc]) => {
-    const regionKey = key as RegionKey;
-    return (
-      <Marker
-        key={`rdc-${key}`}
-        position={[loc.lat, loc.lng]}
-        icon={rdcIcon}
-        eventHandlers={{
-          click: () => {
-            setSelectedRegionRDC(regionKey);
-            setSelectedId(null);
-          },
-        }}
-      >
-        <Popup>{loc.name}</Popup>
-      </Marker>
-    );
-  });
+  const chartData = [
+    { name: "2016", value: 350 },
+    { name: "2017", value: 400 },
+    { name: "2018", value: 550 },
+    { name: "2019", value: 700 },
+    { name: "2020", value: 1050 },
+    { name: "2021", value: 1200 },
+    { name: "2022", value: 1400 },
+  ];
 
   return (
     <div className="min-h-screen flex relative">
@@ -388,48 +386,137 @@ export default function LogisticsOverview() {
       />
 
       <aside
-        className={`bg-gray-100 p-4 space-y-4 overflow-y-auto w-20 text-black transition-all duration-300 ${
-          drawerOpen ? "w-96" : "w-0 overflow-hidden"
+        className={`bg-white shadow-lg overflow-y-auto transform transition-all duration-300 ${
+          drawerOpen ? "w-96" : "w-16"
         }`}
         style={{ height: "100vh" }}
       >
-        <button
-          onClick={() => setDrawerOpen((v) => !v)}
-          className="absolute top-4 left-4 z-50 bg-white p-2 rounded shadow-lg text-black"
-          aria-label="Toggle drawer"
-        >
-          <FaBars className="text-2xl" />
-        </button>
+        <div className="sticky top-0 bg-white z-10  p-2">
+          <button
+            onClick={() => setDrawerOpen((v) => !v)}
+            className="bg-white p-2 rounded shadow-lg text-black flex items-center justify-center w-10 h-10"
+            aria-label="Toggle drawer"
+          >
+            <FaBars className="text-xl" />
+          </button>
+        </div>
 
         {drawerOpen && (
-          <>
-            <button
-              onClick={() => setDrawerOpen((v) => !v)}
-              className="absolute top-4 left-4 z-50 bg-white p-2 rounded shadow-lg text-black"
-              aria-label="Toggle drawer"
-            >
-              <FaBars className="text-2xl" />
-            </button>
-
-            <h1 className="text-2xl font-bold mb-4 text-right">
+          <div className="p-4">
+            <h1 className="text-2xl font-bold text-center mb-6">
               ภาพรวมภูมิภาค
             </h1>
-            {(["north", "northeast", "central", "south"] as RegionKey[]).map(
-              (key) => (
-                <RegionCard
-                  key={key}
-                  regionName={regionNameMap[key]}
-                  metrics={metrics}
-                  weeklySales={100}
-                  totalSales={25980}
-                  totalChange={15.6}
-                  onClick={() => {
-                    window.location.href = `/region/${key}/rdc`;
-                  }}
-                />
-              )
-            )}
-          </>
+
+            {/* Bar Chart Card */}
+            <div className="bg-white rounded-lg shadow mb-6">
+              <h2 className="text-lg font-semibold p-4 pb-0">
+                Basic Bar Chart
+              </h2>
+              <div className="h-72 p-4">
+                <ResponsiveContainer width="100%" height="100%">
+                  <BarChart data={chartData}>
+                    <CartesianGrid
+                      strokeDasharray="3 3"
+                      vertical={false}
+                      stroke="#e0e0e0"
+                    />
+                    <XAxis dataKey="name" axisLine={false} tickLine={false} />
+                    <YAxis axisLine={false} tickLine={false} />
+                    <Bar dataKey="value" fill="#4a7aff" radius={[0, 0, 0, 0]} />
+                  </BarChart>
+                </ResponsiveContainer>
+              </div>
+            </div>
+
+            {/* Full-width Clicked Card */}
+            <div className="mb-4">
+              <div className="bg-white rounded-lg shadow p-3 w-full">
+                <div className="mb-2">
+                  <span className="text-red-500 font-bold text-lg">65%</span>
+                  <div className="float-right bg-red-500 w-6 h-6 flex items-center justify-center rounded text-white text-xs">
+                    <span>
+                      <svg
+                        width="24"
+                        height="24"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill-rule="evenodd"
+                        fill="#ffffff"
+                        clip-rule="evenodd"
+                      >
+                        <path d="M5 11v1h8v-7h-10v-1c0-.552.448-1 1-1h10c.552 0 1 .448 1 1v2h4.667c1.117 0 1.6.576 1.936 1.107.594.94 1.536 2.432 2.109 3.378.188.312.288.67.288 1.035v4.48c0 1.089-.743 2-2 2h-1c0 1.656-1.344 3-3 3s-3-1.344-3-3h-4c0 1.656-1.344 3-3 3s-3-1.344-3-3h-1c-.552 0-1-.448-1-1v-6h-2v-2h7v2h-3zm3 5.8c.662 0 1.2.538 1.2 1.2 0 .662-.538 1.2-1.2 1.2-.662 0-1.2-.538-1.2-1.2 0-.662.538-1.2 1.2-1.2zm10 0c.662 0 1.2.538 1.2 1.2 0 .662-.538 1.2-1.2 1.2-.662 0-1.2-.538-1.2-1.2 0-.662.538-1.2 1.2-1.2zm-3-2.8h-10v2h.765c.549-.614 1.347-1 2.235-1 .888 0 1.686.386 2.235 1h5.53c.549-.614 1.347-1 2.235-1 .888 0 1.686.386 2.235 1h1.765v-4.575l-1.711-2.929c-.179-.307-.508-.496-.863-.496h-4.426v6zm1-5v3h5l-1.427-2.496c-.178-.312-.509-.504-.868-.504h-2.705zm-16-3h8v2h-8v-2z" />
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+                <p className="text-sm font-medium">
+                  กำลังขนส่ง
+                  <br />
+                  65%
+                </p>
+              </div>
+              <div className="w-full bg-gray-200 rounded-full dark:bg-gray-700">
+                  <div
+                    className="bg-red-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full"
+                    style={{ width: "65%" }}
+                  >
+                    65%
+                  </div>
+                </div>
+            </div>
+
+            {/* Full-width Subscribers Card */}
+            <div className="mb-4">
+              <div className="bg-white rounded-lg shadow p-3 w-full">
+                <div className="mb-2">
+                  <span className="text-orange-500 font-bold text-lg">35%</span>
+                  <div className="float-right bg-orange-500 w-6 h-6 flex items-center justify-center rounded text-white text-xs">
+                    <span>◻</span>
+                  </div>
+                </div>
+                <p className="text-sm font-medium">
+                  มีปัญหา / ขัดข้อง
+                  <br />
+                  35%
+                </p>
+
+                <div className="w-full bg-gray-200 rounded-full dark:bg-gray-700">
+                  <div
+                    className="bg-orange-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full"
+                    style={{ width: "35%" }}
+                  >
+                    35%
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Opened Card in its own row */}
+            <div className="mb-4">
+              <div className="bg-white rounded-lg shadow p-3">
+                <div className="mb-2">
+                  <span className="text-teal-500 font-bold text-lg">5%</span>
+                  <div className="float-right bg-teal-500 w-6 h-6 flex items-center justify-center rounded text-white text-xs">
+                    <span>◯</span>
+                  </div>
+                </div>
+                <p className="text-sm font-medium">
+                  พร้อมใช้งาน
+                  <br />
+                  5%
+                </p>
+                 <div className="w-full bg-gray-200 rounded-full dark:bg-gray-700">
+                  <div
+                    className="bg-green-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full"
+                    style={{ width: "5%" }}
+                  >
+                    5%
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+           
+          </div>
         )}
       </aside>
 
@@ -452,14 +539,12 @@ export default function LogisticsOverview() {
               />
             )}
 
-          {RDCMarkers}
-
           <MarkerClusterGroup
             iconCreateFunction={(cluster) => {
               const count = cluster.getChildCount();
 
-              let color = "rgba(251, 191, 36, 0.7)";
-              if (count >= 100) color = "rgba(234, 88, 12, 0.7)";
+              let color = "rgba(255, 99, 99, 0.7)";
+              if (count >= 100) color = "rgba(234, 12, 12, 0.7)";
 
               const size = count > 100 ? 48 : 36;
               const fontSize = count > 100 ? 16 : 14;
@@ -640,17 +725,22 @@ export default function LogisticsOverview() {
               <strong>ปลายทาง:</strong> {selectedShipment.destination.name}
             </p>
             <p className="mb-1">
-              <strong>ออกเดินทาง:</strong> {new Date(selectedShipment.departure_time).toLocaleString()}
+              <strong>ออกเดินทาง:</strong>{" "}
+              {new Date(selectedShipment.departure_time).toLocaleString()}
             </p>
             <p className="mb-4">
-              <strong>ถึงโดยประมาณ:</strong> {new Date(selectedShipment.estimated_arrival_time).toLocaleString()}
+              <strong>ถึงโดยประมาณ:</strong>{" "}
+              {new Date(
+                selectedShipment.estimated_arrival_time
+              ).toLocaleString()}
             </p>
 
             {selectedShipment.truck && (
               <div className="mb-4">
                 <h3 className="font-semibold mb-2">ข้อมูลรถ</h3>
                 <p>
-                  <strong>ทะเบียน:</strong> {selectedShipment.truck.licensePlate}
+                  <strong>ทะเบียน:</strong>{" "}
+                  {selectedShipment.truck.licensePlate}
                 </p>
                 <p>
                   <strong>คนขับ:</strong> {selectedShipment.truck.driverName}
@@ -690,14 +780,28 @@ export default function LogisticsOverview() {
 
             <div>
               <p className="mb-1">
-                <strong>ระยะทาง:</strong> {selectedShipment.distance_km.toFixed(1)} กม.
+                <strong>ระยะทาง:</strong>{" "}
+                {selectedShipment.distance_km.toFixed(1)} กม.
               </p>
               <p>
-                <strong>ระยะเวลาที่คาด:</strong> {selectedShipment.estimated_duration_hours.toFixed(1)} ชม.
+                <strong>ระยะเวลาที่คาด:</strong>{" "}
+                {selectedShipment.estimated_duration_hours.toFixed(1)} ชม.
               </p>
             </div>
           </>
         ) : null}
+      </aside>
+      <aside
+        className={`bg-white p-6 shadow-2xl fixed bottom-30 right-8 max-w-sm w-80 rounded-3xl transition-transform duration-300 z-[999] text-black
+         
+          backdrop-blur-md bg-white/70 border border-gray-200`}
+        style={{ boxShadow: "0 12px 40px rgba(0,0,0,0.15)" }}
+      >
+        <div>
+          <h2 className="text-2xl font-bold mb-2">ภาพรวมรถทั้งหมด</h2>
+
+          <VeicleOverview />
+        </div>
       </aside>
 
       <style jsx>{`
