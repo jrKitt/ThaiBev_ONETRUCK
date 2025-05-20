@@ -426,8 +426,7 @@ export default function LogisticsOverview() {
                   totalSales={25980}
                   totalChange={15.6}
                   onClick={() => {
-                    setSelectedRegionRDC(key);
-                    setSelectedId(null);
+                    window.location.href = `/region/${key}/rdc`;
                   }}
                 />
               )
@@ -464,14 +463,12 @@ export default function LogisticsOverview() {
             iconCreateFunction={(cluster) => {
               const count = cluster.getChildCount();
 
-              // สี cluster ตามจำนวน
-              let color = "#3B82F6"; // default น้ำเงิน
-              if (count >= 500) color = "#EF4444"; // แดง
-              else if (count >= 150) color = "#F59E0B"; // ส้มเข้ม
-              else if (count >= 30) color = "#FBBF24"; // ส้มอ่อน
+              // สี cluster ตามจำนวน (ปรับโทนสีเหลือง-ส้มแบบจาง)
+              let color = "rgba(251, 191, 36, 0.7)"; // เหลืองอ่อนโปร่งแสง
+              if (count >= 100) color = "rgba(234, 88, 12, 0.7)"; // ส้มเข้มโปร่งแสง
 
-              const size = count > 150 ? 64 : count > 30 ? 48 : 36;
-              const fontSize = count > 150 ? 18 : count > 30 ? 14 : 12;
+              const size = count > 100 ? 48 : 36;
+              const fontSize = count > 100 ? 16 : 14;
 
               return new L.DivIcon({
                 html: `
@@ -481,14 +478,13 @@ export default function LogisticsOverview() {
                     height: ${size}px;
                     border-radius: 50%;
                     background: ${color};
-                    box-shadow: 0 0 8px rgba(0,0,0,0.3);
+                    box-shadow: 0 0 8px rgba(0,0,0,0.2);
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    color: white;
-                    font-weight: bold;
+                    color: black;
+                    font-weight: 600;
                     font-size: ${fontSize}px;
-                    border: 3px solid white;
                     user-select: none;
                     cursor: pointer;
                   ">
@@ -540,27 +536,6 @@ export default function LogisticsOverview() {
               );
             })}
           </MarkerClusterGroup>
-
-          {filtered.flatMap((s) => [
-            <Marker
-              key={`${s.id}-o`}
-              position={[s.origin.latitude, s.origin.longitude]}
-              icon={originIcon}
-            >
-              <Popup>
-                <strong>{s.origin.name}</strong>
-              </Popup>
-            </Marker>,
-            <Marker
-              key={`${s.id}-d`}
-              position={[s.destination.latitude, s.destination.longitude]}
-              icon={destIcon}
-            >
-              <Popup>
-                <strong>{s.destination.name}</strong>
-              </Popup>
-            </Marker>,
-          ])}
         </MapContainer>
       </div>
 
@@ -673,29 +648,30 @@ export default function LogisticsOverview() {
               <strong>ปลายทาง:</strong> {selectedShipment.destination.name}
             </p>
             <p className="mb-1">
-              <strong>ออกเดินทาง:</strong>{" "}
-              {new Date(selectedShipment.departure_time).toLocaleString()}
+              <strong>ออกเดินทาง:</strong> {new Date(selectedShipment.departure_time).toLocaleString()}
             </p>
             <p className="mb-4">
-              <strong>ถึงโดยประมาณ:</strong>{" "}
-              {new Date(
-                selectedShipment.estimated_arrival_time
-              ).toLocaleString()}
+              <strong>ถึงโดยประมาณ:</strong> {new Date(selectedShipment.estimated_arrival_time).toLocaleString()}
             </p>
 
             {selectedShipment.truck && (
               <div className="mb-4">
                 <h3 className="font-semibold mb-2">ข้อมูลรถ</h3>
                 <p>
-                  <strong>ทะเบียน:</strong>{" "}
-                  {selectedShipment.truck.licensePlate}
+                  <strong>ทะเบียน:</strong> {selectedShipment.truck.licensePlate}
                 </p>
                 <p>
                   <strong>คนขับ:</strong> {selectedShipment.truck.driverName}
                 </p>
                 <p>
-                  <strong>โทรศัพท์:</strong> 0
-                  {selectedShipment.truck.driverPhone}
+                  <strong>โทรศัพท์:</strong>{" "}
+                  <a
+                    href={`tel:0${selectedShipment.truck.driverPhone}`}
+                    className="text-blue-600 underline"
+                    aria-label={`โทรหา 0${selectedShipment.truck.driverName}`}
+                  >
+                    0{selectedShipment.truck.driverPhone}
+                  </a>
                 </p>
                 <p>
                   <strong>ประเภท:</strong> {selectedShipment.truck.truckClass}
@@ -722,17 +698,57 @@ export default function LogisticsOverview() {
 
             <div>
               <p className="mb-1">
-                <strong>ระยะทาง:</strong>{" "}
-                {selectedShipment.distance_km.toFixed(1)} กม.
+                <strong>ระยะทาง:</strong> {selectedShipment.distance_km.toFixed(1)} กม.
               </p>
               <p>
-                <strong>ระยะเวลาที่คาด:</strong>{" "}
-                {selectedShipment.estimated_duration_hours.toFixed(1)} ชม.
+                <strong>ระยะเวลาที่คาด:</strong> {selectedShipment.estimated_duration_hours.toFixed(1)} ชม.
               </p>
             </div>
           </>
         ) : null}
       </aside>
+
+      <style jsx>{`
+        @media (max-width: 768px) {
+          aside.bg-gray-100 {
+            width: 80px !important;
+          }
+          aside.bg-white.p-6.shadow-2xl.fixed.top-16.right-8.max-w-sm.w-96.rounded-3xl {
+            /* RDC slide */
+            width: 100vw !important;
+            height: 60vh !important;
+            max-height: 60vh !important;
+            border-radius: 1rem 1rem 0 0 !important;
+            bottom: 0;
+            top: auto !important;
+            right: 0 !important;
+            overflow-y: auto !important;
+            z-index: 10000 !important;
+            box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.15) !important;
+            transition: transform 0.3s ease-in-out;
+          }
+          aside.bg-white.p-6.shadow-2xl.fixed.top-16.right-8.max-w-sm.w-80.rounded-3xl {
+            /* Shipment slide */
+            width: 100vw !important;
+            height: 60vh !important;
+            max-height: 60vh !important;
+            border-radius: 1rem 1rem 0 0 !important;
+            bottom: 0;
+            top: auto !important;
+            right: 0 !important;
+            overflow-y: auto !important;
+            z-index: 10000 !important;
+            box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.15) !important;
+            transition: transform 0.3s ease-in-out;
+          }
+          /* ปรับปุ่ม toggle drawer ให้ไม่บัง */
+          button[aria-label="Toggle drawer"] {
+            top: 1rem !important;
+            left: 1rem !important;
+            z-index: 11000 !important;
+          }
+        }
+      `}</style>
     </div>
   );
 }
