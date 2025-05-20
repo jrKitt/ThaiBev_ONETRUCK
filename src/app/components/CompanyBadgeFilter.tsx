@@ -7,8 +7,7 @@ export default function CompanyBadgeFilter({
   companyFilter,
   setCompanyFilter,
   drawerOpen,
-  onToggleLogo,
-  useLogo,
+
 }: {
   companyFilter: string;
   setCompanyFilter: (v: string) => void;

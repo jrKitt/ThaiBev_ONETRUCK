@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import { FaBars } from "react-icons/fa";
 import {
   MapContainer,
@@ -14,7 +15,7 @@ import MarkerClusterGroup from "react-leaflet-markercluster";
 import "leaflet.markercluster/dist/MarkerCluster.css";
 import "leaflet.markercluster/dist/MarkerCluster.Default.css";
 
-import { originIcon, destIcon, truckIcon, rdcIcon } from "./Icons";
+import { truckIcon, rdcIcon } from "./Icons";
 import { ZoomControlPositionFix, MapZoomListener } from "./MapControls";
 import RegionCard from "./RegionCard";
 import CompanyBadgeFilter from "./CompanyBadgeFilter";
@@ -77,7 +78,6 @@ async function fetchRoute(
   }
 }
 
-// CSS animation string (inject in useEffect)
 const styleSheet = `
 @keyframes slideDownFade {
   0% {
@@ -99,7 +99,6 @@ export default function LogisticsOverview() {
     { label: "อัตราสำเร็จ", value: 35.6, positive: true },
   ];
 
-  // mockup ตำแหน่งและข้อมูล RDC แต่ละภาค
   const rdcLocations: Record<
     RegionKey,
     { lat: number; lng: number; name: string }
@@ -110,7 +109,6 @@ export default function LogisticsOverview() {
     south: { lat: 7.0, lng: 100.5, name: "RDC ภาคใต้" },
   };
 
-  // mockup data สถานะรถในแต่ละ RDC (สำหรับ slide รายละเอียด)
   const mockShipmentsByRegion: Record<RegionKey, Shipment[]> = {
     north: [
       {
@@ -256,7 +254,6 @@ export default function LogisticsOverview() {
   );
   const [useLogo, setUseLogo] = useState(false);
 
-  // Track zoom level
   const [zoomLevel, setZoomLevel] = useState(7);
 
   const shipments: Shipment[] = shipmentsData.shipments;
@@ -306,7 +303,6 @@ export default function LogisticsOverview() {
     };
   }, []);
 
-  // แสดง Marker RDC แต่ละภาค และคลิกเปิด slide รายละเอียด
   const RDCMarkers = Object.entries(rdcLocations).map(([key, loc]) => {
     const regionKey = key as RegionKey;
     return (
@@ -363,10 +359,12 @@ export default function LogisticsOverview() {
           }}
           title="Toggle Logo / Truck Icons"
         >
-          <img
+          <Image
             src="/logo.png"
             alt="Logo"
-            className={`w-32 h-32 object-contain transition-transform duration-300 ${
+            width={128}
+            height={128}
+            className={`object-contain transition-transform duration-300 ${
               useLogo ? "opacity-100" : "opacity-50"
             }`}
             style={{ transformOrigin: "center" }}
@@ -435,7 +433,6 @@ export default function LogisticsOverview() {
         )}
       </aside>
 
-      {/* แผนที่ */}
       <div className="flex-1">
         <MapContainer
           center={[13.7367, 100.5232]}
@@ -455,17 +452,14 @@ export default function LogisticsOverview() {
               />
             )}
 
-          {/* แสดง RDCMarkers แยกออกมาจาก MarkerClusterGroup */}
           {RDCMarkers}
 
-          {/* MarkerClusterGroup สำหรับ shipment markers */}
           <MarkerClusterGroup
             iconCreateFunction={(cluster) => {
               const count = cluster.getChildCount();
 
-              // สี cluster ตามจำนวน (ปรับโทนสีเหลือง-ส้มแบบจาง)
-              let color = "rgba(251, 191, 36, 0.7)"; // เหลืองอ่อนโปร่งแสง
-              if (count >= 100) color = "rgba(234, 88, 12, 0.7)"; // ส้มเข้มโปร่งแสง
+              let color = "rgba(251, 191, 36, 0.7)";
+              if (count >= 100) color = "rgba(234, 88, 12, 0.7)";
 
               const size = count > 100 ? 48 : 36;
               const fontSize = count > 100 ? 16 : 14;
@@ -539,7 +533,6 @@ export default function LogisticsOverview() {
         </MapContainer>
       </div>
 
-      {/* Slide รายละเอียด RDC */}
       <aside
         className={`bg-white p-6 shadow-2xl fixed top-16 right-8 max-w-sm w-96 rounded-3xl transition-transform duration-300 z-[999] text-black
           ${selectedRegionRDC ? "translate-x-0" : "translate-x-full"}
@@ -597,7 +590,6 @@ export default function LogisticsOverview() {
         )}
       </aside>
 
-      {/* Slide รายละเอียดรถ */}
       <aside
         className={`bg-white p-6 shadow-2xl fixed top-16 right-8 max-w-sm w-80 rounded-3xl transition-transform duration-300 z-[999] text-black
           ${
@@ -714,7 +706,6 @@ export default function LogisticsOverview() {
             width: 80px !important;
           }
           aside.bg-white.p-6.shadow-2xl.fixed.top-16.right-8.max-w-sm.w-96.rounded-3xl {
-            /* RDC slide */
             width: 100vw !important;
             height: 60vh !important;
             max-height: 60vh !important;
@@ -728,7 +719,6 @@ export default function LogisticsOverview() {
             transition: transform 0.3s ease-in-out;
           }
           aside.bg-white.p-6.shadow-2xl.fixed.top-16.right-8.max-w-sm.w-80.rounded-3xl {
-            /* Shipment slide */
             width: 100vw !important;
             height: 60vh !important;
             max-height: 60vh !important;
@@ -741,7 +731,6 @@ export default function LogisticsOverview() {
             box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.15) !important;
             transition: transform 0.3s ease-in-out;
           }
-          /* ปรับปุ่ม toggle drawer ให้ไม่บัง */
           button[aria-label="Toggle drawer"] {
             top: 1rem !important;
             left: 1rem !important;

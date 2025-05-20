@@ -14,14 +14,12 @@ export default function RegionCard({
   regionName,
   metrics,
   weeklySales,
-  totalSales,
   totalChange,
   onClick,
 }: {
   regionName: string;
   metrics: Metric[];
   weeklySales: number;
-  totalSales: number;
   totalChange: number;
   onClick?: () => void;
 }) {
