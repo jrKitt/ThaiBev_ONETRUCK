@@ -6,14 +6,14 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-interface VehicleStatusCardProps {
+interface OverviewProps {
   title: string;
   value: number;
   maxValue: number;
   color: string;
 }
 
-const VehicleStatusCard = ({ title, value, maxValue, color }: VehicleStatusCardProps) => {
+const Overview = ({ title, value, maxValue, color }: OverviewProps) => {
   const percentage = Math.round((value / maxValue) * 100);
   
   const chartData = {
@@ -62,26 +62,21 @@ export default function VehicleOverview() {
       title: "รถกำลังใช้งาน",
       value: 12,
       maxValue: 20,
-      color: "#fd2020", 
+      color: "#2720fd", 
     },
-    {
-      title: "รถซ่อมบำรุง",
-      value: 5,
-      maxValue: 20,
-      color: "rgba(249, 115, 22, 1)", 
-    },
-    {
-      title: "รถพร้อมใช้งาน",
-      value: 3,
-      maxValue: 20,
-      color: "#5ef916", 
-    }
   ];
 
   return (
     <div className="w-full">
       {/* Top row with 2 circles */}
-      
+      <div className="flex justify-center gap-6 mb-4">
+        <Overview
+          title={vehicleStatuses[0].title}
+          value={vehicleStatuses[0].value}
+          maxValue={vehicleStatuses[0].maxValue}
+          color={vehicleStatuses[0].color}
+        />
+      </div>
     </div>
   );
 }

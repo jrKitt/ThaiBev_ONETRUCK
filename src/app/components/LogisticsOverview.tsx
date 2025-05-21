@@ -14,30 +14,16 @@ import "leaflet/dist/leaflet.css";
 import MarkerClusterGroup from "react-leaflet-markercluster";
 import "leaflet.markercluster/dist/MarkerCluster.css";
 import "leaflet.markercluster/dist/MarkerCluster.Default.css";
-
-import { truckIcon, rdcIcon } from "./Icons";
+import Dashboard from "./DashboardCards.js";
+import { truckIcon } from "./Icons";
 import { ZoomControlPositionFix, MapZoomListener } from "./MapControls";
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-} from "recharts";
+import Overview from './Overview';
 import CompanyBadgeFilter from "./CompanyBadgeFilter";
 import StatusCardSlideDown from "./StatusCardSlideDown";
 import VeicleOverview from "./VehicleOverview";
 import shipmentsData from "../data/shipments.json";
 import { RegionKey, regionNameMap } from "./constants";
-import VehicleOverview from "./VehicleOverview";
-
-interface Metric {
-  label: string;
-  value: number;
-  positive: boolean;
-}
+import BarChart from "./BarChart";
 interface TruckInfo {
   licensePlate: string;
   driverName: string;
@@ -101,22 +87,7 @@ const styleSheet = `
 `;
 
 export default function LogisticsOverview() {
-  const metrics: Metric[] = [
-    { label: "กำลังขนส่ง", value: 25.8, positive: true },
-    { label: "รอส่งมอบ", value: 4.3, positive: true },
-    { label: "ส่งมอบแล้ว", value: -12.5, positive: false },
-    { label: "อัตราสำเร็จ", value: 35.6, positive: true },
-  ];
 
-  const rdcLocations: Record<
-    RegionKey,
-    { lat: number; lng: number; name: string }
-  > = {
-    north: { lat: 17.5, lng: 102.8, name: "RDC ภาคเหนือ" },
-    northeast: { lat: 16.4, lng: 103.1, name: "RDC ภาคอีสาน" },
-    central: { lat: 14.9, lng: 100.7, name: "RDC ภาคกลาง" },
-    south: { lat: 7.0, lng: 100.5, name: "RDC ภาคใต้" },
-  };
 
   const mockShipmentsByRegion: Record<RegionKey, Shipment[]> = {
     north: [
@@ -293,16 +264,6 @@ export default function LogisticsOverview() {
     ? shipments.find((s) => s.id === selectedId) || null
     : null;
 
-  const filteredByCompany = shipments.filter(
-    (s) => companyFilter === "All" || s.company === companyFilter
-  );
-
-  const progressAvg =
-    filteredByCompany.length > 0
-      ? filteredByCompany.reduce((acc, s) => acc + s.progress, 0) /
-        filteredByCompany.length
-      : 0;
-
   useEffect(() => {
     const styleTag = document.createElement("style");
     styleTag.innerHTML = styleSheet;
@@ -358,7 +319,7 @@ export default function LogisticsOverview() {
         className="fixed top-3 left-[calc(20px+80px)] z-[9999] flex items-center space-x-2 transition-all duration-300"
         style={{
           pointerEvents: "auto",
-          left: drawerOpen ? 420 : 100,
+          left: drawerOpen ? 500 : 96,
         }}
       >
         <div
@@ -403,9 +364,9 @@ export default function LogisticsOverview() {
 
          <aside
       className={`bg-white shadow-lg overflow-y-auto transform transition-all duration-300 ${
-        drawerOpen ? "w-96" : "w-16"
+        drawerOpen ? "w-120" : "w-16"
       }`}
-      style={{ height: "100vh" }}
+      style={{ height: "100vh", }}
     >
       <div className="sticky top-0 bg-white z-10 p-2 flex justify-between items-center">
         <button
@@ -434,118 +395,13 @@ export default function LogisticsOverview() {
           </h1>
 
           {/* Bar Chart Card */}
-          <div className="bg-white rounded-lg shadow mb-6">
             <h2 className="text-lg font-semibold p-4 pb-0">
               การเปรียบเทียบภูมิภาค
             </h2>
-            <div className="h-72 p-4">
-              <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={chartData}>
-                  <CartesianGrid
-                    strokeDasharray="3 3"
-                    vertical={false}
-                    stroke="#e0e0e0"
-                  />
-                  <XAxis dataKey="name" axisLine={false} tickLine={false} />
-                  <YAxis axisLine={false} tickLine={false} />
-                  <Bar dataKey="value" fill="#4a7aff" radius={[0, 0, 0, 0]} />
-                </BarChart>
-              </ResponsiveContainer>
-            </div>
+            <Overview/>
+             <Dashboard/>
           </div>
 
-          {/* Vehicle Status Overview */}
-          <div className="bg-white rounded-lg shadow mb-6 p-4">
-            <h2 className="text-lg font-semibold mb-4">สถานะยานพาหนะ</h2>
-            
-      
-          </div>
-
-          {/* Original Status Cards */}
-          <div className="mb-4">
-            <div className="bg-white rounded-lg shadow p-3 w-full">
-              <div className="mb-2">
-                <span className="text-red-500 font-bold text-lg">65%</span>
-                <div className="float-right bg-red-500 w-6 h-6 flex items-center justify-center rounded text-white text-xs">
-                  <span>
-                    <svg
-                      width="24"
-                      height="24"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fillRule="evenodd"
-                      fill="#ffffff"
-                      clipRule="evenodd"
-                    >
-                      <path d="M5 11v1h8v-7h-10v-1c0-.552.448-1 1-1h10c.552 0 1 .448 1 1v2h4.667c1.117 0 1.6.576 1.936 1.107.594.94 1.536 2.432 2.109 3.378.188.312.288.67.288 1.035v4.48c0 1.089-.743 2-2 2h-1c0 1.656-1.344 3-3 3s-3-1.344-3-3h-4c0 1.656-1.344 3-3 3s-3-1.344-3-3h-1c-.552 0-1-.448-1-1v-6h-2v-2h7v2h-3zm3 5.8c.662 0 1.2.538 1.2 1.2 0 .662-.538 1.2-1.2 1.2-.662 0-1.2-.538-1.2-1.2 0-.662.538-1.2 1.2-1.2zm10 0c.662 0 1.2.538 1.2 1.2 0 .662-.538 1.2-1.2 1.2-.662 0-1.2-.538-1.2-1.2 0-.662.538-1.2 1.2-1.2zm-3-2.8h-10v2h.765c.549-.614 1.347-1 2.235-1 .888 0 1.686.386 2.235 1h5.53c.549-.614 1.347-1 2.235-1 .888 0 1.686.386 2.235 1h1.765v-4.575l-1.711-2.929c-.179-.307-.508-.496-.863-.496h-4.426v6zm1-5v3h5l-1.427-2.496c-.178-.312-.509-.504-.868-.504h-2.705zm-16-3h8v2h-8v-2z" />
-                    </svg>
-                  </span>
-                </div>
-              </div>
-              <p className="text-sm font-medium">
-                กำลังขนส่ง
-                <br />
-                65%
-              </p>
-            </div>
-            <div className="w-full bg-gray-200 rounded-full dark:bg-gray-700">
-              <div
-                className="bg-red-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full"
-                style={{ width: "65%" }}
-              >
-                65%
-              </div>
-            </div>
-          </div>
-
-          <div className="mb-4">
-            <div className="bg-white rounded-lg shadow p-3 w-full">
-              <div className="mb-2">
-                <span className="text-orange-500 font-bold text-lg">35%</span>
-                <div className="float-right bg-orange-500 w-6 h-6 flex items-center justify-center rounded text-white text-xs">
-                  <span>◻</span>
-                </div>
-              </div>
-              <p className="text-sm font-medium">
-                มีปัญหา / ขัดข้อง
-                <br />
-                35%
-              </p>
-
-              <div className="w-full bg-gray-200 rounded-full dark:bg-gray-700">
-                <div
-                  className="bg-orange-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full"
-                  style={{ width: "35%" }}
-                >
-                  35%
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="mb-4">
-            <div className="bg-white rounded-lg shadow p-3">
-              <div className="mb-2">
-                <span className="text-teal-500 font-bold text-lg">5%</span>
-                <div className="float-right bg-teal-500 w-6 h-6 flex items-center justify-center rounded text-white text-xs">
-                  <span>◯</span>
-                </div>
-              </div>
-              <p className="text-sm font-medium">
-                พร้อมใช้งาน
-                <br />
-                5%
-              </p>
-              <div className="w-full bg-gray-200 rounded-full dark:bg-gray-700">
-                <div
-                  className="bg-green-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full"
-                  style={{ width: "5%" }}
-                >
-                  5%
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       )}
 
       {/* Region Selector Screen */}
