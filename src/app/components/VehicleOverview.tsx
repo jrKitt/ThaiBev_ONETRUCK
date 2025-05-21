@@ -44,10 +44,10 @@ const VehicleStatusCard = ({ title, value, maxValue, color }: VehicleStatusCardP
   };
 
   return (
-    <div className="relative w-32 h-32">
+    <div className="relative w-24 h-24">
       <Doughnut data={chartData} options={options} />
       <div className="absolute inset-0 flex flex-col items-center justify-center">
-        <span className="text-xl font-bold">{percentage}%</span>
+        <span className="text-lg font-bold">{percentage}%</span> {/* Adjusted font size */}
         <span className="text-xs font-medium text-gray-700">{title}</span>
         <span className="text-xs text-gray-500">{value}/{maxValue}</span>
       </div>
@@ -80,8 +80,27 @@ export default function VehicleOverview() {
 
   return (
     <div className="w-full">
-      {/* Top row with 2 circles */}
-      
+      {/* Top row with 3 circles */}
+      <div className="flex justify-center gap-6 mb-4">
+        <VehicleStatusCard
+          title={vehicleStatuses[0].title}
+          value={vehicleStatuses[0].value}
+          maxValue={vehicleStatuses[0].maxValue}
+          color={vehicleStatuses[0].color}
+        />
+        <VehicleStatusCard
+          title={vehicleStatuses[1].title}
+          value={vehicleStatuses[1].value}
+          maxValue={vehicleStatuses[1].maxValue}
+          color={vehicleStatuses[1].color}
+        />
+        <VehicleStatusCard
+          title={vehicleStatuses[2].title}
+          value={vehicleStatuses[2].value}
+          maxValue={vehicleStatuses[2].maxValue}
+          color={vehicleStatuses[2].color}
+        />
+      </div>
     </div>
   );
 }
