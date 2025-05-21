@@ -282,11 +282,11 @@ export default function LogisticsOverview() {
     { name: "2022", value: 1400 },
   ];
   const regions = [
-  { id: 1, name: "north" },
-  { id: 2, name: "northeast" },
-  { id: 3, name: "central" },
-  { id: 4, name: "south" },
-  { id: 5, name: "Southern" }
+  { id: 1, name: "ภาคเหนือ" },
+  { id: 2, name: "ภาคกลาง" },
+  { id: 3, name: "ภาคตะวันออก" },
+  { id: 4, name: "ภาคตะวันตก" },
+  { id: 5, name: "ภาคใต้" },
 ];
   // const [drawerOpen, setDrawerOpen] = useState(true);
   const [showRegionSelector, setShowRegionSelector] = useState(false);
@@ -296,8 +296,7 @@ export default function LogisticsOverview() {
     const handleRegionSelect = (region) => {
     // setSelectedRegion(region);
     // setShowRegionSelector(false);
-    const regionName = encodeURIComponent(region.name);
-  window.location.href = `http://localhost:3000/region/${regionName}/rdc`;
+    window.location.href="http://localhost:3000/region/north/rdc";
   };
   return (
     <div className="min-h-screen flex relative">

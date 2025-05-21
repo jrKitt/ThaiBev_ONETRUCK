@@ -44,7 +44,7 @@ const Overview = ({ title, value, maxValue, color }: OverviewProps) => {
   };
 
   return (
-    <div className="relative w-64 h-64">
+    <div className="relative w-32 h-32">
       <Doughnut data={chartData} options={options} />
       <div className="absolute inset-0 flex flex-col items-center justify-center">
         <span className="text-xl font-bold">{percentage}%</span>

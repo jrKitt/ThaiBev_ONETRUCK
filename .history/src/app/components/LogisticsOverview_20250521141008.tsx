@@ -282,10 +282,10 @@ export default function LogisticsOverview() {
     { name: "2022", value: 1400 },
   ];
   const regions = [
-  { id: 1, name: "north" },
-  { id: 2, name: "northeast" },
-  { id: 3, name: "central" },
-  { id: 4, name: "south" },
+  { id: 1, name: "Northern" },
+  { id: 2, name: "Central" },
+  { id: 3, name: "Northeastern" },
+  { id: 4, name: "Western" },
   { id: 5, name: "Southern" }
 ];
   // const [drawerOpen, setDrawerOpen] = useState(true);

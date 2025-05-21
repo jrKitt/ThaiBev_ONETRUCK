@@ -282,11 +282,11 @@ export default function LogisticsOverview() {
     { name: "2022", value: 1400 },
   ];
   const regions = [
-  { id: 1, name: "north" },
-  { id: 2, name: "northeast" },
-  { id: 3, name: "central" },
-  { id: 4, name: "south" },
-  { id: 5, name: "Southern" }
+  { id: 1, name: "ภาคเหนือ" },
+  { id: 2, name: "ภาคกลาง" },
+  { id: 3, name: "ภาคตะวันออก" },
+  { id: 4, name: "ภาคตะวันตก" },
+  { id: 5, name: "ภาคใต้" },
 ];
   // const [drawerOpen, setDrawerOpen] = useState(true);
   const [showRegionSelector, setShowRegionSelector] = useState(false);
@@ -294,10 +294,8 @@ export default function LogisticsOverview() {
   
 
     const handleRegionSelect = (region) => {
-    // setSelectedRegion(region);
-    // setShowRegionSelector(false);
-    const regionName = encodeURIComponent(region.name);
-  window.location.href = `http://localhost:3000/region/${regionName}/rdc`;
+    setSelectedRegion(region);
+    setShowRegionSelector(false);
   };
   return (
     <div className="min-h-screen flex relative">
@@ -397,10 +395,10 @@ export default function LogisticsOverview() {
           </h1>
 
           {/* Bar Chart Card */}
-            {/* <h2 className="text-lg font-semibold m-3 pb-0">
+            <h2 className="text-lg font-semibold p-4 pb-0">
               การเปรียบเทียบภูมิภาค
-            </h2> */}
-            <div className="m-3"><Overview/></div>
+            </h2>
+            <Overview/>
              <Dashboard/>
           </div>
 
