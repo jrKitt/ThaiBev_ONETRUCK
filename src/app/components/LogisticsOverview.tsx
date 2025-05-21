@@ -24,7 +24,13 @@ import VeicleOverview from "./VehicleOverview";
 import shipmentsData from "../data/shipments.json";
 import { RegionKey, regionNameMap } from "./constants";
 import { Shipment } from "./constants";
-
+const regionCoordinates = {
+  1: { center: [18.7883, 98.9853], zoom: 7 },
+  2: { center: [16.4419, 102.8355], zoom: 7 },
+  3: { center: [13.9125, 100.493], zoom: 7 },
+  4: { center: [7.2035, 100.5974], zoom: 7 },
+  // Add more regions as necessary
+};
 const styleSheet = `
 @keyframes slideDownFade {
   0% {
@@ -168,7 +174,8 @@ export default function LogisticsOverview() {
       },
     ],
   };
-
+  const [selectedRegion, setSelectedRegion] = useState(null);
+  const [mapCenter, setMapCenter] = useState([13.7367, 100.5232]);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [companyFilter, setCompanyFilter] = useState<
     "All" | "TBL" | "SERMSUK" | "HAVI"
@@ -186,7 +193,6 @@ export default function LogisticsOverview() {
 
   const [zoomLevel, setZoomLevel] = useState(7);
 
-  console.log(zoomLevel);
   const shipments: Shipment[] = shipmentsData.shipments;
   useEffect(() => {
     shipments.forEach((s) => {
@@ -214,15 +220,6 @@ export default function LogisticsOverview() {
     ? shipments.find((s) => s.id === selectedId) || null
     : null;
 
-  useEffect(() => {
-    const styleTag = document.createElement("style");
-    styleTag.innerHTML = styleSheet;
-    document.head.appendChild(styleTag);
-    return () => {
-      document.head.removeChild(styleTag);
-    };
-  }, []);
-
   const regions = [
     { id: 1, name: "ภาคเหนือ" },
     { id: 2, name: "ภาคกลาง" },
@@ -231,15 +228,18 @@ export default function LogisticsOverview() {
     { id: 5, name: "ภาคใต้" },
   ];
   const [showRegionSelector, setShowRegionSelector] = useState(false);
-  const [selectedRegion, setSelectedRegion] = useState(null);
-
-  const handleRegionSelect = (region) => {
-    setSelectedRegion(region);
-    setShowRegionSelector(false);
-  };
 
   const [selectedR, setSelectedR] = useState(null);
   console.log(setSelectedR);
+
+  const handleRegionSelect = (regionId) => {
+    setSelectedRegion(regionId);
+    const { center, zoom } = regionCoordinates[regionId] || {};
+    if (center) {
+      setMapCenter(center);
+      setZoomLevel(zoom);
+    }
+  };
 
   return (
     <div className="min-h-screen flex relative">
@@ -340,7 +340,8 @@ export default function LogisticsOverview() {
             {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
               <button
                 key={num}
-                // onClick={() => }
+                onClick={() => setShowRegionSelector(!showRegionSelector)}
+
                 className={`w-12 h-12 rounded-full flex items-center justify-center transition-all ${
                   selectedR === num
                     ? "bg-blue-500 text-white shadow-lg"
@@ -363,10 +364,10 @@ export default function LogisticsOverview() {
 
             {/* R1-R8 Selection Cards */}
             <div className="grid grid-cols-2 gap-3 mb-6">
-              {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
+              {[1, 2, 3, 4].map((num) => (
                 <button
                   key={num}
-                  onClick={() => handleRSelection(num)}
+                  onClick={() => handleRegionSelect(num)}
                   className={`p-4 rounded-lg transition-all flex items-center justify-center ${
                     selectedR === num
                       ? "bg-blue-500 text-white shadow-md"
@@ -424,10 +425,10 @@ export default function LogisticsOverview() {
         )}
       </aside>
 
-    <div className="flex-1">
+      <div className="flex-1">
         <MapContainer
-          center={[13.7367, 100.5232]}
-          zoom={7}
+          center={mapCenter} // ใช้ค่า mapCenter ที่มีการอัพเดต
+          zoom={zoomLevel} // ใช้ค่า zoomLevel ที่มีการอัพเดต
           style={{ height: "100vh", width: "100%" }}
         >
           <ZoomControlPositionFix />
@@ -445,8 +446,8 @@ export default function LogisticsOverview() {
 
           {/* MarkerClusterGroup with all markers shown when clicked */}
           <MarkerClusterGroup
-            disableClusteringAtZoom={10}  // Disable clustering when zoom is greater than level 10
-            showCoverageOnHover={false}    // Disable hover behavior
+            disableClusteringAtZoom={10} // Disable clustering when zoom is greater than level 10
+            showCoverageOnHover={false} // Disable hover behavior
           >
             {filtered.map((shipment) => {
               const coords = routes[shipment.id];
@@ -677,14 +678,14 @@ export default function LogisticsOverview() {
           </>
         ) : null}
       </aside>
-<aside
-        className={`bg-white p-6 shadow-2xl fixed bottom-5 right-8 max-w-sm w-80 rounded-3xl transition-transform duration-300 z-[999] text-black
+      <aside
+        className={`bg-white p-6 shadow-2xl fixed bottom-30 right-8 max-w-sm w-80 rounded-3xl transition-transform duration-300 z-[999] text-black
          
           backdrop-blur-md bg-white/70 border border-gray-200`}
         style={{ boxShadow: "0 12px 40px rgba(0,0,0,0.15)" }}
       >
         <div>
-          <h2 className="text-2xl font-bold mb-16 text-end">Truck status</h2>
+          <h2 className="text-2xl font-bold mb-2">ภาพรวมรถทั้งหมด</h2>
 
           <VeicleOverview />
         </div>
