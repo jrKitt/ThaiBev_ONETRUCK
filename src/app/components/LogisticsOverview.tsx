@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { FaBars } from "react-icons/fa";
+import { FaBars, FaGlobeAsia, FaChevronLeft } from "react-icons/fa";
 import {
   MapContainer,
   TileLayer,
@@ -31,6 +31,7 @@ import StatusCardSlideDown from "./StatusCardSlideDown";
 import VeicleOverview from "./VehicleOverview";
 import shipmentsData from "../data/shipments.json";
 import { RegionKey, regionNameMap } from "./constants";
+import VehicleOverview from "./VehicleOverview";
 
 interface Metric {
   label: string;
@@ -319,7 +320,22 @@ export default function LogisticsOverview() {
     { name: "2021", value: 1200 },
     { name: "2022", value: 1400 },
   ];
+  const regions = [
+  { id: 1, name: "ภาคเหนือ" },
+  { id: 2, name: "ภาคกลาง" },
+  { id: 3, name: "ภาคตะวันออก" },
+  { id: 4, name: "ภาคตะวันตก" },
+  { id: 5, name: "ภาคใต้" },
+];
+  // const [drawerOpen, setDrawerOpen] = useState(true);
+  const [showRegionSelector, setShowRegionSelector] = useState(false);
+  const [selectedRegion, setSelectedRegion] = useState(null);
+  
 
+    const handleRegionSelect = (region) => {
+    setSelectedRegion(region);
+    setShowRegionSelector(false);
+  };
   return (
     <div className="min-h-screen flex relative">
       <button
@@ -385,140 +401,187 @@ export default function LogisticsOverview() {
         drawerOpen={drawerOpen}
       />
 
-      <aside
-        className={`bg-white shadow-lg overflow-y-auto transform transition-all duration-300 ${
-          drawerOpen ? "w-96" : "w-16"
-        }`}
-        style={{ height: "100vh" }}
-      >
-        <div className="sticky top-0 bg-white z-10  p-2">
-          <button
-            onClick={() => setDrawerOpen((v) => !v)}
-            className="bg-white p-2 rounded shadow-lg text-black flex items-center justify-center w-10 h-10"
-            aria-label="Toggle drawer"
-          >
-            <FaBars className="text-xl" />
-          </button>
-        </div>
-
+         <aside
+      className={`bg-white shadow-lg overflow-y-auto transform transition-all duration-300 ${
+        drawerOpen ? "w-96" : "w-16"
+      }`}
+      style={{ height: "100vh" }}
+    >
+      <div className="sticky top-0 bg-white z-10 p-2 flex justify-between items-center">
+        <button
+          onClick={() => setDrawerOpen((v) => !v)}
+          className="bg-white p-2 rounded shadow-lg text-black flex items-center justify-center w-10 h-10"
+          aria-label="Toggle drawer"
+        >
+          <FaBars className="text-xl" />
+        </button>
+        
         {drawerOpen && (
-          <div className="p-4">
-            <h1 className="text-2xl font-bold text-center mb-6">
-              ภาพรวมภูมิภาค
-            </h1>
-
-            {/* Bar Chart Card */}
-            <div className="bg-white rounded-lg shadow mb-6">
-              <h2 className="text-lg font-semibold p-4 pb-0">
-                Basic Bar Chart
-              </h2>
-              <div className="h-72 p-4">
-                <ResponsiveContainer width="100%" height="100%">
-                  <BarChart data={chartData}>
-                    <CartesianGrid
-                      strokeDasharray="3 3"
-                      vertical={false}
-                      stroke="#e0e0e0"
-                    />
-                    <XAxis dataKey="name" axisLine={false} tickLine={false} />
-                    <YAxis axisLine={false} tickLine={false} />
-                    <Bar dataKey="value" fill="#4a7aff" radius={[0, 0, 0, 0]} />
-                  </BarChart>
-                </ResponsiveContainer>
-              </div>
-            </div>
-
-            {/* Full-width Clicked Card */}
-            <div className="mb-4">
-              <div className="bg-white rounded-lg shadow p-3 w-full">
-                <div className="mb-2">
-                  <span className="text-red-500 font-bold text-lg">65%</span>
-                  <div className="float-right bg-red-500 w-6 h-6 flex items-center justify-center rounded text-white text-xs">
-                    <span>
-                      <svg
-                        width="24"
-                        height="24"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill-rule="evenodd"
-                        fill="#ffffff"
-                        clip-rule="evenodd"
-                      >
-                        <path d="M5 11v1h8v-7h-10v-1c0-.552.448-1 1-1h10c.552 0 1 .448 1 1v2h4.667c1.117 0 1.6.576 1.936 1.107.594.94 1.536 2.432 2.109 3.378.188.312.288.67.288 1.035v4.48c0 1.089-.743 2-2 2h-1c0 1.656-1.344 3-3 3s-3-1.344-3-3h-4c0 1.656-1.344 3-3 3s-3-1.344-3-3h-1c-.552 0-1-.448-1-1v-6h-2v-2h7v2h-3zm3 5.8c.662 0 1.2.538 1.2 1.2 0 .662-.538 1.2-1.2 1.2-.662 0-1.2-.538-1.2-1.2 0-.662.538-1.2 1.2-1.2zm10 0c.662 0 1.2.538 1.2 1.2 0 .662-.538 1.2-1.2 1.2-.662 0-1.2-.538-1.2-1.2 0-.662.538-1.2 1.2-1.2zm-3-2.8h-10v2h.765c.549-.614 1.347-1 2.235-1 .888 0 1.686.386 2.235 1h5.53c.549-.614 1.347-1 2.235-1 .888 0 1.686.386 2.235 1h1.765v-4.575l-1.711-2.929c-.179-.307-.508-.496-.863-.496h-4.426v6zm1-5v3h5l-1.427-2.496c-.178-.312-.509-.504-.868-.504h-2.705zm-16-3h8v2h-8v-2z" />
-                      </svg>
-                    </span>
-                  </div>
-                </div>
-                <p className="text-sm font-medium">
-                  กำลังขนส่ง
-                  <br />
-                  65%
-                </p>
-              </div>
-              <div className="w-full bg-gray-200 rounded-full dark:bg-gray-700">
-                  <div
-                    className="bg-red-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full"
-                    style={{ width: "65%" }}
-                  >
-                    65%
-                  </div>
-                </div>
-            </div>
-
-            {/* Full-width Subscribers Card */}
-            <div className="mb-4">
-              <div className="bg-white rounded-lg shadow p-3 w-full">
-                <div className="mb-2">
-                  <span className="text-orange-500 font-bold text-lg">35%</span>
-                  <div className="float-right bg-orange-500 w-6 h-6 flex items-center justify-center rounded text-white text-xs">
-                    <span>◻</span>
-                  </div>
-                </div>
-                <p className="text-sm font-medium">
-                  มีปัญหา / ขัดข้อง
-                  <br />
-                  35%
-                </p>
-
-                <div className="w-full bg-gray-200 rounded-full dark:bg-gray-700">
-                  <div
-                    className="bg-orange-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full"
-                    style={{ width: "35%" }}
-                  >
-                    35%
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Opened Card in its own row */}
-            <div className="mb-4">
-              <div className="bg-white rounded-lg shadow p-3">
-                <div className="mb-2">
-                  <span className="text-teal-500 font-bold text-lg">5%</span>
-                  <div className="float-right bg-teal-500 w-6 h-6 flex items-center justify-center rounded text-white text-xs">
-                    <span>◯</span>
-                  </div>
-                </div>
-                <p className="text-sm font-medium">
-                  พร้อมใช้งาน
-                  <br />
-                  5%
-                </p>
-                 <div className="w-full bg-gray-200 rounded-full dark:bg-gray-700">
-                  <div
-                    className="bg-green-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full"
-                    style={{ width: "5%" }}
-                  >
-                    5%
-                  </div>
-                </div>
-              </div>
-              
-            </div>
-           
-          </div>
+          <button
+            onClick={() => setShowRegionSelector(!showRegionSelector)}
+            className="bg-blue-500 text-white p-2 rounded-lg flex items-center justify-center gap-2"
+          >
+            <FaGlobeAsia />
+            <span>{selectedRegion ? selectedRegion.name : "เลือกภูมิภาค"}</span>
+          </button>
         )}
-      </aside>
+      </div>
+
+      {drawerOpen && !showRegionSelector && (
+        <div className="p-4">
+          <h1 className="text-2xl font-bold text-center mb-6">
+            {selectedRegion ? selectedRegion.name : "ภาพรวมภูมิภาค"}
+          </h1>
+
+          {/* Bar Chart Card */}
+          <div className="bg-white rounded-lg shadow mb-6">
+            <h2 className="text-lg font-semibold p-4 pb-0">
+              การเปรียบเทียบภูมิภาค
+            </h2>
+            <div className="h-72 p-4">
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart data={chartData}>
+                  <CartesianGrid
+                    strokeDasharray="3 3"
+                    vertical={false}
+                    stroke="#e0e0e0"
+                  />
+                  <XAxis dataKey="name" axisLine={false} tickLine={false} />
+                  <YAxis axisLine={false} tickLine={false} />
+                  <Bar dataKey="value" fill="#4a7aff" radius={[0, 0, 0, 0]} />
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+          </div>
+
+          {/* Vehicle Status Overview */}
+          <div className="bg-white rounded-lg shadow mb-6 p-4">
+            <h2 className="text-lg font-semibold mb-4">สถานะยานพาหนะ</h2>
+            
+      
+          </div>
+
+          {/* Original Status Cards */}
+          <div className="mb-4">
+            <div className="bg-white rounded-lg shadow p-3 w-full">
+              <div className="mb-2">
+                <span className="text-red-500 font-bold text-lg">65%</span>
+                <div className="float-right bg-red-500 w-6 h-6 flex items-center justify-center rounded text-white text-xs">
+                  <span>
+                    <svg
+                      width="24"
+                      height="24"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fillRule="evenodd"
+                      fill="#ffffff"
+                      clipRule="evenodd"
+                    >
+                      <path d="M5 11v1h8v-7h-10v-1c0-.552.448-1 1-1h10c.552 0 1 .448 1 1v2h4.667c1.117 0 1.6.576 1.936 1.107.594.94 1.536 2.432 2.109 3.378.188.312.288.67.288 1.035v4.48c0 1.089-.743 2-2 2h-1c0 1.656-1.344 3-3 3s-3-1.344-3-3h-4c0 1.656-1.344 3-3 3s-3-1.344-3-3h-1c-.552 0-1-.448-1-1v-6h-2v-2h7v2h-3zm3 5.8c.662 0 1.2.538 1.2 1.2 0 .662-.538 1.2-1.2 1.2-.662 0-1.2-.538-1.2-1.2 0-.662.538-1.2 1.2-1.2zm10 0c.662 0 1.2.538 1.2 1.2 0 .662-.538 1.2-1.2 1.2-.662 0-1.2-.538-1.2-1.2 0-.662.538-1.2 1.2-1.2zm-3-2.8h-10v2h.765c.549-.614 1.347-1 2.235-1 .888 0 1.686.386 2.235 1h5.53c.549-.614 1.347-1 2.235-1 .888 0 1.686.386 2.235 1h1.765v-4.575l-1.711-2.929c-.179-.307-.508-.496-.863-.496h-4.426v6zm1-5v3h5l-1.427-2.496c-.178-.312-.509-.504-.868-.504h-2.705zm-16-3h8v2h-8v-2z" />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+              <p className="text-sm font-medium">
+                กำลังขนส่ง
+                <br />
+                65%
+              </p>
+            </div>
+            <div className="w-full bg-gray-200 rounded-full dark:bg-gray-700">
+              <div
+                className="bg-red-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full"
+                style={{ width: "65%" }}
+              >
+                65%
+              </div>
+            </div>
+          </div>
+
+          <div className="mb-4">
+            <div className="bg-white rounded-lg shadow p-3 w-full">
+              <div className="mb-2">
+                <span className="text-orange-500 font-bold text-lg">35%</span>
+                <div className="float-right bg-orange-500 w-6 h-6 flex items-center justify-center rounded text-white text-xs">
+                  <span>◻</span>
+                </div>
+              </div>
+              <p className="text-sm font-medium">
+                มีปัญหา / ขัดข้อง
+                <br />
+                35%
+              </p>
+
+              <div className="w-full bg-gray-200 rounded-full dark:bg-gray-700">
+                <div
+                  className="bg-orange-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full"
+                  style={{ width: "35%" }}
+                >
+                  35%
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mb-4">
+            <div className="bg-white rounded-lg shadow p-3">
+              <div className="mb-2">
+                <span className="text-teal-500 font-bold text-lg">5%</span>
+                <div className="float-right bg-teal-500 w-6 h-6 flex items-center justify-center rounded text-white text-xs">
+                  <span>◯</span>
+                </div>
+              </div>
+              <p className="text-sm font-medium">
+                พร้อมใช้งาน
+                <br />
+                5%
+              </p>
+              <div className="w-full bg-gray-200 rounded-full dark:bg-gray-700">
+                <div
+                  className="bg-green-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full"
+                  style={{ width: "5%" }}
+                >
+                  5%
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Region Selector Screen */}
+      {drawerOpen && showRegionSelector && (
+        <div className="p-4">
+          <div className="flex items-center mb-4">
+            <button 
+              onClick={() => setShowRegionSelector(false)}
+              className="flex items-center text-blue-500 font-medium"
+            >
+              <FaChevronLeft className="mr-2" /> กลับ
+            </button>
+            <h2 className="text-xl font-semibold ml-4">เลือกภูมิภาค</h2>
+          </div>
+          
+          <div className="space-y-2">
+            {regions.map(region => (
+              <button
+                key={region.id}
+                onClick={() => handleRegionSelect(region)}
+                className={`w-full text-left p-3 rounded-lg transition-colors ${
+                  selectedRegion && selectedRegion.id === region.id 
+                    ? 'bg-blue-100 text-blue-700' 
+                    : 'hover:bg-gray-100'
+                }`}
+              >
+                <div className="flex items-center">
+                  <FaGlobeAsia className="mr-3 text-blue-500" />
+                  <span className="font-medium">{region.name}</span>
+                </div>
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+    </aside>
 
       <div className="flex-1">
         <MapContainer
