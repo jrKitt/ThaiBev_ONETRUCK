@@ -7,7 +7,7 @@ export function ZoomControlPositionFix() {
   const map = useMap();
   useEffect(() => {
     const zoomControl = map.zoomControl;
-    zoomControl.setPosition("bottomright");
+    zoomControl.setPosition("bottomleft");
   }, [map]);
   return null;
 }

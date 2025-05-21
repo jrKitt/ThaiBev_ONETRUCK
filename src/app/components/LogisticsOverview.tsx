@@ -677,14 +677,14 @@ export default function LogisticsOverview() {
           </>
         ) : null}
       </aside>
-      <aside
-        className={`bg-white p-6 shadow-2xl fixed bottom-30 right-8 max-w-sm w-80 rounded-3xl transition-transform duration-300 z-[999] text-black
+<aside
+        className={`bg-white p-6 shadow-2xl fixed bottom-5 right-8 max-w-sm w-80 rounded-3xl transition-transform duration-300 z-[999] text-black
          
           backdrop-blur-md bg-white/70 border border-gray-200`}
         style={{ boxShadow: "0 12px 40px rgba(0,0,0,0.15)" }}
       >
         <div>
-          <h2 className="text-2xl font-bold mb-2">ภาพรวมรถทั้งหมด</h2>
+          <h2 className="text-2xl font-bold mb-16 text-end">Truck status</h2>
 
           <VeicleOverview />
         </div>
