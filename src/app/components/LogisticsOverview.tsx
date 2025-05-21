@@ -228,17 +228,14 @@ export default function LogisticsOverview() {
     { id: 5, name: "ภาคใต้" },
   ];
   const [showRegionSelector, setShowRegionSelector] = useState(false);
+  const [secondaryDrawerOpen, setSecondaryDrawerOpen] = useState(false); // secondary drawer state
 
   const [selectedR, setSelectedR] = useState(null);
   console.log(setSelectedR);
 
-  const handleRegionSelect = (regionId) => {
+  const handleRegionSelect = (regionId: number) => {
     setSelectedRegion(regionId);
-    const { center, zoom } = regionCoordinates[regionId] || {};
-    if (center) {
-      setMapCenter(center);
-      setZoomLevel(zoom);
-    }
+    setSecondaryDrawerOpen(true); // Open secondary drawer when a region is selected
   };
 
   return (
@@ -306,124 +303,180 @@ export default function LogisticsOverview() {
         drawerOpen={drawerOpen}
       />
 
-      <aside
-        className={`bg-white shadow-lg overflow-y-auto transform transition-all duration-300 ${
-          drawerOpen ? "w-120" : "w-16"
-        }`}
-        style={{ height: "100vh" }}
+<aside
+  className={`bg-white p-6 shadow-2xl fixed top-16 right-8 max-w-sm w-96 rounded-3xl transition-transform duration-300 z-[999] text-black
+    ${selectedRegionRDC ? "translate-x-0" : "translate-x-full"}
+    backdrop-blur-md bg-white/70 border border-gray-200 overflow-y-auto`}
+  style={{ boxShadow: "0 12px 40px rgba(0,0,0,0.15)", maxHeight: "80vh" }}
+>
+  {selectedRegionRDC && mockShipmentsByRegion[selectedRegionRDC] && (
+    <>
+      <button
+        onClick={() => setSelectedRegionRDC(null)}
+        className="text-gray-500 hover:text-gray-800 mb-4"
+        aria-label="Close RDC detail"
       >
-        <div className="sticky top-0 bg-white z-10 p-2 flex justify-between items-center">
-          <button
-            onClick={() => setDrawerOpen((v) => !v)}
-            className="bg-white p-2 rounded shadow-lg text-black flex items-center justify-center w-10 h-10"
-            aria-label="Toggle drawer"
-          >
-            <FaBars className="text-xl" />
-          </button>
+        ✕ Close
+      </button>
+      <h2 className="text-2xl font-bold mb-4">
+        คลังกระจายสินค้า - {regionNameMap[selectedRegionRDC]}
+      </h2>
+      <p className="mb-4">
+        จำนวนรถในคลัง: {mockShipmentsByRegion[selectedRegionRDC].length}{" "}
+        คัน
+      </p>
 
-          {drawerOpen && (
-            <button
-              onClick={() => setShowRegionSelector(!showRegionSelector)}
-              className="bg-blue-500 text-white p-2 rounded-lg flex items-center justify-center gap-2"
-            >
-              <FaGlobeAsia />
-              <span>
-                {selectedRegion ? selectedRegion.name : "เลือกภูมิภาค"}
-              </span>
-            </button>
-          )}
+      {mockShipmentsByRegion[selectedRegionRDC].map((s) => (
+        <div
+          key={s.id}
+          className="mb-6 p-4 bg-gray-100 rounded-xl shadow-inner"
+        >
+          <h3 className="font-semibold mb-2">{s.id}</h3>
+          <p>
+            <strong>บริษัท:</strong> {s.company}
+          </p>
+          <p>
+            <strong>สถานะ:</strong> {s.status}
+          </p>
+          <p>
+            <strong>เวลาเข้า:</strong>{" "}
+            {new Date(s.departure_time).toLocaleString()}
+          </p>
+          <p>
+            <strong>ออเดอร์:</strong> {s.orders.length} รายการ
+          </p>
+          <p>
+            <strong>ความคืบหน้า:</strong> {s.progress}%
+          </p>
         </div>
+      ))}
+    </>
+  )}
+</aside>
 
-        {/* R1-R8 Menu when sidebar is collapsed */}
-        {!drawerOpen && (
-          <div className="flex flex-col items-center mt-4 space-y-3">
-            {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
+<aside
+  className={`bg-white shadow-lg overflow-y-auto transform transition-all duration-300 flex ${
+    drawerOpen ? "w-120" : "w-16"
+  }`}
+  style={{ height: "100vh" }}
+>
+  {/* Left side with R1-R8 buttons - always visible */}
+  <div className="flex flex-col items-center space-y-3 py-4 bg-gray-50 border-r border-gray-200">
+    <div className="sticky top-0 p-2 mb-2">
+      <button
+        onClick={() => setDrawerOpen((v) => !v)}
+        className="bg-white p-2 rounded shadow-lg text-black flex items-center justify-center w-10 h-10"
+        aria-label="Toggle drawer"
+      >
+        <FaBars className="text-xl" />
+      </button>
+    </div>
+
+    {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
+      <button
+        key={num}
+        onClick={() => handleRegionSelect(num)}
+        className={`w-12 h-12 rounded-full flex items-center justify-center transition-all ${
+          selectedR === num
+            ? "bg-blue-500 text-white shadow-lg"
+            : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+        }`}
+        title={`R${num}`}
+      >
+        <span className="font-medium">R{num}</span>
+      </button>
+    ))}
+  </div>
+
+  {/* Main drawer content - conditionally visible */}
+  {drawerOpen && (
+    <div className="flex-1 p-4">
+      <div className="sticky top-0 bg-white z-10 p-2 flex justify-between items-center">
+        <h1 className="text-2xl font-bold">
+          {selectedRegion ? selectedRegion.name : "ภาพรวมภูมิภาค"}
+        </h1>
+
+        <button
+          onClick={() => setShowRegionSelector(!showRegionSelector)}
+          className="bg-blue-500 text-white p-2 rounded-lg flex items-center justify-center gap-2"
+        >
+          <FaGlobeAsia />
+          <span>
+            {selectedRegion ? selectedRegion.name : "เลือกภูมิภาค"}
+          </span>
+        </button>
+      </div>
+
+      {!showRegionSelector ? (
+        <div>
+          <h2 className="text-lg font-semibold p-4 pb-0">
+            การเปรียบเทียบภูมิภาค
+          </h2>
+          <Overview />
+          <Dashboard />
+        </div>
+      ) : (
+        <div>
+          <div className="flex items-center mb-4">
+            <button
+              onClick={() => setShowRegionSelector(false)}
+              className="flex items-center text-blue-500 font-medium"
+            >
+              <FaChevronLeft className="mr-2" /> กลับ
+            </button>
+            <h2 className="text-xl font-semibold ml-4">เลือกภูมิภาค</h2>
+          </div>
+
+          <div className="space-y-2">
+            {regions.map((region) => (
               <button
-                key={num}
-                onClick={() => setShowRegionSelector(!showRegionSelector)}
-
-                className={`w-12 h-12 rounded-full flex items-center justify-center transition-all ${
-                  selectedR === num
-                    ? "bg-blue-500 text-white shadow-lg"
-                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                key={region.id}
+                onClick={() => handleRegionSelect(region)}
+                className={`w-full text-left p-3 rounded-lg transition-colors ${
+                  selectedRegion && selectedRegion.id === region.id
+                    ? "bg-blue-100 text-blue-700"
+                    : "hover:bg-gray-100"
                 }`}
-                title={`R${num}`}
               >
-                <span className="font-medium">R{num}</span>
+                <div className="flex items-center">
+                  <FaGlobeAsia className="mr-3 text-blue-500" />
+                  <span className="font-medium">{region.name}</span>
+                </div>
               </button>
             ))}
           </div>
-        )}
+        </div>
+      )}
+    </div>
+  )}
+</aside>
 
-        {/* R1-R8 Menu when sidebar is open */}
-        {drawerOpen && !showRegionSelector && (
-          <div className="p-4">
-            <h1 className="text-2xl font-bold text-center mb-6">
-              {selectedRegion ? selectedRegion.name : "ภาพรวมภูมิภาค"}
-            </h1>
+{/* Secondary drawer - positioned relative to main drawer */}
+{secondaryDrawerOpen && (
+  <aside
+    className="bg-white p-6 shadow-lg fixed top-20 left-10 rounded-3xl transition-all duration-300 z-[999] text-black opacity-90"
+    style={{
+      boxShadow: "0 12px 40px rgba(0,0,0,0.15)",
+      height: "80vh",
+      width: drawerOpen ? "calc(100% - 160px)" : "calc(100% - 56px)",
+      maxWidth: "480px",
+      left: drawerOpen ? "calc(100% - 1000px)" : "75px", // Increased the left distance slightly
+    }}
+  >
+    <button
+      onClick={() => setSecondaryDrawerOpen(false)}
+      className="text-gray-500 hover:text-gray-800 mb-4 flex items-center"
+      aria-label="Close secondary drawer"
+    >
+      <FaChevronLeft className="mr-2" /> กลับ
+    </button>
+    <h2 className="text-2xl font-bold mb-4">
+      Region {selectedRegion?.name || selectedR}
+    </h2>
+    <p>Content for region {selectedRegion?.name || selectedR} goes here...</p>
+  </aside>
+)}
 
-            {/* R1-R8 Selection Cards */}
-            <div className="grid grid-cols-2 gap-3 mb-6">
-              {[1, 2, 3, 4].map((num) => (
-                <button
-                  key={num}
-                  onClick={() => handleRegionSelect(num)}
-                  className={`p-4 rounded-lg transition-all flex items-center justify-center ${
-                    selectedR === num
-                      ? "bg-blue-500 text-white shadow-md"
-                      : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                  }`}
-                >
-                  <div className="text-center">
-                    <span className="font-bold text-lg">R{num}</span>
-                  </div>
-                </button>
-              ))}
-            </div>
-
-            {/* Bar Chart Card */}
-            <h2 className="text-lg font-semibold p-4 pb-0">
-              การเปรียบเทียบภูมิภาค
-            </h2>
-            <Overview />
-            <Dashboard />
-          </div>
-        )}
-
-        {/* Region Selector Screen */}
-        {drawerOpen && showRegionSelector && (
-          <div className="p-4">
-            <div className="flex items-center mb-4">
-              <button
-                onClick={() => setShowRegionSelector(false)}
-                className="flex items-center text-blue-500 font-medium"
-              >
-                <FaChevronLeft className="mr-2" /> กลับ
-              </button>
-              <h2 className="text-xl font-semibold ml-4">เลือกภูมิภาค</h2>
-            </div>
-
-            <div className="space-y-2">
-              {regions.map((region) => (
-                <button
-                  key={region.id}
-                  onClick={() => handleRegionSelect(region)}
-                  className={`w-full text-left p-3 rounded-lg transition-colors ${
-                    selectedRegion && selectedRegion.id === region.id
-                      ? "bg-blue-100 text-blue-700"
-                      : "hover:bg-gray-100"
-                  }`}
-                >
-                  <div className="flex items-center">
-                    <FaGlobeAsia className="mr-3 text-blue-500" />
-                    <span className="font-medium">{region.name}</span>
-                  </div>
-                </button>
-              ))}
-            </div>
-          </div>
-        )}
-      </aside>
 
       <div className="flex-1">
         <MapContainer
@@ -490,62 +543,8 @@ export default function LogisticsOverview() {
         </MapContainer>
       </div>
 
-      <aside
-        className={`bg-white p-6 shadow-2xl fixed top-16 right-8 max-w-sm w-96 rounded-3xl transition-transform duration-300 z-[999] text-black
-          ${selectedRegionRDC ? "translate-x-0" : "translate-x-full"}
-          backdrop-blur-md bg-white/70 border border-gray-200 overflow-y-auto`}
-        style={{ boxShadow: "0 12px 40px rgba(0,0,0,0.15)", maxHeight: "80vh" }}
-      >
-        {selectedRegionRDC && (
-          <>
-            <button
-              onClick={() => setSelectedRegionRDC(null)}
-              className="text-gray-500 hover:text-gray-800 mb-4"
-              aria-label="Close RDC detail"
-            >
-              ✕ Close
-            </button>
-            <h2 className="text-2xl font-bold mb-4">
-              คลังกระจายสินค้า - {regionNameMap[selectedRegionRDC]}
-            </h2>
-            <p className="mb-4">
-              จำนวนรถในคลัง: {mockShipmentsByRegion[selectedRegionRDC].length}{" "}
-              คัน
-            </p>
 
-            {mockShipmentsByRegion[selectedRegionRDC].map((s) => (
-              <div
-                key={s.id}
-                className="mb-6 p-4 bg-gray-100 rounded-xl shadow-inner"
-              >
-                <h3 className="font-semibold mb-2">{s.id}</h3>
-                <p>
-                  <strong>บริษัท:</strong> {s.company}
-                </p>
-                <p>
-                  <strong>สถานะ:</strong>{" "}
-                  {{
-                    available: "ว่าง",
-                    in_transit: "กำลังขนส่ง",
-                    broken: "เสีย",
-                    All: "ทั้งหมด",
-                  }[s.status] || s.status}
-                </p>
-                <p>
-                  <strong>เวลาเข้า:</strong>{" "}
-                  {new Date(s.departure_time).toLocaleString()}
-                </p>
-                <p>
-                  <strong>ออเดอร์:</strong> {s.orders.length} รายการ
-                </p>
-                <p>
-                  <strong>ความคืบหน้า:</strong> {s.progress}%
-                </p>
-              </div>
-            ))}
-          </>
-        )}
-      </aside>
+
 
       <aside
         className={`bg-white p-6 shadow-2xl fixed top-16 right-8 max-w-sm w-80 rounded-3xl transition-transform duration-300 z-[999] text-black
