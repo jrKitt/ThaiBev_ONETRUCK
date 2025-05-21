@@ -17,61 +17,13 @@ import "leaflet.markercluster/dist/MarkerCluster.Default.css";
 import Dashboard from "./DashboardCards.js";
 import { truckIcon } from "./Icons";
 import { ZoomControlPositionFix, MapZoomListener } from "./MapControls";
-import Overview from './Overview';
+import Overview from "./Overview";
 import CompanyBadgeFilter from "./CompanyBadgeFilter";
 import StatusCardSlideDown from "./StatusCardSlideDown";
 import VeicleOverview from "./VehicleOverview";
 import shipmentsData from "../data/shipments.json";
 import { RegionKey, regionNameMap } from "./constants";
-import BarChart from "./BarChart";
-interface TruckInfo {
-  licensePlate: string;
-  driverName: string;
-  driverPhone: string;
-  truckClass: string;
-  region: number;
-  depot: string;
-}
-interface Shipment {
-  id: string;
-  company: "TBL" | "SERMSUK" | "HAVI" | "All";
-  origin: { name: string; latitude: number; longitude: number };
-  destination: { name: string; latitude: number; longitude: number };
-  departure_time: string;
-  estimated_arrival_time: string;
-  distance_km: number;
-  estimated_duration_hours: number;
-  status: "All" | "available" | "in_transit" | "broken";
-  progress: number;
-  orders: { orderId: string; item: string; quantity: number }[];
-  route?: { lat: number; lng: number }[];
-  truck?: TruckInfo;
-}
-
-async function fetchRoute(
-  start: [number, number],
-  end: [number, number]
-): Promise<[number, number][]> {
-  try {
-    const res = await fetch(
-      `/api/route?start=${start[1]},${start[0]}&end=${end[1]},${end[0]}`
-    );
-    if (!res.ok) {
-      console.warn(
-        `Route fetch failed [${res.status}], falling back to local route`
-      );
-      return [];
-    }
-    const json = await res.json();
-    return json.features[0].geometry.coordinates.map((c: [number, number]) => [
-      c[1],
-      c[0],
-    ]);
-  } catch (e) {
-    console.warn("Route fetch exception, falling back to local route", e);
-    return [];
-  }
-}
+import { Shipment } from "./constants";
 
 const styleSheet = `
 @keyframes slideDownFade {
@@ -87,8 +39,6 @@ const styleSheet = `
 `;
 
 export default function LogisticsOverview() {
-
-
   const mockShipmentsByRegion: Record<RegionKey, Shipment[]> = {
     north: [
       {
@@ -236,8 +186,8 @@ export default function LogisticsOverview() {
 
   const [zoomLevel, setZoomLevel] = useState(7);
 
+  console.log(zoomLevel);
   const shipments: Shipment[] = shipmentsData.shipments;
-
   useEffect(() => {
     shipments.forEach((s) => {
       if (s.route && s.route.length > 0) {
@@ -272,31 +222,25 @@ export default function LogisticsOverview() {
       document.head.removeChild(styleTag);
     };
   }, []);
-  const chartData = [
-    { name: "2016", value: 350 },
-    { name: "2017", value: 400 },
-    { name: "2018", value: 550 },
-    { name: "2019", value: 700 },
-    { name: "2020", value: 1050 },
-    { name: "2021", value: 1200 },
-    { name: "2022", value: 1400 },
-  ];
+
   const regions = [
-  { id: 1, name: "ภาคเหนือ" },
-  { id: 2, name: "ภาคกลาง" },
-  { id: 3, name: "ภาคตะวันออก" },
-  { id: 4, name: "ภาคตะวันตก" },
-  { id: 5, name: "ภาคใต้" },
-];
-  // const [drawerOpen, setDrawerOpen] = useState(true);
+    { id: 1, name: "ภาคเหนือ" },
+    { id: 2, name: "ภาคกลาง" },
+    { id: 3, name: "ภาคตะวันออก" },
+    { id: 4, name: "ภาคตะวันตก" },
+    { id: 5, name: "ภาคใต้" },
+  ];
   const [showRegionSelector, setShowRegionSelector] = useState(false);
   const [selectedRegion, setSelectedRegion] = useState(null);
-  
 
-    const handleRegionSelect = (region) => {
+  const handleRegionSelect = (region) => {
     setSelectedRegion(region);
     setShowRegionSelector(false);
   };
+
+  const [selectedR, setSelectedR] = useState(null);
+  console.log(setSelectedR);
+
   return (
     <div className="min-h-screen flex relative">
       <button
@@ -362,84 +306,125 @@ export default function LogisticsOverview() {
         drawerOpen={drawerOpen}
       />
 
-         <aside
-      className={`bg-white shadow-lg overflow-y-auto transform transition-all duration-300 ${
-        drawerOpen ? "w-120" : "w-16"
-      }`}
-      style={{ height: "100vh", }}
-    >
-      <div className="sticky top-0 bg-white z-10 p-2 flex justify-between items-center">
-        <button
-          onClick={() => setDrawerOpen((v) => !v)}
-          className="bg-white p-2 rounded shadow-lg text-black flex items-center justify-center w-10 h-10"
-          aria-label="Toggle drawer"
-        >
-          <FaBars className="text-xl" />
-        </button>
-        
-        {drawerOpen && (
+      <aside
+        className={`bg-white shadow-lg overflow-y-auto transform transition-all duration-300 ${
+          drawerOpen ? "w-120" : "w-16"
+        }`}
+        style={{ height: "100vh" }}
+      >
+        <div className="sticky top-0 bg-white z-10 p-2 flex justify-between items-center">
           <button
-            onClick={() => setShowRegionSelector(!showRegionSelector)}
-            className="bg-blue-500 text-white p-2 rounded-lg flex items-center justify-center gap-2"
+            onClick={() => setDrawerOpen((v) => !v)}
+            className="bg-white p-2 rounded shadow-lg text-black flex items-center justify-center w-10 h-10"
+            aria-label="Toggle drawer"
           >
-            <FaGlobeAsia />
-            <span>{selectedRegion ? selectedRegion.name : "เลือกภูมิภาค"}</span>
+            <FaBars className="text-xl" />
           </button>
-        )}
-      </div>
 
-      {drawerOpen && !showRegionSelector && (
-        <div className="p-4">
-          <h1 className="text-2xl font-bold text-center mb-6">
-            {selectedRegion ? selectedRegion.name : "ภาพรวมภูมิภาค"}
-          </h1>
-
-          {/* Bar Chart Card */}
-            <h2 className="text-lg font-semibold p-4 pb-0">
-              การเปรียบเทียบภูมิภาค
-            </h2>
-            <Overview/>
-             <Dashboard/>
-          </div>
-
-      )}
-
-      {/* Region Selector Screen */}
-      {drawerOpen && showRegionSelector && (
-        <div className="p-4">
-          <div className="flex items-center mb-4">
-            <button 
-              onClick={() => setShowRegionSelector(false)}
-              className="flex items-center text-blue-500 font-medium"
+          {drawerOpen && (
+            <button
+              onClick={() => setShowRegionSelector(!showRegionSelector)}
+              className="bg-blue-500 text-white p-2 rounded-lg flex items-center justify-center gap-2"
             >
-              <FaChevronLeft className="mr-2" /> กลับ
+              <FaGlobeAsia />
+              <span>
+                {selectedRegion ? selectedRegion.name : "เลือกภูมิภาค"}
+              </span>
             </button>
-            <h2 className="text-xl font-semibold ml-4">เลือกภูมิภาค</h2>
-          </div>
-          
-          <div className="space-y-2">
-            {regions.map(region => (
+          )}
+        </div>
+
+        {/* R1-R8 Menu when sidebar is collapsed */}
+        {!drawerOpen && (
+          <div className="flex flex-col items-center mt-4 space-y-3">
+            {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
               <button
-                key={region.id}
-                onClick={() => handleRegionSelect(region)}
-                className={`w-full text-left p-3 rounded-lg transition-colors ${
-                  selectedRegion && selectedRegion.id === region.id 
-                    ? 'bg-blue-100 text-blue-700' 
-                    : 'hover:bg-gray-100'
+                key={num}
+                // onClick={() => }
+                className={`w-12 h-12 rounded-full flex items-center justify-center transition-all ${
+                  selectedR === num
+                    ? "bg-blue-500 text-white shadow-lg"
+                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                 }`}
+                title={`R${num}`}
               >
-                <div className="flex items-center">
-                  <FaGlobeAsia className="mr-3 text-blue-500" />
-                  <span className="font-medium">{region.name}</span>
-                </div>
+                <span className="font-medium">R{num}</span>
               </button>
             ))}
           </div>
-        </div>
-      )}
-    </aside>
+        )}
 
-      <div className="flex-1">
+        {/* R1-R8 Menu when sidebar is open */}
+        {drawerOpen && !showRegionSelector && (
+          <div className="p-4">
+            <h1 className="text-2xl font-bold text-center mb-6">
+              {selectedRegion ? selectedRegion.name : "ภาพรวมภูมิภาค"}
+            </h1>
+
+            {/* R1-R8 Selection Cards */}
+            <div className="grid grid-cols-2 gap-3 mb-6">
+              {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
+                <button
+                  key={num}
+                  onClick={() => handleRSelection(num)}
+                  className={`p-4 rounded-lg transition-all flex items-center justify-center ${
+                    selectedR === num
+                      ? "bg-blue-500 text-white shadow-md"
+                      : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                  }`}
+                >
+                  <div className="text-center">
+                    <span className="font-bold text-lg">R{num}</span>
+                  </div>
+                </button>
+              ))}
+            </div>
+
+            {/* Bar Chart Card */}
+            <h2 className="text-lg font-semibold p-4 pb-0">
+              การเปรียบเทียบภูมิภาค
+            </h2>
+            <Overview />
+            <Dashboard />
+          </div>
+        )}
+
+        {/* Region Selector Screen */}
+        {drawerOpen && showRegionSelector && (
+          <div className="p-4">
+            <div className="flex items-center mb-4">
+              <button
+                onClick={() => setShowRegionSelector(false)}
+                className="flex items-center text-blue-500 font-medium"
+              >
+                <FaChevronLeft className="mr-2" /> กลับ
+              </button>
+              <h2 className="text-xl font-semibold ml-4">เลือกภูมิภาค</h2>
+            </div>
+
+            <div className="space-y-2">
+              {regions.map((region) => (
+                <button
+                  key={region.id}
+                  onClick={() => handleRegionSelect(region)}
+                  className={`w-full text-left p-3 rounded-lg transition-colors ${
+                    selectedRegion && selectedRegion.id === region.id
+                      ? "bg-blue-100 text-blue-700"
+                      : "hover:bg-gray-100"
+                  }`}
+                >
+                  <div className="flex items-center">
+                    <FaGlobeAsia className="mr-3 text-blue-500" />
+                    <span className="font-medium">{region.name}</span>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+      </aside>
+
+    <div className="flex-1">
         <MapContainer
           center={[13.7367, 100.5232]}
           zoom={7}
@@ -447,9 +432,9 @@ export default function LogisticsOverview() {
         >
           <ZoomControlPositionFix />
           <MapZoomListener setZoomLevel={setZoomLevel} />
-
           <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
+          {/* Show routes */}
           {selectedShipment?.status === "in_transit" &&
             routes[selectedShipment.id] && (
               <Polyline
@@ -458,74 +443,41 @@ export default function LogisticsOverview() {
               />
             )}
 
+          {/* MarkerClusterGroup with all markers shown when clicked */}
           <MarkerClusterGroup
-            iconCreateFunction={(cluster) => {
-              const count = cluster.getChildCount();
-
-              let color = "rgba(255, 99, 99, 0.7)";
-              if (count >= 100) color = "rgba(234, 12, 12, 0.7)";
-
-              const size = count > 100 ? 48 : 36;
-              const fontSize = count > 100 ? 16 : 14;
-
-              return new L.DivIcon({
-                html: `
-                  <div style="
-                    position: relative;
-                    width: ${size}px;
-                    height: ${size}px;
-                    border-radius: 50%;
-                    background: ${color};
-                    box-shadow: 0 0 8px rgba(0,0,0,0.2);
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    color: black;
-                    font-weight: 600;
-                    font-size: ${fontSize}px;
-                    user-select: none;
-                    cursor: pointer;
-                  ">
-                    ${count}
-                  </div>
-                `,
-                className: "",
-                iconSize: [size, size],
-                iconAnchor: [size / 2, size / 2],
-              });
-            }}
+            disableClusteringAtZoom={10}  // Disable clustering when zoom is greater than level 10
+            showCoverageOnHover={false}    // Disable hover behavior
           >
-            {filtered.map((s) => {
-              const coords = routes[s.id];
-              const idx = positions[s.id] || 0;
+            {filtered.map((shipment) => {
+              const coords = routes[shipment.id];
+              const idx = positions[shipment.id] || 0;
               const pos: [number, number] = coords
                 ? coords[idx]
-                : [s.origin.latitude, s.origin.longitude];
+                : [shipment.origin.latitude, shipment.origin.longitude];
               return (
                 <Marker
-                  key={s.id}
+                  key={shipment.id}
                   position={pos}
-                  icon={truckIcon(s.status, useLogo)}
+                  icon={truckIcon(shipment.status, useLogo)}
                   eventHandlers={{
                     click: () => {
-                      setSelectedId(s.id);
-                      setSelectedRegionRDC(null);
+                      setSelectedId(shipment.id);
                     },
                   }}
                 >
                   <Popup>
-                    <strong>{s.id}</strong>
+                    <strong>{shipment.id}</strong>
                     <br />
-                    Company: {s.company}
+                    Company: {shipment.company}
                     <br />
-                    Status: {s.status}
+                    Status: {shipment.status}
                     <br />
-                    Progress: {s.progress}%<br />
+                    Progress: {shipment.progress}%<br />
                     Orders:
                     <ul className="list-disc ml-4">
-                      {s.orders.map((o) => (
-                        <li key={o.orderId}>
-                          {o.orderId}: {o.item} ×{o.quantity}
+                      {shipment.orders.map((order) => (
+                        <li key={order.orderId}>
+                          {order.orderId}: {order.item} ×{order.quantity}
                         </li>
                       ))}
                     </ul>
@@ -602,110 +554,125 @@ export default function LogisticsOverview() {
               : "translate-x-full"
           }
           backdrop-blur-md bg-white/70 border border-gray-200`}
-        style={{ boxShadow: "0 12px 40px rgba(0,0,0,0.15)" }}
+        style={{
+          boxShadow: "0 12px 40px rgba(0,0,0,0.15)",
+          maxHeight: "calc(100vh - 120px)", // Set max height to viewport height minus some padding
+          display: "flex",
+          flexDirection: "column",
+        }}
       >
         {selectedShipment && !selectedRegionRDC ? (
           <>
-            <button
-              onClick={() => setSelectedId(null)}
-              className="text-gray-500 hover:text-gray-800 mb-4"
-              aria-label="Close shipment detail"
-            >
-              ✕ Close
-            </button>
-            <h2 className="text-2xl font-bold mb-2">{selectedShipment.id}</h2>
-            <p className="mb-1">
-              <strong>บริษัท:</strong> {selectedShipment.company}
-            </p>
-            <p className="mb-1">
-              <strong>สถานะ:</strong>{" "}
-              {{
-                available: "ว่าง",
-                in_transit: "กำลังขนส่ง",
-                broken: "เสีย",
-                All: "ทั้งหมด",
-              }[selectedShipment.status] || selectedShipment.status}
-            </p>
-            <p className="mb-1">
-              <strong>ความคืบหน้า:</strong> {selectedShipment.progress}%
-            </p>
-
-            <div className="w-full bg-gray-200 rounded-full h-4 mb-4 overflow-hidden">
-              <div
-                className="h-4 bg-blue-600 rounded-full transition-all duration-500"
-                style={{ width: `${selectedShipment.progress}%` }}
-              />
+            <div className="flex justify-between items-center mb-4 sticky top-0 bg-white/90 pb-2 border-b border-gray-100">
+              <h2 className="text-2xl font-bold">{selectedShipment.id}</h2>
+              <button
+                onClick={() => setSelectedId(null)}
+                className="text-gray-500 hover:text-gray-800 flex items-center justify-center h-8 w-8 rounded-full hover:bg-gray-100"
+                aria-label="Close shipment detail"
+              >
+                ✕
+              </button>
             </div>
 
-            <p className="mb-1">
-              <strong>ต้นทาง:</strong> {selectedShipment.origin.name}
-            </p>
-            <p className="mb-1">
-              <strong>ปลายทาง:</strong> {selectedShipment.destination.name}
-            </p>
-            <p className="mb-1">
-              <strong>ออกเดินทาง:</strong>{" "}
-              {new Date(selectedShipment.departure_time).toLocaleString()}
-            </p>
-            <p className="mb-4">
-              <strong>ถึงโดยประมาณ:</strong>{" "}
-              {new Date(
-                selectedShipment.estimated_arrival_time
-              ).toLocaleString()}
-            </p>
+            <div
+              className="overflow-y-auto flex-grow pr-1"
+              style={{ scrollbarWidth: "thin" }}
+            >
+              <p className="mb-1">
+                <strong>บริษัท:</strong> {selectedShipment.company}
+              </p>
+              <p className="mb-1">
+                <strong>สถานะ:</strong>{" "}
+                {{
+                  available: "ว่าง",
+                  in_transit: "กำลังขนส่ง",
+                  broken: "เสีย",
+                  All: "ทั้งหมด",
+                }[selectedShipment.status] || selectedShipment.status}
+              </p>
+              <p className="mb-1">
+                <strong>ความคืบหน้า:</strong> {selectedShipment.progress}%
+              </p>
 
-            {selectedShipment.truck && (
-              <div className="mb-4">
-                <h3 className="font-semibold mb-2">ข้อมูลรถ</h3>
-                <p>
-                  <strong>ทะเบียน:</strong>{" "}
-                  {selectedShipment.truck.licensePlate}
+              <div className="w-full bg-gray-200 rounded-full h-4 mb-4 overflow-hidden">
+                <div
+                  className="h-4 bg-blue-600 rounded-full transition-all duration-500"
+                  style={{ width: `${selectedShipment.progress}%` }}
+                />
+              </div>
+
+              <p className="mb-1">
+                <strong>ต้นทาง:</strong> {selectedShipment.origin.name}
+              </p>
+              <p className="mb-1">
+                <strong>ปลายทาง:</strong> {selectedShipment.destination.name}
+              </p>
+              <p className="mb-1">
+                <strong>ออกเดินทาง:</strong>{" "}
+                {new Date(selectedShipment.departure_time).toLocaleString()}
+              </p>
+              <p className="mb-4">
+                <strong>ถึงโดยประมาณ:</strong>{" "}
+                {new Date(
+                  selectedShipment.estimated_arrival_time
+                ).toLocaleString()}
+              </p>
+
+              {selectedShipment.truck && (
+                <div className="mb-4 bg-blue-50 p-3 rounded-lg">
+                  <h3 className="font-semibold mb-2 text-blue-800">ข้อมูลรถ</h3>
+                  <p>
+                    <strong>ทะเบียน:</strong>{" "}
+                    {selectedShipment.truck.licensePlate}
+                  </p>
+                  <p>
+                    <strong>คนขับ:</strong> {selectedShipment.truck.driverName}
+                  </p>
+                  <p>
+                    <strong>โทรศัพท์:</strong>{" "}
+                    <a
+                      href={`tel:0${selectedShipment.truck.driverPhone}`}
+                      className="text-blue-600 underline"
+                      aria-label={`โทรหา 0${selectedShipment.truck.driverName}`}
+                    >
+                      0{selectedShipment.truck.driverPhone}
+                    </a>
+                  </p>
+                  <p>
+                    <strong>ประเภท:</strong> {selectedShipment.truck.truckClass}
+                  </p>
+                  <p>
+                    <strong>ฐานจอดรถ:</strong> {selectedShipment.truck.depot}
+                  </p>
+                  <p>
+                    <strong>ภูมิภาค #:</strong> {selectedShipment.truck.region}
+                  </p>
+                </div>
+              )}
+
+              <div className="mb-4 bg-green-50 p-3 rounded-lg">
+                <h3 className="font-semibold mb-1 text-green-800">
+                  คำสั่งซื้อ:
+                </h3>
+                <ul className="list-disc pl-5 space-y-1">
+                  {selectedShipment.orders.map((o) => (
+                    <li key={o.orderId}>
+                      <strong>{o.orderId}</strong>: {o.item} ×{o.quantity}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="bg-gray-50 p-3 rounded-lg">
+                <p className="mb-1">
+                  <strong>ระยะทาง:</strong>{" "}
+                  {selectedShipment.distance_km.toFixed(1)} กม.
                 </p>
                 <p>
-                  <strong>คนขับ:</strong> {selectedShipment.truck.driverName}
-                </p>
-                <p>
-                  <strong>โทรศัพท์:</strong>{" "}
-                  <a
-                    href={`tel:0${selectedShipment.truck.driverPhone}`}
-                    className="text-blue-600 underline"
-                    aria-label={`โทรหา 0${selectedShipment.truck.driverName}`}
-                  >
-                    0{selectedShipment.truck.driverPhone}
-                  </a>
-                </p>
-                <p>
-                  <strong>ประเภท:</strong> {selectedShipment.truck.truckClass}
-                </p>
-                <p>
-                  <strong>ฐานจอดรถ:</strong> {selectedShipment.truck.depot}
-                </p>
-                <p>
-                  <strong>ภูมิภาค #:</strong> {selectedShipment.truck.region}
+                  <strong>ระยะเวลาที่คาด:</strong>{" "}
+                  {selectedShipment.estimated_duration_hours.toFixed(1)} ชม.
                 </p>
               </div>
-            )}
-
-            <div className="mb-4">
-              <h3 className="font-semibold mb-1">คำสั่งซื้อ:</h3>
-              <ul className="list-disc pl-5 space-y-1">
-                {selectedShipment.orders.map((o) => (
-                  <li key={o.orderId}>
-                    <strong>{o.orderId}</strong>: {o.item} ×{o.quantity}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <p className="mb-1">
-                <strong>ระยะทาง:</strong>{" "}
-                {selectedShipment.distance_km.toFixed(1)} กม.
-              </p>
-              <p>
-                <strong>ระยะเวลาที่คาด:</strong>{" "}
-                {selectedShipment.estimated_duration_hours.toFixed(1)} ชม.
-              </p>
             </div>
           </>
         ) : null}
