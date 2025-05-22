@@ -1,13 +1,9 @@
 'use client';
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
+import Login from './login/page';
 
 export default function Home() {
-  useEffect(() => {
-    const user = ""; 
-    if (!user) {
-      window.location.href = "/login";
-    }
-  }, []);
 
-  return <></>;
+
+  return <Login></Login>;
 }
