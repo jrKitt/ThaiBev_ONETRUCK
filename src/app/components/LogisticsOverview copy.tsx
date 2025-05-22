@@ -349,7 +349,7 @@ export default function LogisticsOverview() {
     : null;
 
   const regions = [
-    { id: 1, name: "north", thaiName: "ภาคเหนือ" },
+    { id: 1, name: "north", thaiName: "R1" },
     { id: 2, name: "northeast", thaiName: "ภาคตะวันออกเฉียงเหนือ" },
     { id: 3, name: "central", thaiName: "ภาคกลาง" },
     { id: 4, name: "central", thaiName: "กรุงเทพมหานคร" },
