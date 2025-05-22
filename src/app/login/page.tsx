@@ -55,7 +55,7 @@ export default function Login() {
           onSubmit={handleLogin}
           className="w-full max-w-md space-y-6"
         >
-          <img src="/applogo.png" className="text-[64px] font-semibold text-center text-[#1049CD]"/>
+          <img src="/logo58-removebg-preview.png" className="text-[64px] font-semibold text-center text-[#1049CD]"/>
 
           <h2 className="text-2xl font-semibold text-center text-black">เข้าสู่ระบบ</h2>
 
