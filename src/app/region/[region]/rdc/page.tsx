@@ -18,6 +18,7 @@ import VehicleTable from '@/app/components/Vehicles';
 import provincesTopo from '../../../data/thailand_provinces.json';
 import { feature } from 'topojson-client';
 
+
 // ───────── ICON ─────────────────────────────────────────────────────────────
 const defaultIcon = new L.Icon({
   iconUrl:
@@ -126,7 +127,7 @@ export default function RDCDashboardPage() {
 
       <main className="flex-1 bg-blue-50 p-6 text-gray-700">
         <h1 className="text-2xl font-bold mb-6 text-gray-800">
-          {region.toUpperCase()} – {decodeURIComponent(rdc)} Dashboard
+          {region.toUpperCase()} – Dashboard
         </h1>
 
         {/* Map */}

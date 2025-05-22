@@ -1,13 +1,13 @@
 'use client';
-
-const user = "";
-if (!user) {
-  window.location.href = "/login"; 
-}
+import { useEffect } from 'react';
 
 export default function Home() {
-  return (
-    <>
-    </>
-  );
+  useEffect(() => {
+    const user = ""; 
+    if (!user) {
+      window.location.href = "/login";
+    }
+  }, []);
+
+  return <></>;
 }
