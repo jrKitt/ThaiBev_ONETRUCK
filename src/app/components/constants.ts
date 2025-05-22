@@ -36,4 +36,5 @@ export interface Shipment {
   orders: { orderId: string; item: string; quantity: number }[];
   route?: { lat: number; lng: number }[];
   truck?: TruckInfo;
+  support_phone: string
 }

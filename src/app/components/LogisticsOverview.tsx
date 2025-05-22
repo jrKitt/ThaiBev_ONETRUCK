@@ -2,13 +2,16 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { FaBars, FaGlobeAsia, FaChevronLeft } from "react-icons/fa";
+import { FaBars, FaGlobeAsia, FaChevronLeft,FaCheckCircle,
+FaTruck,
+FaExclamationTriangle } from "react-icons/fa";
 import {
   MapContainer,
   TileLayer,
   Marker,
   Popup,
   Polyline,
+  useMap,
 } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import MarkerClusterGroup from "react-leaflet-markercluster";
@@ -24,32 +27,54 @@ import VeicleOverview from "./VehicleOverview";
 import shipmentsData from "../data/shipments.json";
 import { RegionKey, regionNameMap } from "./constants";
 import { Shipment } from "./constants";
-const regionCoordinates = {
-  1: { center: [18.7883, 98.9853], zoom: 7 },
-  2: { center: [16.4419, 102.8355], zoom: 7 },
-  3: { center: [13.9125, 100.493], zoom: 7 },
-  4: { center: [7.2035, 100.5974], zoom: 7 },
-  // Add more regions as necessary
-};
-const styleSheet = `
-@keyframes slideDownFade {
-  0% {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-`;
 
+// กำหนดพิกัดตามภูมิภาค
+const regionCoordinates = {
+  1: { center: [18.7883, 98.9853], zoom: 8 },   // เชียงใหม่ (ภาคเหนือ)
+  2: { center: [16.4419, 102.8355], zoom: 8 },   // ขอนแก่น (ตะวันออกเฉียงเหนือ)
+  3: { center: [14.0183, 100.525], zoom: 8 },    // อยุธยา/นครสวรรค์* (กลาง)
+  4: { center: [13.7563, 100.5018], zoom: 11 },  // กรุงเทพฯ
+  5: { center: [13.9020, 100.5303], zoom: 10 },  // ปริมณฑล (นนทบุรี/ปทุมธานี/สมุทรปราการ)
+  6: { center: [13.3611, 100.9847], zoom: 8 },   // ชลบุรี (ตะวันออก)
+  7: { center: [13.7957, 99.6110], zoom: 8 },    // กาญจนบุรี (ตะวันตก)
+  8: { center: [9.1398, 99.3264], zoom: 8 }      // สุราษฎร์ธานี (ใต้)
+};
+
+
+interface LocationCoordinates {
+  name: string;
+  latitude: number;
+  longitude: number;
+}
+
+// Interface สำหรับ props ของ MapWithCenter
+interface MapWithCenterProps {
+  mapCenter: [number, number]; // [latitude, longitude]
+  zoomLevel: number;
+}
+
+// Component สำหรับอัพเดตตำแหน่งแผนที่อัตโนมัติ
+const MapWithCenter = ({ mapCenter, zoomLevel } : MapWithCenterProps) => {
+  const map = useMap();
+  
+  useEffect(() => {
+    map.setView(mapCenter, zoomLevel);
+  }, [map, mapCenter, zoomLevel]);
+  
+  return null;
+};
+
+const fetchRoute = async (origin: LocationCoordinates, destination: LocationCoordinates): Promise<LocationCoordinates[]> => {
+
+  return [origin, destination];
+};
 export default function LogisticsOverview() {
   const mockShipmentsByRegion: Record<RegionKey, Shipment[]> = {
     north: [
       {
         id: "N-001",
         company: "TBL",
+        support_phone: "1300-000-1234",
         origin: { name: "เชียงใหม่", latitude: 18.7883, longitude: 98.9853 },
         destination: {
           name: "เชียงราย",
@@ -78,6 +103,7 @@ export default function LogisticsOverview() {
       {
         id: "N-002",
         company: "SERMSUK",
+        support_phone: "1300-000-1234",
         origin: { name: "ลำปาง", latitude: 18.2868, longitude: 99.4981 },
         destination: { name: "แพร่", latitude: 18.1443, longitude: 100.1411 },
         departure_time: new Date().toISOString(),
@@ -101,6 +127,7 @@ export default function LogisticsOverview() {
       {
         id: "NE-001",
         company: "HAVI",
+        support_phone: "1300-000-1234",
         origin: { name: "ขอนแก่น", latitude: 16.4419, longitude: 102.8355 },
         destination: {
           name: "อุดรธานี",
@@ -131,6 +158,7 @@ export default function LogisticsOverview() {
       {
         id: "C-001",
         company: "TBL",
+        support_phone: "1300-000-1234",
         origin: { name: "นนทบุรี", latitude: 13.9125, longitude: 100.493 },
         destination: { name: "ปทุมธานี", latitude: 14.02, longitude: 100.5231 },
         departure_time: new Date().toISOString(),
@@ -154,6 +182,7 @@ export default function LogisticsOverview() {
       {
         id: "S-001",
         company: "SERMSUK",
+        support_phone: "1300-000-1234",
         origin: { name: "สงขลา", latitude: 7.2035, longitude: 100.5974 },
         destination: { name: "ตรัง", latitude: 7.565, longitude: 99.6113 },
         departure_time: new Date().toISOString(),
@@ -175,6 +204,7 @@ export default function LogisticsOverview() {
     ],
   };
   const [selectedRegion, setSelectedRegion] = useState(null);
+  console.log(setSelectedRegion)
   const [mapCenter, setMapCenter] = useState([13.7367, 100.5232]);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [companyFilter, setCompanyFilter] = useState<
@@ -224,8 +254,11 @@ export default function LogisticsOverview() {
     { id: 1, name: "north", thaiName: "ภาคเหนือ" },
     { id: 2, name: "northeast", thaiName: "ภาคตะวันออกเฉียงเหนือ" },
     { id: 3, name: "central", thaiName: "ภาคกลาง" },
-    { id: 4, name: "south", thaiName: "ภาคใต้" },
-    { id: 5, name: "Southern", thaiName: "ภาคใต้" },
+    { id: 4, name: "central", thaiName: "กรุงเทพมหานคร" },
+    { id: 5, name: "central", thaiName: "ปริมณฑล" },
+    { id: 6, name: "east", thaiName: "ภาคตะวันออก" },
+    { id: 7, name: "west", thaiName: "ภาคตะวันตก" },
+    { id: 8, name: "south", thaiName: "ภาคใต้" },
   ];
   const [showRegionSelector, setShowRegionSelector] = useState(false);
   const [secondaryDrawerOpen, setSecondaryDrawerOpen] = useState(false); // secondary drawer state
@@ -233,10 +266,68 @@ export default function LogisticsOverview() {
   const [selectedR, setSelectedR] = useState(null);
   console.log(setSelectedR);
 
-  const handleRegionSelect = (regionId: number) => {
-    setSelectedRegion(regionId);
-    setSecondaryDrawerOpen(true); // Open secondary drawer when a region is selected
+  const handleRegionSelect = (regionId) => {
+    setSelectedR(regionId);
+    setSecondaryDrawerOpen(true);
+    
+    // ซูมไปยังตำแหน่งที่กำหนดตาม regionId
+    if (regionCoordinates[regionId]) {
+      setMapCenter(regionCoordinates[regionId].center);
+      setZoomLevel(regionCoordinates[regionId].zoom);
+    }
   };
+
+  function regionTruckStats(regionId, shipments) {
+  // filter เฉพาะที่ truck.region === regionId
+  const filtered = shipments.filter(s => s.truck && s.truck.region === regionId);
+  let counts = { available: 0, in_transit: 0, broken: 0 };
+  filtered.forEach(s => {
+    if (s.status === "available") counts.available++;
+    else if (s.status === "in_transit") counts.in_transit++;
+    else if (s.status === "broken") counts.broken++;
+  });
+  const total = filtered.length || 1;
+  return {
+    ...counts,
+    total,
+    availablePercent: (counts.available/total)*100,
+    inTransitPercent: (counts.in_transit/total)*100,
+    brokenPercent: (counts.broken/total)*100,
+  };
+}
+
+function CircleProgress({ percent, color="#00458a", label=" ", size=90 }) {
+  const radius = size/2 - 8;
+  const dashArray = 2 * Math.PI * radius;
+  const dashOffset = dashArray * (1 - percent / 100);
+  return (
+    <svg width={size} height={size} style={{margin:"8px"}}>
+      <circle
+        cx={size/2}
+        cy={size/2}
+        r={radius}
+        fill="none"
+        stroke="#f1f5f9"
+        strokeWidth="10"
+      />
+      <circle
+        cx={size/2}
+        cy={size/2}
+        r={radius}
+        fill="none"
+        stroke={color}
+        strokeWidth="10"
+        strokeDasharray={dashArray}
+        strokeDashoffset={dashOffset}
+        strokeLinecap="round"
+        style={{ transition: "stroke-dashoffset 0.7s", }}
+      />
+      <text x="50%" y="52%" textAnchor="middle" fontSize="1.3em" fontWeight="bold" fill={color}>{`${Math.round(percent)}%`}</text>
+      <text x="50%" y="77%" textAnchor="middle" fontSize="0.9em" fill="#888">{label}</text>
+    </svg>
+  );
+}
+  
   const handleRegionSelected = (region) => {
     // setSelectedRegion(region);
     // setShowRegionSelector(false);
@@ -458,41 +549,74 @@ export default function LogisticsOverview() {
       </aside>
 
       {/* Secondary drawer - positioned relative to main drawer */}
-      {secondaryDrawerOpen && (
-        <aside
-          className="bg-white p-6 shadow-lg fixed top-20 left-10 rounded-3xl transition-all duration-300 z-[99999] text-black opacity-90"
-          style={{
-            boxShadow: "0 12px 40px rgba(0,0,0,0.15)",
-            height: "80vh",
-            width: drawerOpen ? "calc(100% - 160px)" : "calc(100% - 56px)",
-            maxWidth: "480px",
-            left: drawerOpen ? "calc(100% - 1000px)" : "75px", // Increased the left distance slightly
-          }}
-        >
-          <button
-            onClick={() => setSecondaryDrawerOpen(false)}
-            className="text-gray-500 hover:text-gray-800 mb-4 flex items-center"
-            aria-label="Close secondary drawer"
-          >
-            <FaChevronLeft className="mr-2" /> กลับ
-          </button>
-          <h2 className="text-2xl font-bold mb-4">
-            Region {selectedRegion?.name || selectedR}
-          </h2>
-          <p>
-            Content for region {selectedRegion?.name || selectedR} goes here...
-          </p>
-        </aside>
-      )}
+    {secondaryDrawerOpen && (
+  <aside
+    className="bg-gradient-to-br from-white to-gray-50 p-6 shadow-xl fixed top-20 left-10 rounded-3xl transition-all duration-300 z-[99999] text-black opacity-90 animate-slideIn"
+    style={{
+      boxShadow: "0 12px 40px rgba(0,0,0,0.15)",
+      height: "80vh",
+      width: drawerOpen ? "calc(100% - 160px)" : "calc(100% - 56px)",
+      maxWidth: "480px",
+      left: drawerOpen ? "calc(100% - 1035px)" : "75px",
+    }}
+  >
+    {/* ปุ่มปิดที่สวยขึ้น */}
+    <button
+      onClick={() => setSecondaryDrawerOpen(false)}
+      className="flex items-center text-gray-500 hover:text-red-500 mb-4 transition-transform transform hover:scale-105"
+      aria-label="Close secondary drawer"
+    >
+      <FaChevronLeft className="mr-2" /> กลับ
+    </button>
+
+    {/* หัวข้อที่โดดเด่น */}
+    <h2 className="text-2xl font-bold mb-4 bg-blue-100 p-3 rounded-lg flex items-center justify-center shadow-md">
+      <FaGlobeAsia className="mr-2 text-blue-500" /> {/* เพิ่มไอคอน */}
+      {`ข้อมูลของ R${selectedR}`}
+    </h2>
+
+    {selectedR && (() => {
+      const stats = regionTruckStats(selectedR, shipments);
+      return (
+        <div className="flex flex-wrap items-center gap-4 mb-6">
+
+             <CircleProgress percent={stats.inTransitPercent} color="#f43f5e" label="ใช้งาน" />
+            <CircleProgress percent={stats.brokenPercent} color="#FFCB00" label="ซ่อมบำรุง" />
+
+            <CircleProgress percent={stats.availablePercent} color="#10b981" label="ว่าง" />
+
+
+          {/* ส่วนสถิติด้านล่างในรูปแบบการ์ด */}
+          <div className="bg-gray-50 p-4 rounded-xl shadow-md w-full mt-4 border border-gray-200">
+            <div className="flex flex-col gap-2">
+              <div className="text-xl font-semibold">สรุปข้อมูล R{selectedR}</div>
+              <div>รวมรถ: <b>{stats.total}</b> คัน</div>
+              <div className="text-rose-600 flex items-center">
+                <FaCheckCircle className="mr-2" /> ใช้งาน: {stats.in_transit} คัน
+              </div>
+              <div className="text-[#FFCB00] flex items-center">
+                <FaExclamationTriangle className="mr-2" /> ซ่อมบำรุง: {stats.broken} คัน
+              </div>
+              <div className="text-green-700 flex items-center">
+                <FaTruck className="mr-2" /> ว่าง: {stats.available} คัน
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    })()}
+  </aside>
+)}
 
       <div className="flex-1">
         <MapContainer
-          center={mapCenter} // ใช้ค่า mapCenter ที่มีการอัพเดต
-          zoom={zoomLevel} // ใช้ค่า zoomLevel ที่มีการอัพเดต
+          center={mapCenter}
+          zoom={zoomLevel}
           style={{ height: "100vh", width: "100%" }}
         >
           <ZoomControlPositionFix />
           <MapZoomListener setZoomLevel={setZoomLevel} />
+          <MapWithCenter mapCenter={mapCenter} zoomLevel={zoomLevel} />
           <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
           {/* Show routes */}
@@ -506,8 +630,10 @@ export default function LogisticsOverview() {
 
           {/* MarkerClusterGroup with all markers shown when clicked */}
           <MarkerClusterGroup
-            disableClusteringAtZoom={10} // Disable clustering when zoom is greater than level 10
-            showCoverageOnHover={false} // Disable hover behavior
+            disableClusteringAtZoom={10}
+            showCoverageOnHover={false}
+            maxClusterRadius={50}
+            onClick={() => setZoomLevel(10)}
           >
             {filtered.map((shipment) => {
               const coords = routes[shipment.id];
@@ -515,6 +641,7 @@ export default function LogisticsOverview() {
               const pos: [number, number] = coords
                 ? coords[idx]
                 : [shipment.origin.latitude, shipment.origin.longitude];
+
               return (
                 <Marker
                   key={shipment.id}
@@ -523,6 +650,7 @@ export default function LogisticsOverview() {
                   eventHandlers={{
                     click: () => {
                       setSelectedId(shipment.id);
+                      setZoomLevel(10);
                     },
                   }}
                 >
@@ -532,6 +660,8 @@ export default function LogisticsOverview() {
                     Company: {shipment.company}
                     <br />
                     Status: {shipment.status}
+                    <br />
+                    Support Tel: {shipment.support_phone}
                     <br />
                     Progress: {shipment.progress}%<br />
                     Orders:
@@ -560,7 +690,7 @@ export default function LogisticsOverview() {
           backdrop-blur-md bg-white/70 border border-gray-200`}
         style={{
           boxShadow: "0 12px 40px rgba(0,0,0,0.15)",
-          maxHeight: "calc(100vh - 120px)", // Set max height to viewport height minus some padding
+          maxHeight: "calc(100vh - 120px)",
           display: "flex",
           flexDirection: "column",
         }}
@@ -584,6 +714,9 @@ export default function LogisticsOverview() {
             >
               <p className="mb-1">
                 <strong>บริษัท:</strong> {selectedShipment.company}
+              </p>
+              <p className="mb-1">
+                <strong>ติดต่อขอใช้รถโทร:</strong> {selectedShipment.support_phone}
               </p>
               <p className="mb-1">
                 <strong>สถานะ:</strong>{" "}
@@ -682,14 +815,9 @@ export default function LogisticsOverview() {
         ) : null}
       </aside>
       <aside
-        className={`bg-white p-6 shadow-2xl fixed bottom-5 right-8 max-w-sm w-120 rounded-3xl transition-transform duration-300 z-[999] text-black
-         
-          backdrop-blur-md bg-white/70 border border-gray-200`}
-        style={{ boxShadow: "0 12px 40px rgba(0,0,0,0.15)" }}
+        className={` p-6  fixed bottom-5 right-8 max-w-sm w-120 rounded-3xl transition-transform duration-300 z-[999] text-black `}
       >
         <div>
-          <h2 className="text-2xl font-bold mb-16 text-end">Truck status</h2>
-
           <VeicleOverview />
         </div>
       </aside>
