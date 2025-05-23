@@ -6,6 +6,7 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true, // ข้าม ESLint error ตอน build
   },
+  devIndicators: false
 };
 
 module.exports = nextConfig;

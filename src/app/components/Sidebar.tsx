@@ -12,9 +12,10 @@ import {
   ChartBarIcon,
   UsersIcon,
   Cog6ToothIcon,
-  ArrowRightOnRectangleIcon,
   ChevronDoubleLeftIcon,
   ChevronDoubleRightIcon,
+    GlobeAltIcon
+
 } from '@heroicons/react/24/outline';
 import {useState} from 'react';
 
@@ -26,6 +27,8 @@ const menuItems = [
   { name: 'รายงาน', icon: ChartBarIcon, href: '/reports' },
   { name: 'ผู้ใช้งาน', icon: UsersIcon, href: '/users' },
   { name: 'ตั้งค่า', icon: Cog6ToothIcon, href: '/settings' },
+  { name: 'One Logistic', icon:   GlobeAltIcon
+, href: '/region' },  // ตัวอย่าง default path
 ];
 
 export default function Sidebar() {
@@ -33,14 +36,11 @@ export default function Sidebar() {
   const [collapsed, setCollapsed] = useState(false);
   const brandGradient = 'from-[#004E92] via-[#0066CC] to-[#0099FF]';
 
-  const logout = () => {
-    window.location.href = '/login';
-  };
 
   return (
     <aside
       className={`
-        relative flex flex-col bg-white shadow-lg h-screen
+        relative flex flex-col  h-screen
         transition-width duration-300
         ${collapsed ? 'w-20' : 'w-64'}
       `}
@@ -94,36 +94,6 @@ export default function Sidebar() {
         })}
       </nav>
 
-      {/* ขีดแบ่ง */}
-      <div className="border-t mt-4" />
-
-      {/* โปรไฟล์ + Logout */}
-      <div className="p-4">
-        <div className="flex items-center space-x-3">
-          <Image
-            src="/user-profile.jpg"
-            alt="รูปพนักงาน"
-            width={collapsed ? 32 : 64}
-            height={collapsed ? 32 : 64}
-            className="rounded-full transition-all duration-300"
-          />
-          {!collapsed && (
-            <div>
-              <p className="text-sm font-semibold">ONELOG0001</p>
-              <p className="text-xs text-gray-500">พนักงาน</p>
-            </div>
-          )}
-        </div>
-        {!collapsed && (
-          <button
-            onClick={logout}
-            className="mt-4 w-full flex items-center justify-center space-x-2 px-4 py-2 bg-red-100 text-red-600 rounded-lg transition hover:bg-red-200"
-          >
-            <ArrowRightOnRectangleIcon className="w-5 h-5" />
-            <span className="text-sm font-medium">ออกจากระบบ</span>
-          </button>
-        )}
-      </div>
     </aside>
   );
 }

@@ -10,6 +10,7 @@ import {
   FaTruck,
   FaExclamationTriangle,
   FaClipboardList,
+  FaCalendarAlt
 } from "react-icons/fa";
 import {
   MapContainer,
@@ -265,14 +266,14 @@ export default function LogisticsOverview() {
     : null;
 
   const regions = [
-    { id: 1, name: "north", thaiName: "ภาคเหนือ" },
-    { id: 2, name: "northeast", thaiName: "ภาคตะวันออกเฉียงเหนือ" },
-    { id: 3, name: "central", thaiName: "ภาคกลาง" },
-    { id: 4, name: "central", thaiName: "กรุงเทพมหานคร" },
-    { id: 5, name: "central", thaiName: "ปริมณฑล" },
-    { id: 6, name: "east", thaiName: "ภาคตะวันออก" },
-    { id: 7, name: "west", thaiName: "ภาคตะวันตก" },
-    { id: 8, name: "south", thaiName: "ภาคใต้" },
+    { id: 1, name: "Region 1", thaiName: "Region 1" },
+    { id: 2, name: "Region 2", thaiName: "Region 2" },
+    { id: 3, name: "Region 3", thaiName: "Region 3" },
+    { id: 4, name: "Region 4", thaiName: "Region 4" },
+    { id: 5, name: "Region 5", thaiName: "Region 5" },
+    { id: 6, name:  "Region 6", thaiName: "Region 6" },
+    { id: 7, name: "Region 7", thaiName: "Region 7" },
+    { id: 8, name: "south", thaiName: "Region 8" },
   ];
   const [showRegionSelector, setShowRegionSelector] = useState(false);
   const [secondaryDrawerOpen, setSecondaryDrawerOpen] = useState(false);
@@ -610,7 +611,7 @@ export default function LogisticsOverview() {
 
             {!showRegionSelector && !showOrderOverview ? ( // Conditional rendering
               <div>
-                <Overview />
+                {/* <Overview /> */}
                 <Dashboard />
               </div>
             ) : showOrderOverview ? (
@@ -674,7 +675,7 @@ export default function LogisticsOverview() {
       height: "80vh",
       width: drawerOpen ? "calc(100% - 160px)" : "calc(100% - 56px)",
       maxWidth: "480px",
-      left: drawerOpen ? "calc(100% - 1240px)" : "75px",
+      left: drawerOpen ? "calc(100% - 1420px)" : "75px",
     }}
   >
     <div className="min-h-full">
@@ -755,7 +756,9 @@ export default function LogisticsOverview() {
             <label className="block text-sm font-medium text-gray-600 mb-1">
               วันที่
             </label>
+            
             <div className="relative">
+              
               <div 
                 onClick={() => setIsDatePickerOpen(!isDatePickerOpen)}
                 className="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-300 focus:border-blue-500 flex justify-between items-center cursor-pointer"
@@ -773,34 +776,6 @@ export default function LogisticsOverview() {
                 <FaCalendarAlt className="text-gray-400" />
               </div>
               
-              <div className="absolute right-0 mt-1">
-                <button 
-                  onClick={() => {
-                    setDatePickerType('range');
-                    setIsDatePickerOpen(!isDatePickerOpen);
-                  }}
-                  className={`text-xs px-2 py-1 rounded-l-md border ${
-                    datePickerType === 'range' 
-                      ? 'bg-blue-500 text-white border-blue-600' 
-                      : 'bg-blue-100 text-blue-700 border-blue-300'
-                  }`}
-                >
-                  ช่วงวันที่
-                </button>
-                <button 
-                  onClick={() => {
-                    setDatePickerType('multiple');
-                    setIsDatePickerOpen(!isDatePickerOpen);
-                  }}
-                  className={`text-xs px-2 py-1 rounded-r-md border ${
-                    datePickerType === 'multiple' 
-                      ? 'bg-green-500 text-white border-green-600' 
-                      : 'bg-green-100 text-green-700 border-green-300'
-                  }`}
-                >
-                  หลายวัน
-                </button>
-              </div>
               
               {isDatePickerOpen && (
                 <div className="absolute z-20 mt-1 bg-white rounded-md shadow-lg p-2 border">

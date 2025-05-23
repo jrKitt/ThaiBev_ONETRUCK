@@ -209,58 +209,6 @@
       "warehouse": "D5: RDC Bangkok"
     },
     {
-      "id": "Longtitude-0004",
-      "company": "Longtitude",
-      "support_phone": "1300-000-1122",
-      "origin": {
-        "name": "นครราชสีมา",
-        "latitude": 14.9794,
-        "longitude": 102.0899
-      },
-      "destination": {
-        "name": "กรุงเทพฯ",
-        "latitude": 13.7563,
-        "longitude": 100.5018
-      },
-      "departure_time": "2025-05-23T10:00:00",
-      "estimated_arrival_time": "2025-05-23T15:00:00",
-      "distance_km": 180,
-      "estimated_duration_hours": 5,
-      "status": "available",
-      "progress": 0,
-      "current_position": {
-        "latitude": 13.3621,
-        "longitude": 100.9841
-      },
-      "orders": [
-        {
-          "orderId": "ORD-LT9021",
-          "item": "สินค้า D",
-          "quantity": 12
-        }
-      ],
-      "route": [
-        {
-          "lat": 14.6322,
-          "lng": 102.0651
-        },
-        {
-          "lat": 14.3065,
-          "lng": 101.9421
-        }
-      ],
-      "truck": {
-        "licensePlate": "ธก987654",
-        "driverName": "ชัยพร พลาซี",
-        "driverPhone": "668012345",
-        "truckClass": "6WB-8PL",
-        "region": 8,
-        "depot": "SC นครราชสีมา"
-      },
-      "region": "Northeastern Zone",
-      "warehouse": "D7: RDC Nakhonratchasima"
-    },
-    {
       "id": "TBL-0006",
       "company": "TBL",
       "support_phone": "1300-000-1234",
@@ -1267,58 +1215,7 @@
       "region": "Central",
       "warehouse": "D5: RDC Bangkok"
     },
-    {
-      "id": "Longtitude-0004",
-      "company": "Longtitude",
-      "support_phone": "1300-000-1122",
-      "origin": {
-        "name": "นครราชสีมา",
-        "latitude": 14.9794,
-        "longitude": 102.0899
-      },
-      "destination": {
-        "name": "กรุงเทพฯ",
-        "latitude": 13.7563,
-        "longitude": 100.5018
-      },
-      "departure_time": "2025-05-23T10:00:00",
-      "estimated_arrival_time": "2025-05-23T15:00:00",
-      "distance_km": 180,
-      "estimated_duration_hours": 5,
-      "status": "available",
-      "progress": 0,
-      "current_position": {
-        "latitude": 13.3621,
-        "longitude": 100.9841
-      },
-      "orders": [
-        {
-          "orderId": "ORD-LT9021",
-          "item": "สินค้า D",
-          "quantity": 12
-        }
-      ],
-      "route": [
-        {
-          "lat": 14.6322,
-          "lng": 102.0651
-        },
-        {
-          "lat": 14.3065,
-          "lng": 101.9421
-        }
-      ],
-      "truck": {
-        "licensePlate": "ธก987654",
-        "driverName": "ชัยพร พลาซี",
-        "driverPhone": "668012345",
-        "truckClass": "6WB-8PL",
-        "region": 8,
-        "depot": "SC นครราชสีมา"
-      },
-      "region": "Northeastern Zone",
-      "warehouse": "D7: RDC Nakhonratchasima"
-    },
+  
     {
       "id": "TBL-0006",
       "company": "TBL",
